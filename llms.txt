@@ -1,0 +1,23 @@
+# #find-my-buyers
+
+> A v0.1 web app that finds buying signals for any business. Type a company, product or keyword. Three AI teammates (Sniff, Scout, Quill) work out when that business's buyers are ready, search the web for real organisations showing those signals, pin them on an evidence wall with a heat score, and draft a first email and LinkedIn note. Built by the FlytBase marketing team for the Marketing Build Session (31 Oct 2026) as a base for participants to improve.
+
+## How it works
+1. Sniff: reads the business, finds the trigger moment (e.g. "they just bought drone docks, so now they need software to run them") and writes an 8-signal recipe (tenders, hiring, purchases, expansion, regulation, competitor moves, events, social posts), each with a search query.
+2. Scout: runs 4 parallel hunts over free web search (Google News RSS + Bing), keeps only real organisations from the last 12 months, scores fit, freshness and intent (1-5 each).
+3. Score: heat = (fit + freshness + intent) / 15 x 100; the top 3 go to Quill.
+4. Quill: looks for a named decision owner and writes an email (under 90 words) and a LinkedIn note (under 280 characters) that open with the buyer's news.
+
+## Buttons
+- Steal the recipe: download the business profile and 8 signals as JSON, to reuse as a template.
+- Save run / Replay: save every event of a run and play it back as if live.
+- Use my own key: optional; the site has a built-in key. Supports Ollama, Claude, Gemini, OpenAI, Perplexity, OpenRouter.
+
+## Endpoints
+- POST /api/proxy: forwards AI calls server-side ({url, method, headers, body}).
+- GET /api/search?q=: free keyless search, returns {results:[{title,url,content}]}.
+
+## Source and docs
+- Code: everything client-side is in /index.html; functions in /api.
+- Full guide: /README.md
+- Technical map for AI assistants (functions, prompts, data shapes, how to extend): /AGENTS.md

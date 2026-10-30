@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>#find-my-buyers</title>
+<meta name="description" content="Type any company, product or keyword. Three AI teammates find who is about to buy and write the first message. v0.1 base for the FlytBase Marketing Build Session. How it works: /llms.txt, /README.md, /AGENTS.md">
+<link rel="help" href="/README.md">
+<link rel="alternate" type="text/plain" title="LLM guide" href="/llms.txt">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Special+Elite&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#111; --yel:#FFE14D; --pink:#FF4FA3; --mint:#7CF0C5; --blue:#9EC5FF; --rose:#FF9AC9;
+  --cork:#C98F55; --paper:#FFF8E7; --red:#E3262E; --orange:#FF8A3D;
+  --b:2.5px solid var(--ink); --sh:4px 4px 0 var(--ink);
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{font-family:'Bricolage Grotesque',system-ui,sans-serif;color:var(--ink);background:var(--yel);display:flex;flex-direction:column;overflow:hidden}
+button{font-family:inherit;cursor:pointer;color:var(--ink)}
+.mono{font-family:'JetBrains Mono',monospace}
+
+/* top bar */
+.bar{display:flex;align-items:center;gap:14px;padding:12px 20px;border-bottom:var(--b);background:var(--yel)}
+.logo{font-weight:800;font-size:26px;letter-spacing:-.5px}
+.logo span{color:var(--pink)}
+.pill{border:var(--b);border-radius:30px;padding:4px 12px;font-weight:700;font-size:13px;background:#fff;box-shadow:2px 2px 0 var(--ink)}
+.pill.pink{background:var(--pink);color:#fff}
+.tw{position:relative;display:inline-flex;align-items:center;gap:5px}
+.q{width:20px;height:20px;border-radius:50%;border:2px solid var(--ink);background:var(--yel);font-weight:800;font-size:12px;display:inline-flex;align-items:center;justify-content:center;cursor:help;flex:none;position:relative}
+.q:hover{background:var(--pink);color:#fff}
+.q .tip{display:none;position:absolute;top:calc(100% + 10px);right:-6px;width:270px;background:#fff;color:var(--ink);border:var(--b);border-radius:12px;box-shadow:4px 4px 0 var(--ink);padding:10px 12px;font-size:13px;font-weight:500;line-height:1.4;text-align:left;z-index:100;cursor:default}
+.q .tip b{display:block;font-weight:800;margin-bottom:3px}
+.q.left .tip{right:auto;left:-6px}
+.q:hover .tip,.q:focus .tip{display:block}
+.sp{flex:1}
+.tool{border:var(--b);background:#fff;border-radius:10px;padding:6px 11px;font-weight:700;font-size:13px;box-shadow:2px 2px 0 var(--ink)}
+.tool:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 var(--ink)}
+.tool:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--ink)}
+#clock{min-width:62px;text-align:center}
+
+/* layout */
+.app{flex:1;display:grid;grid-template-columns:400px 1fr;min-height:0}
+.chat{display:flex;flex-direction:column;border-right:var(--b);background:var(--yel);min-height:0}
+.crew{display:flex;gap:8px;padding:10px 14px;border-bottom:var(--b);align-items:center;font-size:12.5px;font-weight:700}
+.av{flex:none;width:30px;height:30px;font-size:11.5px!important;border:var(--b);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}
+.av.sniff{background:#fff}.av.scout{background:var(--blue)}.av.quill{background:var(--rose)}.av.you{background:var(--mint)}
+.crewm{display:flex;align-items:center;gap:5px}
+.crewm small{display:block;font-weight:500;font-size:10.5px;opacity:.7;line-height:1}
+.feed{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth}
+.feed::-webkit-scrollbar{width:8px}.feed::-webkit-scrollbar-thumb{background:var(--ink);border-radius:8px}
+.msg{display:flex;gap:8px;align-items:flex-end;animation:pop .32s cubic-bezier(.2,1.4,.4,1) both;max-width:94%}
+.msg.you{align-self:flex-end;flex-direction:row-reverse}
+.bub{border:var(--b);border-radius:14px;padding:8px 11px;font-size:14px;line-height:1.38;background:#fff;box-shadow:3px 3px 0 var(--ink)}
+.bub i{font-style:normal;font-weight:800;font-size:11px;display:block;margin-bottom:1px;letter-spacing:.2px}
+.msg.scout .bub{background:var(--blue)}.msg.quill .bub{background:var(--rose)}.msg.you .bub{background:var(--mint)}
+.bub.big{background:var(--ink)!important;color:var(--yel)}
+.bub.big i{color:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.chip{border:2px solid var(--ink);border-radius:20px;padding:2px 8px;font-size:11.5px;font-weight:700;background:var(--yel)}
+.dots{display:inline-flex;gap:4px;padding:4px 2px}
+.dots b{width:7px;height:7px;border-radius:50%;background:var(--ink);animation:bounce 1s infinite}
+.dots b:nth-child(2){animation-delay:.15s}.dots b:nth-child(3){animation-delay:.3s}
+@keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.95)}to{opacity:1;transform:none}}
+.compose{border-top:var(--b);padding:12px;background:#fff}
+.modes{display:flex;gap:6px;margin-bottom:8px;align-items:center}
+.mode{border:2px solid var(--ink);background:#fff;border-radius:20px;padding:3px 10px;font-size:12px;font-weight:700}
+.mode.on{background:var(--ink);color:var(--yel)}
+.inrow{display:flex;gap:8px}
+.inrow input,.focus{flex:1;border:var(--b);border-radius:12px;padding:11px 12px;font-size:15px;font-family:inherit;outline:none;background:#fff}
+.inrow input:focus,.focus:focus{background:#FFFBE0}
+.focus{width:100%;margin-top:7px;font-size:12.5px;padding:7px 10px;border-style:dashed;border-width:2px}
+.go{border:var(--b);background:var(--pink);color:#fff;border-radius:12px;padding:0 16px;font-weight:800;font-size:15px;box-shadow:3px 3px 0 var(--ink);white-space:nowrap}
+.go:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.go:disabled{opacity:.6;cursor:wait}
+
+/* wall */
+.wall{position:relative;background:var(--cork);background-image:radial-gradient(rgba(0,0,0,.13) 1px,transparent 1.6px),radial-gradient(rgba(255,255,255,.08) 1px,transparent 1.6px);background-size:8px 8px,13px 13px;background-position:0 0,4px 6px;overflow:hidden;min-height:0}
+#strings{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#strings path{stroke:var(--red);stroke-width:2.4;fill:none;filter:drop-shadow(1px 2px 0 rgba(0,0,0,.25));stroke-dasharray:1200;stroke-dashoffset:1200;animation:draw .9s ease-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-2deg);width:min(30%,300px);background:var(--ink);color:var(--yel);border:4px solid #fff;padding:16px 16px 18px;text-align:center;box-shadow:5px 6px 0 rgba(0,0,0,.35);z-index:3;transition:.3s}
+.center h2{margin:0;font-size:30px;line-height:1;font-weight:800;letter-spacing:-.5px}
+.center p{margin:8px 0 0;color:#fff;font-size:13px;line-height:1.35;font-weight:500}
+.center .lbl{font-size:10px;letter-spacing:1.5px;font-weight:800;color:var(--pink);margin-top:10px}
+.hint{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);background:var(--paper);border:var(--b);padding:6px 12px;font-family:'Special Elite',monospace;font-size:14px;box-shadow:3px 3px 0 rgba(0,0,0,.3);z-index:2;white-space:nowrap}
+.clue{position:absolute;width:min(19%,230px);background:var(--paper);padding:12px 12px 10px;font-family:'Special Elite',monospace;font-size:13.5px;line-height:1.3;box-shadow:3px 4px 0 rgba(0,0,0,.28);cursor:pointer;z-index:4;animation:slap .45s cubic-bezier(.2,1.5,.4,1) both;transition:transform .2s}
+.clue:hover{z-index:6;box-shadow:5px 7px 0 rgba(0,0,0,.3)}
+.clue:before{content:"";position:absolute;top:-7px;left:50%;width:14px;height:14px;border-radius:50%;background:var(--red);border:2px solid #7a0c12;transform:translateX(-50%)}
+.clue.warm:before{background:var(--orange);border-color:#8a3a06}
+.clue.cool:before{background:#3D7BFF;border-color:#123a8a}
+@keyframes slap{from{opacity:0;transform:scale(1.6) rotate(var(--r))}to{opacity:1;transform:scale(1) rotate(var(--r))}}
+.clue .tag{padding-right:30px;font-family:'Bricolage Grotesque';font-weight:800;font-size:10px;letter-spacing:1.2px;color:var(--red);display:flex;justify-content:space-between}
+.clue .co{font-family:'Bricolage Grotesque';font-weight:800;font-size:16px;margin:3px 0 4px;line-height:1.1}
+.clue .heat{position:absolute;right:-10px;top:-12px;background:var(--pink);color:#fff;border:2px solid var(--ink);border-radius:50%;width:42px;height:42px;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque';font-weight:800;font-size:14px;transform:rotate(10deg)}
+.clue.warm .heat{background:var(--orange)}.clue.cool .heat{background:#3D7BFF}
+.clue .src{font-size:11px;margin-top:6px;opacity:.75}
+.clue .src a{color:#7a0c12}
+.clue .stamp{display:inline-block;margin-top:6px;font-family:'Bricolage Grotesque';font-weight:800;font-size:10px;border:2px solid var(--ink);padding:1px 6px;border-radius:4px;background:var(--rose)}
+
+/* letter */
+.letter{position:absolute;inset:0;background:rgba(17,17,17,.45);z-index:20;display:flex;align-items:center;justify-content:center;animation:fadein .2s}
+@keyframes fadein{from{opacity:0}}
+.paper{width:min(560px,90%);max-height:88%;overflow:auto;background:var(--paper);border:var(--b);box-shadow:8px 8px 0 var(--ink);padding:22px 24px;transform:rotate(-1deg);font-family:'Special Elite',monospace;animation:drop .45s cubic-bezier(.2,1.4,.4,1)}
+@keyframes drop{from{transform:translateY(-40px) rotate(-6deg);opacity:0}}
+.paper .head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;font-family:'Bricolage Grotesque'}
+.paper .head b{font-size:20px;font-weight:800;display:block}
+.paper .head small{font-size:13px;opacity:.75}
+.paper .why{font-family:'Bricolage Grotesque';font-size:13px;background:var(--yel);border:2px solid var(--ink);padding:7px 9px;margin:12px 0;border-radius:8px}
+.ltabs{display:flex;gap:6px;margin-bottom:10px}
+.ltab{border:2px solid var(--ink);background:#fff;border-radius:20px;padding:3px 11px;font-weight:700;font-size:12px}
+.ltab.on{background:var(--ink);color:var(--yel)}
+.ltext{white-space:pre-wrap;font-size:15px;line-height:1.55;min-height:120px}
+.ltext.typing:after{content:"_";animation:blink .8s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+.x{border:var(--b);background:#fff;border-radius:50%;width:32px;height:32px;font-weight:800;flex:none}
+.lfoot{display:flex;gap:8px;margin-top:14px}
+
+/* settings */
+.drawer{position:fixed;inset:0;background:rgba(17,17,17,.5);z-index:50;display:flex;align-items:center;justify-content:center}
+.drawer .in{width:min(440px,92%);background:#fff;border:var(--b);box-shadow:8px 8px 0 var(--ink);border-radius:16px;padding:22px}
+.drawer h3{margin:0 0 4px;font-size:22px}
+.drawer p{font-size:13px;line-height:1.45;margin:6px 0}
+.drawer label{display:block;font-weight:700;font-size:12px;margin:12px 0 5px}
+.drawer input,.drawer select{width:100%;border:2px solid var(--ink);border-radius:10px;padding:9px;font-family:inherit;font-size:14px}
+.hidden{display:none!important}
+.foot{border-top:var(--b);background:var(--ink);color:var(--yel);padding:7px 20px;font-size:13px;font-weight:700;display:flex;justify-content:space-between}
+.foot span:last-child{color:#fff;opacity:.7;font-weight:500}
+@media(max-width:900px){.app{grid-template-columns:1fr;grid-template-rows:50% 50%}.chat{border-right:0;border-bottom:var(--b)}}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="logo">#find-my-<span>buyers</span></div>
+  <span class="tw"><div class="pill pink">3 AI teammates</div><span class="q left" tabindex="0">?<span class="tip"><b>Meet the crew</b>Sniff reads the business and works out when its buyers are ready. Scout searches the news and the web for companies showing those signals. Quill writes the first email and LinkedIn note.</span></span></span>
+  <span class="tw"><div class="pill mono" id="clock">0:00</div><span class="q left" tabindex="0">?<span class="tip"><b>Run timer</b>How long the crew has been working on the current run. A full run usually takes 20 to 40 seconds.</span></span></span>
+  <div class="sp"></div>
+  <span class="tw"><button class="tool" id="bRecipe">Steal the recipe</button><span class="q" tabindex="0">?<span class="tip"><b>Steal the recipe</b>Downloads the crew's plan for the business you just ran: what it sells, who buys it, the moment buyers are ready, and the 8 signals to watch with the searches used. Reuse it as a template, sharpen the signals, or feed it into your own tool.</span></span></span>
+  <span class="tw"><button class="tool" id="bSave">Save run</button><span class="q" tabindex="0">?<span class="tip"><b>Save run</b>Saves the whole run (the chat, every clue on the wall and the letters) as a file on your computer. Use Replay to play it back later.</span></span></span>
+  <span class="tw"><button class="tool" id="bLoad">Replay</button><span class="q" tabindex="0">?<span class="tip"><b>Replay</b>Opens a saved run and plays it back as if the crew were working live. Handy as a backup for a demo, because nothing needs to search again.</span></span></span>
+  <span class="tw"><button class="tool" id="bSet">Use my own key</button><span class="q" tabindex="0">?<span class="tip"><b>Use my own key (optional)</b>The crew already works without a key. Add your own AI key (Claude, Gemini, OpenAI, Perplexity, OpenRouter or Ollama) if you want runs to use your own account.</span></span></span>
+</div>
+
+<div class="app">
+  <section class="chat">
+    <div class="crew">
+      <div class="crewm"><span class="av sniff">Sn</span><span>Sniff<small>reads your business</small></span></div>
+      <div class="crewm"><span class="av scout">Sc</span><span>Scout<small>finds the buyers</small></span></div>
+      <div class="crewm"><span class="av quill">Q</span><span>Quill<small>writes to them</small></span></div>
+    </div>
+    <div class="feed" id="feed"></div>
+    <div class="compose">
+      <div class="modes">
+        <button class="mode on" data-m="company">a company</button>
+        <button class="mode" data-m="product">a product</button>
+        <button class="mode" data-m="keyword">a keyword</button>
+        <span class="q left" tabindex="0" style="margin-left:auto">?<span class="tip" style="top:auto;bottom:calc(100% + 10px);left:auto;right:-6px"><b>What can I type?</b><b style="font-weight:700;display:inline">A company:</b> a website like flytbase.com.<br><b style="font-weight:700;display:inline">A product:</b> what you sell, like "drone docking station software".<br><b style="font-weight:700;display:inline">A keyword:</b> a market or industry, like "solar farm inspection".<br>The dashed box below is optional. Add a region or segment to focus the hunt.</span></span>
+      </div>
+      <div class="inrow">
+        <input id="q" placeholder="drop a website, e.g. flytbase.com" autocomplete="off">
+        <button class="go" id="go">Go sniff</button>
+      </div>
+      <input class="focus" id="geo" placeholder="anything they should focus on? (e.g. India, oil and gas)">
+    </div>
+  </section>
+
+  <section class="wall" id="wall">
+    <svg id="strings"></svg>
+    <div class="center" id="center"><h2>WHO'S<br>BUYING?</h2><p>Drop any business in the chat. The crew pins every clue they find right here.</p></div>
+    <div class="hint" id="hint">every buyer leaves a trail</div>
+  </section>
+</div>
+
+<div class="foot"><span>Built by the FlytBase marketing team with AI, in one evening. You have 2 hours to beat it.</span><span class="mono" id="mtag"></span></div>
+
+<div class="drawer hidden" id="drawer"><div class="in">
+  <h3>Use your own key (optional)</h3>
+  <p>The crew already works without a key. If you want to run it on your own account, paste a key from Claude, Gemini, OpenAI, Perplexity, OpenRouter or Ollama. The page works out which one it is. Keys stay in this browser only.</p>
+  <label>API key</label><input id="key" type="password" placeholder="paste any API key">
+  <label>Provider <span id="detected" style="font-weight:500;opacity:.7"></span></label>
+  <select id="prov">
+    <option value="claude">Claude (Anthropic) · web search</option>
+    <option value="gemini">Gemini (Google) · Google Search</option>
+    <option value="openai">OpenAI (GPT) · web search</option>
+    <option value="perplexity">Perplexity (Sonar) · built-in search</option>
+    <option value="ollama">Ollama (cloud models) · Ollama web search</option>
+    <option value="openrouter">OpenRouter (any model) · web search</option>
+  </select>
+  <label>Model</label><input id="model" list="models" placeholder="model id"><datalist id="models"></datalist>
+  <p id="mhint" style="opacity:.7">Hit "Load models" to see what this key can use, or type a model id.</p>
+  <label>Sign messages as (optional)</label><input id="sender" placeholder="e.g. Sruthi, FlytBase">
+  <label>How hard should Scout look?</label>
+  <select id="depth"><option value="2">Quick look</option><option value="3">Proper look</option><option value="4" selected>Turn over every rock</option></select>
+  <div style="display:flex;gap:8px;margin-top:16px"><button class="go" id="sSave" style="padding:9px 16px">Save</button><button class="tool" id="sLoad">Load models</button><button class="tool" id="sClose">Close</button></div>
+</div></div>
+<input type="file" id="file" accept=".json" class="hidden">
+
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const TODAY=new Date().toISOString().slice(0,10);
+let mode='company', RUN=null, busy=false, t0=0, tick=null, replaying=false;
+
+/* ---------- network: go through the local helper when it is running ---------- */
+let VIA_HELPER=null;
+async function helperUp(){ if(VIA_HELPER!==null) return VIA_HELPER; if(!location.protocol.startsWith('http')) return VIA_HELPER=false;
+  try{ const r=await fetch('/api/ok'); VIA_HELPER=r.ok }catch(e){ VIA_HELPER=false } return VIA_HELPER }
+async function apiFetch(url,opt={}){
+  if(await helperUp()){
+    return fetch('/api/proxy',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url,method:opt.method||(opt.body?'POST':'GET'),headers:opt.headers||{},body:opt.body||null})});
+  }
+  try{ return await fetch(url,opt) }catch(e){ throw new Error('the browser blocked the call, and the online helper is not reachable. reload the page and try again') }
+}
+/* ---------- settings: any provider ---------- */
+const PROV={
+  claude:{name:'Claude',def:'claude-sonnet-4-5',pref:/sonnet/},
+  gemini:{name:'Gemini',def:'gemini-2.5-flash',pref:/flash$/},
+  openai:{name:'OpenAI',def:'gpt-5-mini',pref:/^gpt-5(\.\d)?-mini$|^gpt-4\.1$|^gpt-4o$/},
+  perplexity:{name:'Perplexity',def:'sonar-pro',pref:/sonar-pro/},
+  openrouter:{name:'OpenRouter',def:'anthropic/claude-sonnet-4.5',pref:/claude-sonnet/},
+  ollama:{name:'Ollama',def:'gpt-oss:120b',pref:/^gpt-oss:120b$/}
+};
+function detect(k){ k=k.trim(); if(/^sk-ant-/.test(k))return'claude'; if(/^AIza/.test(k))return'gemini'; if(/^sk-or-/.test(k))return'openrouter'; if(/^pplx-/.test(k))return'perplexity'; if(/^sk-/.test(k))return'openai'; if(/^[a-f0-9]{24,}\./i.test(k))return'ollama'; return null }
+const S={get prov(){return localStorage.getItem('fmb_prov')||'ollama'},get key(){return localStorage.getItem('fmb_key_'+S.prov)||''},
+  get model(){return localStorage.getItem('fmb_model_'+S.prov)||PROV[S.prov].def},
+  get depth(){return +(localStorage.getItem('fmb_depth')||4)},get sender(){return localStorage.getItem('fmb_sender')||''}};
+function fillProv(v){ $('#prov').value=v; $('#key').value=localStorage.getItem('fmb_key_'+v)||$('#key').value; $('#model').value=localStorage.getItem('fmb_model_'+v)||PROV[v].def; $('#models').innerHTML='' }
+function openSet(){ fillProv(S.prov); $('#key').value=S.key; $('#sender').value=S.sender; $('#depth').value=S.depth; $('#detected').textContent=''; $('#drawer').classList.remove('hidden') }
+$('#bSet').onclick=openSet; $('#sClose').onclick=()=>$('#drawer').classList.add('hidden');
+$('#key').addEventListener('input',()=>{ const d=detect($('#key').value); if(d){ const k=$('#key').value; $('#prov').value=d; $('#model').value=localStorage.getItem('fmb_model_'+d)||PROV[d].def; $('#key').value=k; $('#detected').textContent='· looks like a '+PROV[d].name+' key' } else $('#detected').textContent='' });
+$('#prov').onchange=()=>{ const v=$('#prov').value; $('#model').value=localStorage.getItem('fmb_model_'+v)||PROV[v].def; $('#models').innerHTML=''; $('#mhint').textContent='Hit "Load models" to see what this key can use, or type a model id.' };
+$('#sSave').onclick=()=>{ const v=$('#prov').value; localStorage.setItem('fmb_prov',v); localStorage.setItem('fmb_key_'+v,$('#key').value.trim()); localStorage.setItem('fmb_model_'+v,($('#model').value||PROV[v].def).trim());
+  localStorage.setItem('fmb_sender',$('#sender').value.trim()); localStorage.setItem('fmb_depth',$('#depth').value); $('#drawer').classList.add('hidden'); tagModel() };
+async function listModels(v,k){
+  if(v==='claude'){ const j=await (await apiFetch('https://api.anthropic.com/v1/models?limit=100',{headers:{'x-api-key':k,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'}})).json(); if(j.error) throw new Error(j.error.message); return (j.data||[]).map(m=>m.id) }
+  if(v==='gemini'){ const j=await (await apiFetch('https://generativelanguage.googleapis.com/v1beta/models?pageSize=200',{headers:{'x-goog-api-key':k}})).json(); if(j.error) throw new Error(j.error.message);
+    return (j.models||[]).filter(m=>(m.supportedGenerationMethods||[]).includes('generateContent')).map(m=>m.name.replace('models/','')).filter(n=>/flash|pro/i.test(n)&&!/image|tts|audio|live|embed/i.test(n)) }
+  if(v==='openai'){ const j=await (await apiFetch('https://api.openai.com/v1/models',{headers:{Authorization:'Bearer '+k}})).json(); if(j.error) throw new Error(j.error.message);
+    return (j.data||[]).map(m=>m.id).filter(n=>/^(gpt-4o|gpt-4\.1|gpt-5|o3|o4)/.test(n)&&!/audio|realtime|transcribe|tts|image|search-preview/.test(n)).sort() }
+  if(v==='perplexity') return ['sonar','sonar-pro','sonar-reasoning-pro'];
+  if(v==='ollama'){ const j=await (await apiFetch('https://ollama.com/api/tags',{headers:{Authorization:'Bearer '+k}})).json(); return (j.models||[]).map(m=>m.name) }
+  if(v==='openrouter'){ const j=await (await apiFetch('https://openrouter.ai/api/v1/models')).json(); return (j.data||[]).map(m=>m.id).filter(n=>/anthropic|openai|google|perplexity|meta|mistral|deepseek|x-ai/.test(n)) }
+}
+$('#sLoad').onclick=async()=>{ const k=$('#key').value.trim(), v=$('#prov').value; if(!k){$('#mhint').textContent='Paste a key first.';return}
+  $('#mhint').textContent='Loading...';
+  try{ const ms=await listModels(v,k); $('#models').innerHTML=ms.map(n=>`<option value="${n}">`).join('');
+    const cur=$('#model').value; if(!ms.includes(cur)){ const pick=ms.find(n=>PROV[v].pref.test(n)); if(pick) $('#model').value=pick }
+    $('#mhint').textContent=`${ms.length} models available. Click the model box to pick another.`;
+  }catch(e){$('#mhint').textContent='Could not load models: '+e.message+' (you can still type a model id)'} };
+function tagModel(){ $('#mtag').textContent=PROV[S.prov].name+' · '+S.model }
+tagModel();
+document.querySelectorAll('.mode').forEach(b=>b.onclick=()=>{document.querySelectorAll('.mode').forEach(x=>x.classList.remove('on'));b.classList.add('on');mode=b.dataset.m;
+  $('#q').placeholder={company:'drop a website, e.g. flytbase.com',product:'e.g. drone docking station software',keyword:'e.g. solar farm inspection'}[mode]});
+
+/* ---------- event bus: everything on screen is an event, so runs can be replayed ---------- */
+function emit(type,p={}){ if(RUN && !replaying) RUN.events.push({t:Date.now()-t0,type,p}); render[type](p) }
+const typingEls={};
+const NAMES={sniff:'Sniff',scout:'Scout',quill:'Quill',you:'You'};
+const AV={sniff:'Sn',scout:'Sc',quill:'Q',you:'Me'};
+function bubble(who,html,cls=''){
+  const m=document.createElement('div'); m.className='msg '+who;
+  m.innerHTML=`<span class="av ${who}">${AV[who]}</span><div class="bub ${cls}"><i>${NAMES[who]}</i>${html}</div>`;
+  $('#feed').appendChild(m); $('#feed').scrollTop=1e9; return m;
+}
+const render={
+  reset(){ $('#feed').innerHTML=''; document.querySelectorAll('.clue').forEach(c=>c.remove()); $('#strings').innerHTML=''; closeLetter();
+    $('#center').innerHTML=`<h2>WHO'S<br>BUYING?</h2><p>The crew is on it.</p>`; $('#hint').classList.remove('hidden'); clues=[] },
+  you(p){ bubble('you',esc(p.text)) },
+  typing(p){ if(typingEls[p.who]) return; typingEls[p.who]=bubble(p.who,'<span class="dots"><b></b><b></b><b></b></span>') },
+  say(p){ if(typingEls[p.who]){typingEls[p.who].remove(); delete typingEls[p.who]}
+    bubble(p.who, esc(p.text)+(p.chips?`<div class="chips">${p.chips.map(c=>`<span class="chip">${esc(c)}</span>`).join('')}</div>`:''), p.big?'big':'') },
+  center(p){ $('#center').innerHTML=`<h2>${esc(p.name)}</h2><p>${esc(p.one_liner)}</p><div class="lbl">BUYERS SHOW UP WHEN</div><p>${esc(p.trigger_moment)}</p>`; $('#hint').classList.add('hidden') },
+  clue(p){ addClue(p.s) },
+  letter(p){ const c=clues.find(c=>c.s.company===p.company); if(c){ c.m=p.m; c.el.querySelector('.stamp').textContent='LETTER READY'; c.el.querySelector('.stamp').style.background='var(--mint)' } if(p.open) openLetter(c,true) },
+  error(p){ if(typingEls[p.who||'scout']){typingEls[p.who||'scout'].remove(); delete typingEls[p.who||'scout']} bubble(p.who||'scout','ugh, hit a wall: '+esc(p.text)) }
+};
+
+/* ---------- wall ---------- */
+let clues=[];
+const SLOTS=[[3,4],[28,3],[54,4],[79,5],[2,38],[79,40],[4,71],[29,74],[54,73],[79,70],[16,21],[66,21],[16,55],[66,56],[41,80]];
+const heat=s=>Math.round(((+s.fit||0)+(+s.freshness||0)+(+s.intent||0))/15*100);
+function addClue(s){
+  const i=clues.length; if(i>=SLOTS.length) return;
+  const h=heat(s), cls=h>=75?'':h>=55?'warm':'cool', r=(Math.random()*7-3.5).toFixed(1)+'deg';
+  const el=document.createElement('div'); el.className='clue '+cls; el.style.setProperty('--r',r);
+  el.style.left=SLOTS[i][0]+'%'; el.style.top=SLOTS[i][1]+'%'; el.style.transform=`rotate(${r})`;
+  const link=s.source_url?`<a href="${esc(s.source_url)}" target="_blank" onclick="event.stopPropagation()">${esc(s.source_title||'source')}</a>`:esc(s.source_title||'');
+  el.innerHTML=`<div class="heat" title="Heat score: how strong this signal is, out of 100. Combines fit (do they match the buyer), freshness (how recent) and intent (how close to buying).">${h}</div><div class="tag"><span>${esc(String(s.type||'clue').toUpperCase())}</span><span>${esc(s.date||'')}</span></div>
+    <div class="co">${esc(s.company)}</div><div>${esc(s.headline)}</div><div class="src">${link}</div><span class="stamp">CLICK TO WRITE</span>`;
+  const c={s,el,m:null}; el.onclick=()=>openLetter(c); clues.push(c); $('#wall').appendChild(el); requestAnimationFrame(()=>drawString(el));
+}
+function drawString(el){
+  const W=$('#wall'), x1=el.offsetLeft+el.offsetWidth/2, y1=el.offsetTop+2, x2=W.clientWidth/2, y2=W.clientHeight/2;
+  const mx=(x1+x2)/2, my=(y1+y2)/2+30;
+  const p=document.createElementNS('http://www.w3.org/2000/svg','path'); p.setAttribute('d',`M${x1},${y1} Q${mx},${my} ${x2},${y2}`); $('#strings').appendChild(p);
+}
+function redraw(){ $('#strings').innerHTML=''; clues.forEach(c=>drawString(c.el)); document.querySelectorAll('#strings path').forEach(p=>p.style.animation='none'); }
+addEventListener('resize',()=>{clearTimeout(window._rz);window._rz=setTimeout(redraw,150)});
+
+/* ---------- letter ---------- */
+function closeLetter(){ document.querySelectorAll('.letter').forEach(l=>l.remove()) }
+async function openLetter(c,auto){
+  if(!c) return; closeLetter();
+  const L=document.createElement('div'); L.className='letter';
+  L.innerHTML=`<div class="paper"><div class="head"><div><b>To: ${esc(c.m?.name||c.s.decision_role||'the right person')}</b><small>${esc(c.m?.title||c.s.decision_role||'')} at ${esc(c.s.company)}${c.m?.person_source?` · found via ${esc(c.m.person_source)}`:''}</small></div><button class="x">×</button></div>
+   <div class="why"><b>Why now:</b> ${esc(c.s.why_now)}</div>
+   <div class="ltabs"><button class="ltab on" data-t="email">Email</button><button class="ltab" data-t="linkedin">LinkedIn note</button></div>
+   <div class="ltext"></div>
+   <div class="lfoot"><button class="tool cp">Copy</button><button class="tool nx">Next clue</button></div></div>`;
+  $('#wall').appendChild(L);
+  L.onclick=e=>{if(e.target===L)closeLetter()}; L.querySelector('.x').onclick=closeLetter;
+  L.querySelector('.nx').onclick=()=>{const i=clues.indexOf(c); openLetter(clues[(i+1)%clues.length])};
+  const box=L.querySelector('.ltext');
+  if(!c.m){
+    if(replaying){box.textContent='(not written in this saved run)';return}
+    box.classList.add('typing'); box.textContent='Quill is writing';
+    try{ await writeFor(c,false) }catch(e){ box.classList.remove('typing'); box.textContent='Quill got stuck: '+e.message; return }
+    if(!document.body.contains(L)) return; L.remove(); return openLetter(c,true);
+  }
+  const T={email:`Subject: ${c.m.email_subject}\n\n${c.m.email}`,linkedin:c.m.linkedin}; let cur='email';
+  L.querySelectorAll('.ltab').forEach(t=>t.onclick=()=>{L.querySelectorAll('.ltab').forEach(x=>x.classList.remove('on'));t.classList.add('on');cur=t.dataset.t;box.classList.remove('typing');box.textContent=T[cur]});
+  L.querySelector('.cp').onclick=()=>{navigator.clipboard.writeText(T[cur]);L.querySelector('.cp').textContent='Copied!';setTimeout(()=>L.querySelector('.cp').textContent='Copy',1200)};
+  if(auto){ box.classList.add('typing'); const txt=T.email; for(let i=0;i<=txt.length;i+=3){ if(cur!=='email')break; box.textContent=txt.slice(0,i); await sleep(14)} box.classList.remove('typing'); if(cur==='email')box.textContent=txt }
+  else box.textContent=T.email;
+}
+
+/* ---------- AI calls ---------- */
+function parseJSON(t){ t=t.replace(/```json|```/g,'').trim(); const a=t.indexOf('['),o=t.indexOf('{'); const s=(a>-1&&(o===-1||a<o))?a:o; const e=t[s]==='['?t.lastIndexOf(']'):t.lastIndexOf('}'); return JSON.parse(t.slice(s,e+1)) }
+async function ask(prompt,opt={}){ return ({claude:askClaude,gemini:askGemini,openai:askOpenAI,perplexity:askChat,openrouter:askChat,ollama:askOllama})[S.prov](prompt,opt) }
+let OLLAMA_SEARCH_OFF_UNTIL=0;
+async function freeSearch(q){ if(!(await helperUp())) return []; const r=await fetch('/api/search?q='+encodeURIComponent(q)); const j=await r.json(); return j.results||[] }
+async function webSearch(q){
+  const free=await freeSearch(q.replace(/site:\S+/g,'').replace(/"/g,'')).catch(()=>[]);
+  if(free.length>=3) return free;
+  if(Date.now()>OLLAMA_SEARCH_OFF_UNTIL){
+    try{
+      const r=await apiFetch('https://ollama.com/api/web_search',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+S.key},body:JSON.stringify({query:q.replace(/site:\S+/g,''),max_results:5})});
+      const j=await r.json(); if(!j.error&&(j.results||[]).length) return j.results;
+      if(j.error&&/limit/i.test(String(j.error))) OLLAMA_SEARCH_OFF_UNTIL=Date.now()+15*60*1000;
+    }catch(e){}
+  }
+  return freeSearch(q.replace(/site:\S+/g,'').replace(/"/g,''));
+}
+async function askOllama(prompt,{search=false,queries=[]}={}){
+  let sources=[], ctx='';
+  if(search&&queries.length){
+    const res=(await Promise.all(queries.slice(0,4).map(q=>webSearch(q).catch(()=>[])))).flat();
+    const seen=new Set(); sources=res.filter(x=>x.url&&!seen.has(x.url)&&seen.add(x.url)).slice(0,28).map(x=>({uri:x.url,title:x.title,content:x.content}));
+    const strict=/Never invent/.test(prompt);
+    ctx=(strict?'\n\nWEB SEARCH RESULTS (searched just now). Use ONLY these as evidence. Any source_url you give must be one of these URLs. If the results do not support something, leave it out.\n':'\n\nWEB SEARCH RESULTS (searched just now). Use them if they are relevant. If they are off-topic, rely on what you already know. Always fill every field.\n')+
+      sources.map((x,i)=>`[${i+1}] ${x.title}\nURL: ${x.uri}\n${String(x.content||'').replace(/\s+/g,' ').slice(0,500)}`).join('\n\n');
+  }
+  return retrying(async()=>{
+    const r=await apiFetch('https://ollama.com/api/chat',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+S.key},
+      body:JSON.stringify({model:S.model,stream:false,format:'json',options:{temperature:.5},messages:[{role:'user',content:prompt.replace(/Use Google Search to |use Google Search to /g,'Using the search results below, ')+ctx+'\n\nReply with the JSON only.'}]})});
+    const j=await r.json(); if(j.error) throw new Error(typeof j.error==='string'?j.error:j.error.message);
+    const text=j.message?.content||'';
+    // format:'json' forces an object, so unwrap arrays the model put inside one
+    let d=tryParse([text]); if(!Array.isArray(d)&&/JSON array/.test(prompt)){ const arr=Object.values(d).find(v=>Array.isArray(v)); d=arr||(d.company?[d]:[]) }
+    return {data:d,sources};
+  });
+}
+async function retrying(fn){ let last; for(let n=0;n<3;n++){ try{ return await fn() }catch(e){ last=e; if(!/rate|overload|429|503|500|busy|garbled/i.test(e.message)||n===2) throw e; await sleep(2500*(n+1)) } } throw last }
+function tryParse(cands){ for(const c of cands){ try{ return parseJSON(c) }catch(e){} } throw new Error('the reply came back garbled') }
+async function askOpenAI(prompt,{search=false}={}){
+  return retrying(async()=>{
+    const body={model:S.model,input:prompt+'\n\nReply with the JSON only, no other text.'}; if(search) body.tools=[{type:'web_search'}];
+    const j=await (await apiFetch('https://api.openai.com/v1/responses',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+S.key},body:JSON.stringify(body)})).json();
+    if(j.error) throw new Error(j.error.message);
+    const parts=(j.output||[]).filter(o=>o.type==='message').flatMap(o=>o.content||[]).filter(c=>c.type==='output_text');
+    const sources=parts.flatMap(p=>p.annotations||[]).filter(a=>a.url).map(a=>({uri:a.url,title:a.title}));
+    return {data:tryParse([parts.map(p=>p.text).join(''),parts.at(-1)?.text||'']),sources};
+  });
+}
+async function askChat(prompt,{search=false}={}){
+  const isPx=S.prov==='perplexity';
+  return retrying(async()=>{
+    const model=(!isPx&&search&&!S.model.endsWith(':online'))?S.model+':online':S.model;
+    const url=isPx?'https://api.perplexity.ai/chat/completions':'https://openrouter.ai/api/v1/chat/completions';
+    const j=await (await apiFetch(url,{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+S.key},body:JSON.stringify({model,messages:[{role:'user',content:prompt+'\n\nReply with the JSON only, no other text.'}]})})).json();
+    if(j.error) throw new Error(j.error.message||JSON.stringify(j.error));
+    const text=j.choices?.[0]?.message?.content||''; const sources=(j.citations||j.search_results||[]).map(x=>typeof x==='string'?{uri:x,title:x}:{uri:x.url,title:x.title});
+    return {data:tryParse([text]),sources};
+  });
+}
+async function askClaude(prompt,{search=false}={}){
+  const body={model:S.model,max_tokens:4000,messages:[{role:'user',content:prompt+'\n\nReply with the JSON only, no other text.'}]};
+  if(search) body.tools=[{type:'web_search_20250305',name:'web_search',max_uses:5}];
+  for(let n=0;n<3;n++){
+    const r=await apiFetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':S.key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify(body)});
+    const j=await r.json();
+    if(j.error){ if(/overloaded|rate/i.test(j.error.type||'')&&n<2){await sleep(3000*(n+1));continue} throw new Error(j.error.message) }
+    const blocks=j.content||[]; const texts=blocks.filter(b=>b.type==='text').map(b=>b.text); 
+    const sources=blocks.filter(b=>b.type==='web_search_tool_result').flatMap(b=>Array.isArray(b.content)?b.content:[]).map(x=>({uri:x.url,title:x.title}));
+    for(const cand of [texts.join(''),texts.at(-1)||'']){ try{ return {data:parseJSON(cand),sources} }catch(e){} }
+    if(n<2) continue; throw new Error('the reply came back garbled');
+  }
+}
+async function askGemini(prompt,{search=false}={}){
+  const body={contents:[{role:'user',parts:[{text:prompt}]}],generationConfig:{temperature:.6}};
+  if(search) body.tools=[{google_search:{}}]; else body.generationConfig.responseMimeType='application/json';
+  for(let n=0;n<3;n++){
+    const r=await apiFetch(`https://generativelanguage.googleapis.com/v1beta/models/${S.model}:generateContent`,{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':S.key},body:JSON.stringify(body)});
+    const j=await r.json();
+    if(j.error){ if([429,500,503].includes(j.error.code)&&n<2){await sleep(2500*(n+1));continue} throw new Error(j.error.message) }
+    const c=j.candidates?.[0]; const text=(c?.content?.parts||[]).map(p=>p.text||'').join('');
+    try{ return {data:parseJSON(text),sources:(c?.groundingMetadata?.groundingChunks||[]).map(g=>g.web).filter(Boolean)} }catch(e){ if(n<2) continue; throw new Error('the reply came back garbled') }
+  }
+}
+const VOICE=`Write the "say" lines like a sharp, funny coworker in a team chat: lowercase, casual, max 18 words, specific, no emoji, no em dashes, no hashtags, no corporate words.`;
+const P={
+  sniff:(q,m,geo)=>`Today is ${TODAY}. Input type: ${m}. Input: "${q}". ${geo?'Focus: '+geo+'.':''}
+Use Google Search to understand what this ${m} sells and who buys it. Then work out the TRIGGER: the real-world moment that makes a buyer need it right now (example: "they just bought drone docks, so now they need software to run them").
+Then list 8 buying signals to watch for, strongest first, mixing: tenders/RFPs, hiring, buying adjacent hardware or tech, funding or expansion, regulation or approvals, competitor moves, events and talks, social posts about the pain. Each with a search query that would surface real recent examples: plain words a person would type into Google, 4 to 8 words, naming concrete things (industry, equipment, job title, place). No quotes, no site:, no OR.
+${VOICE}
+Return ONLY JSON: {"name":"short name","one_liner":"what they sell in plain words, max 14 words","buyers":["3-4 buyer types"],"trigger_moment":"one concrete sentence","competitors":["up to 4"],
+"say_1":"first reaction after reading the business","say_2":"when THEIR BUYERS are ready to buy, said casually from the buyer side (e.g. 'anyone who just bought docks is basically shopping')",
+"signals":[{"signal":"short name, max 5 words","type":"tender|hiring|purchase|expansion|regulation|competitor|event|social","look_for":"max 14 words","query":"search query"}]}`,
+  scout:(p,items,geo)=>`Today is ${TODAY}. Find REAL, recent (ideally last 12 months) public evidence that specific organisations are about to need what ${p.name} sells (${p.one_liner}).
+Trigger moment: ${p.trigger_moment}. ${geo?'Focus: '+geo+'.':''}
+Look for:
+${items.map((r,i)=>`${i+1}. ${r.signal}: ${r.look_for} (try: ${r.query})`).join('\n')}
+Only include organisations that appear in your search results. Never invent companies, dates, people or links.
+Targets must be END BUYERS (organisations that would pay for this), never vendors in the same space: skip ${p.name}, its competitors (${(p.competitors||[]).join(', ')}), other companies that sell similar products or services, and any organisation already shown as ${p.name}'s customer or partner (for example in ${p.name}'s own posts).
+A job post only counts if the hiring organisation is a buyer (e.g. a utility hiring a drone programme lead), not a tech company hiring engineers.
+Only use evidence from the last 12 months (today is ${TODAY}). Return up to 6 results, as many as the evidence supports. Each result must be a different organisation.
+${VOICE}
+Return ONLY JSON array: [{"company":"","type":"tender|hiring|purchase|expansion|regulation|competitor|event|social","headline":"what happened, factual, max 16 words","date":"Mon YYYY or ''","source_title":"publication or site","source_url":"","why_now":"why they need ${p.name} soon, max 22 words","fit":1-5,"freshness":1-5,"intent":1-5,"decision_role":"job title that owns this","say":"how you'd announce this find to the team"}]`,
+  quill:(p,s,sender)=>`Today is ${TODAY}. You write first-touch outreach for ${p.name} (${p.one_liner}).
+Signal: ${s.company}. ${s.headline} (${s.date}). Why now: ${s.why_now}. Likely owner: ${s.decision_role}.
+1) Use Google Search to find a publicly named person at ${s.company} in or near that role (LinkedIn, press, event speaker pages). If not confident, leave name empty.
+2) Write the outreach to the person who owns the buying decision (not to a junior or engineering role). If you have no name, greet with "Hi there". Open with their news, not with ${p.name}. Short sentences, one idea each. Human, warm, zero buzzwords, no em dashes, no "I hope this finds you well". Email under 90 words with a subject line. LinkedIn note under 280 characters. End with one easy yes/no question.${sender?' Sign off as '+sender+'.':''}
+Return ONLY JSON: {"name":"","title":"","person_source":"","email_subject":"","email":"","linkedin":""}`
+};
+
+/* ---------- the run ---------- */
+function clock(on){ clearInterval(tick); if(on){t0=Date.now(); tick=setInterval(()=>{const s=Math.floor((Date.now()-t0)/1000); $('#clock').textContent=`${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`},250)} }
+async function writeFor(c,announce){
+  const find=o=>{ if(!o||typeof o!=='object') return null; if(o.email||o.email_body||o.body) return o; for(const v of Object.values(o)){ const r=find(v); if(r) return r } return null };
+  let md=null;
+  for(let n=0;n<2&&!md;n++){ const m=await ask(P.quill(RUN.profile,c.s,S.sender),{search:true,queries:[`${c.s.company} ${c.s.decision_role}`]}); md=find(m.data) }
+  if(!md) throw new Error('quill could not write this one');
+  md.email=md.email||md.email_body||md.body||''; md.email_subject=md.email_subject||md.subject||'Quick question'; md.linkedin=md.linkedin||md.linkedin_note||md.note||'';
+  c.m=md; const m={data:md};
+  emit('letter',{company:c.s.company,m:m.data,open:false});
+  if(announce) emit('say',{who:'quill',text:m.data.name?`wrote to ${m.data.name} at ${c.s.company}.`:`wrote to the ${c.s.decision_role} at ${c.s.company}. couldn't find a name, so check that one.`});
+}
+async function go(){
+  const q=$('#q').value.trim(); if(!q||busy) return; if(!S.key && S.prov!=='ollama') return openSet();
+  busy=true; $('#go').disabled=true; const geo=$('#geo').value.trim();
+  RUN={input:q,mode,geo,model:S.model,at:new Date().toISOString(),events:[]}; clock(true);
+  emit('reset'); emit('you',{text:`find me buyers for ${q}${geo?` (focus: ${geo})`:''}`});
+  try{
+    emit('typing',{who:'sniff'});
+    const a=await ask(P.sniff(q,mode,geo),{search:true,queries:[q,`${q} competitors${geo?' '+geo:''}`]}); const p=a.data; RUN.profile=p; RUN.recipe=(p.signals||[]).slice(0,8);
+    if(!p.one_liner||!(p.signals||[]).length){ emit('say',{who:'sniff',text:`couldn't work out what "${q}" sells. try their website instead, like ${q.includes('.')?q:q.split(' ')[0].toLowerCase()+'.com'}`}); return }
+    emit('say',{who:'sniff',text:p.say_1||`read up on ${p.name}.`});
+    emit('center',{name:p.name,one_liner:p.one_liner,trigger_moment:p.trigger_moment});
+    emit('say',{who:'sniff',text:p.say_2||p.trigger_moment,big:true});
+    emit('say',{who:'sniff',text:'scout, go look for these:',chips:RUN.recipe.map(r=>r.signal)});
+    emit('typing',{who:'scout'});
+    const n=S.depth, groups=Array.from({length:n},()=>[]); RUN.recipe.forEach((r,i)=>groups[i%n].push(r));
+    const seen=new Set(); let found=[];
+    await Promise.all(groups.map(async g=>{
+      try{ const h=await ask(P.scout(p,g,geo),{search:true,queries:g.map(r=>r.query+(geo&&!r.query.includes(geo)?' '+geo:''))});
+        for(const s of (Array.isArray(h.data)?h.data:[])){ if(!s?.company) continue; const yr=+(String(s.date||'').match(/20\d\d/)||[0])[0]; if(yr && yr < new Date().getFullYear()-1) continue; const k=s.company.toLowerCase().replace(/[^a-z0-9]/g,''); if(seen.has(k)) continue; seen.add(k); found.push(s);
+          if(typingEls.scout){typingEls.scout.remove(); delete typingEls.scout}
+          emit('say',{who:'scout',text:s.say||`${s.company}: ${s.headline}`}); emit('clue',{s}); await sleep(350); emit('typing',{who:'scout'}) }
+      }catch(e){ console.warn(e) }
+    }));
+    if(typingEls.scout){typingEls.scout.remove(); delete typingEls.scout}
+    RUN.signals=found;
+    if(!found.length){ emit('say',{who:'scout',text:'came back empty handed. try a more specific input or add a focus region.'}); return }
+    const top=[...clues].sort((x,y)=>heat(y.s)-heat(x.s)).slice(0,3);
+    emit('say',{who:'scout',text:`${found.length} clues on the wall. hottest one is ${top[0].s.company}. quill, you're up.`});
+    emit('typing',{who:'quill'});
+    await Promise.all(top.map(c=>writeFor(c,false).catch(e=>console.warn(e))));
+    if(typingEls.quill){typingEls.quill.remove(); delete typingEls.quill}
+    const done=top.filter(c=>c.m);
+    emit('say',{who:'quill',text:`${done.length} letters ready${done.filter(c=>c.m.name).length?`, ${done.filter(c=>c.m.name).length} with real names`:''}. click any clue and i'll write that one too.`});
+    if(done[0]) emit('letter',{company:done[0].s.company,m:done[0].m,open:true});
+  }catch(e){ emit('error',{who:'sniff',text:e.message}) }
+  finally{ clock(false); busy=false; $('#go').disabled=false }
+}
+$('#go').onclick=go; $('#q').addEventListener('keydown',e=>{if(e.key==='Enter')go()});
+
+/* ---------- save / replay / recipe ---------- */
+function dl(name,obj){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(obj,null,2)],{type:'application/json'}));a.download=name;a.click()}
+const slug=s=>String(s||'run').toLowerCase().replace(/[^a-z0-9]+/g,'-').slice(0,40);
+$('#bSave').onclick=()=>{ if(!RUN?.events?.length) return alert('Run the crew first.'); clues.forEach(c=>{ if(c.m && !RUN.events.some(e=>e.type==='letter'&&e.p.company===c.s.company)) RUN.events.push({t:RUN.events.at(-1).t+100,type:'letter',p:{company:c.s.company,m:c.m,open:false}}) }); dl(`find-my-buyers-${slug(RUN.input)}.json`,RUN) };
+$('#bRecipe').onclick=()=>{ if(!RUN?.profile) return alert('Run the crew first.'); dl(`signal-recipe-${slug(RUN.profile.name)}.json`,{recipe:'find-my-buyers/v0.1',business:{name:RUN.profile.name,sells:RUN.profile.one_liner,buyers:RUN.profile.buyers,trigger_moment:RUN.profile.trigger_moment},signals_to_watch:RUN.recipe}) };
+$('#bLoad').onclick=()=>$('#file').click();
+$('#file').onchange=async e=>{ const f=e.target.files[0]; if(!f) return; const R=JSON.parse(await f.text()); e.target.value=''; replay(R) };
+async function replay(R){
+  if(busy) return; busy=true; replaying=true; RUN=R; $('#q').value=R.input||''; $('#geo').value=R.geo||''; $('#go').disabled=true; clock(true);
+  const evs=R.events||[]; const span=Math.max(1,(evs.at(-1)?.t||1)); const k=Math.min(1,28000/span); let last=0;
+  for(const ev of evs){ const wait=Math.max(ev.type==='clue'?250:0,(ev.t-last)*k); last=ev.t; await sleep(Math.min(wait,4000)); render[ev.type](ev.p); }
+  replaying=false; busy=false; $('#go').disabled=false; clock(false);
+}
+
+/* ---------- empty state ---------- */
+(function intro(){
+  bubble('sniff','hey. drop any business below and we\'ll find who\'s about to buy from them.');
+  bubble('scout','i dig through tenders, job posts, news and socials.');
+  bubble('quill','and i write the first message, so you don\'t have to.');
+})();
+</script>
+</body>
+</html>
