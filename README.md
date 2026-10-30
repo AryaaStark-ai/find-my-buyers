@@ -4,7 +4,8 @@
 
 Type any company, product or keyword. Three AI teammates work out who is about to buy from that business, pin the evidence on a wall, and write the first message.
 
-Live: https://find-my-buyers.vercel.app
+Live: https://find-my-buyers.vercel.app  
+Code: https://github.com/Jijo01pup/find-my-buyers
 
 Built by the FlytBase marketing team (Sruthi, Baisali, Kanchi) for the Marketing Build Session, 31 Oct 2026. It is **v0.1 on purpose**: rough edges included. Your job is to beat it.
 
