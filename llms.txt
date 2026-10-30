@@ -18,6 +18,7 @@
 - GET /api/search?q=: free keyless search, returns {results:[{title,url,content}]}.
 
 ## Source and docs
+- GitHub: https://github.com/Jijo01pup/find-my-buyers
 - Code: everything client-side is in /index.html; functions in /api.
 - Full guide: /README.md
 - Technical map for AI assistants (functions, prompts, data shapes, how to extend): /AGENTS.md
