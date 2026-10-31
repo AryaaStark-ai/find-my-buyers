@@ -251,7 +251,7 @@ $('#sLoad').onclick=async()=>{ const k=$('#key').value.trim(), v=$('#prov').valu
     const cur=$('#model').value; if(!ms.includes(cur)){ const pick=ms.find(n=>PROV[v].pref.test(n)); if(pick) $('#model').value=pick }
     $('#mhint').textContent=`${ms.length} models available. Click the model box to pick another.`;
   }catch(e){$('#mhint').textContent='Could not load models: '+e.message+' (you can still type a model id)'} };
-function tagModel(){ $('#mtag').textContent=PROV[S.prov].name+' · '+S.model }
+function tagModel(){ $('#mtag').textContent=S.key?PROV[S.prov].name+' · '+S.model+' (your key)':'built-in brain · gpt-oss:120b' }
 tagModel();
 document.querySelectorAll('.mode').forEach(b=>b.onclick=()=>{document.querySelectorAll('.mode').forEach(x=>x.classList.remove('on'));b.classList.add('on');mode=b.dataset.m;
   $('#q').placeholder={company:'drop a website, e.g. flytbase.com',product:'e.g. drone docking station software',keyword:'e.g. solar farm inspection'}[mode]});
@@ -330,13 +330,42 @@ async function openLetter(c,auto){
 
 /* ---------- AI calls ---------- */
 function parseJSON(t){ t=t.replace(/```json|```/g,'').trim(); const a=t.indexOf('['),o=t.indexOf('{'); const s=(a>-1&&(o===-1||a<o))?a:o; const e=t[s]==='['?t.lastIndexOf(']'):t.lastIndexOf('}'); return JSON.parse(t.slice(s,e+1)) }
-async function ask(prompt,opt={}){ return ({claude:askClaude,gemini:askGemini,openai:askOpenAI,perplexity:askChat,openrouter:askChat,ollama:askOllama})[S.prov](prompt,opt) }
+/* every provider uses the site's free search; at most 2 AI calls at a time; own-key limits fall back to the built-in key */
+const MAX_PARALLEL=2; let ACTIVE=0; const WAITING=[]; let LIMIT_NOTED=false;
+async function slot(fn){ while(ACTIVE>=(S.key?MAX_PARALLEL:6)) await new Promise(r=>WAITING.push(r)); ACTIVE++; try{ return await fn() } finally{ ACTIVE--; const n=WAITING.shift(); if(n) n() } }
+const isLimit=e=>/rate|limit|quota|429|exhaust|overload|too many|resource/i.test(String(e&&e.message||e));
+async function buildCtx(prompt,queries,useOllamaSearch){
+  const res=(await Promise.all(queries.slice(0,4).map(q=>(useOllamaSearch?webSearch(q):freeSearch(q.replace(/site:\S+/g,'').replace(/"/g,''))).catch(()=>[])))).flat();
+  const seen=new Set(); const sources=res.filter(x=>x.url&&!seen.has(x.url)&&seen.add(x.url)).slice(0,28).map(x=>({uri:x.url,title:x.title,content:x.content}));
+  if(!sources.length) return {ctx:'',sources};
+  const strict=/Never invent/.test(prompt);
+  const ctx=(strict?'\n\nWEB SEARCH RESULTS (searched just now). Use ONLY these as evidence. Any source_url you give must be one of these URLs. If the results do not support something, leave it out.\n':'\n\nWEB SEARCH RESULTS (searched just now). Use them if they are relevant. If they are off-topic, rely on what you already know. Always fill every field.\n')+
+    sources.map((x,i)=>`[${i+1}] ${x.title}\nURL: ${x.uri}\n${String(x.content||'').replace(/\s+/g,' ').slice(0,500)}`).join('\n\n');
+  return {ctx,sources};
+}
+const usingOwnKey=()=>!!S.key;
+async function askBuiltin(prompt,opt){ return askOllama(prompt,{...opt,key:'',model:'gpt-oss:120b'}) }
+async function ask(prompt,opt={}){
+  return slot(async()=>{
+    if(!usingOwnKey() && S.prov!=='ollama') return askBuiltin(prompt,opt);
+    if(S.prov==='ollama'){
+      try{ return await askOllama(prompt,opt) }
+      catch(e){ if(usingOwnKey()){ noteLimit(e); return askBuiltin(prompt,opt) } throw e }
+    }
+    const fn={claude:askClaude,gemini:askGemini,openai:askOpenAI,perplexity:askChat,openrouter:askChat}[S.prov];
+    let p=prompt, sources=[];
+    if(opt.search&&opt.queries&&opt.queries.length){ const c=await buildCtx(prompt,opt.queries,false); sources=c.sources; p=prompt.replace(/Use Google Search to |use Google Search to /g,'Using the search results below, ')+c.ctx }
+    try{ const r=await fn(p,{...opt,search:false}); if(sources.length&&!(r.sources||[]).length) r.sources=sources; return r }
+    catch(e){ noteLimit(e); return askBuiltin(prompt,opt) }
+  });
+}
+function noteLimit(e){ if(LIMIT_NOTED) return; LIMIT_NOTED=true; const why=isLimit(e)?'hit its speed limit':'did not work ('+String(e&&e.message||e).slice(0,80)+')'; try{ emit('say',{who:'scout',text:`your key ${why}, so i'm finishing this run on the built-in brain.`}) }catch(x){} }
 let OLLAMA_SEARCH_OFF_UNTIL=0;
 async function freeSearch(q){ if(!(await helperUp())) return []; const r=await fetch('/api/search?q='+encodeURIComponent(q)); const j=await r.json(); return j.results||[] }
 async function webSearch(q){
   const free=await freeSearch(q.replace(/site:\S+/g,'').replace(/"/g,'')).catch(()=>[]);
   if(free.length>=3) return free;
-  if(Date.now()>OLLAMA_SEARCH_OFF_UNTIL){
+  if(S.prov==='ollama'&&S.key&&Date.now()>OLLAMA_SEARCH_OFF_UNTIL){
     try{
       const r=await apiFetch('https://ollama.com/api/web_search',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+S.key},body:JSON.stringify({query:q.replace(/site:\S+/g,''),max_results:5})});
       const j=await r.json(); if(!j.error&&(j.results||[]).length) return j.results;
@@ -345,9 +374,11 @@ async function webSearch(q){
   }
   return freeSearch(q.replace(/site:\S+/g,'').replace(/"/g,''));
 }
-async function askOllama(prompt,{search=false,queries=[]}={}){
+async function askOllama(prompt,{search=false,queries=[],key,model}={}){
+  const K=key!==undefined?key:S.key, M=model||S.model;
   let sources=[], ctx='';
-  if(search&&queries.length){
+  if(search&&queries.length){ ({ctx,sources}=await buildCtx(prompt,queries,!!K)); }
+  if(false){
     const res=(await Promise.all(queries.slice(0,4).map(q=>webSearch(q).catch(()=>[])))).flat();
     const seen=new Set(); sources=res.filter(x=>x.url&&!seen.has(x.url)&&seen.add(x.url)).slice(0,28).map(x=>({uri:x.url,title:x.title,content:x.content}));
     const strict=/Never invent/.test(prompt);
@@ -355,8 +386,8 @@ async function askOllama(prompt,{search=false,queries=[]}={}){
       sources.map((x,i)=>`[${i+1}] ${x.title}\nURL: ${x.uri}\n${String(x.content||'').replace(/\s+/g,' ').slice(0,500)}`).join('\n\n');
   }
   return retrying(async()=>{
-    const r=await apiFetch('https://ollama.com/api/chat',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+S.key},
-      body:JSON.stringify({model:S.model,stream:false,format:'json',options:{temperature:.5},messages:[{role:'user',content:prompt.replace(/Use Google Search to |use Google Search to /g,'Using the search results below, ')+ctx+'\n\nReply with the JSON only.'}]})});
+    const r=await apiFetch('https://ollama.com/api/chat',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+K},
+      body:JSON.stringify({model:M,stream:false,format:'json',options:{temperature:.5},messages:[{role:'user',content:prompt.replace(/Use Google Search to |use Google Search to /g,'Using the search results below, ')+ctx+'\n\nReply with the JSON only.'}]})});
     const j=await r.json(); if(j.error) throw new Error(typeof j.error==='string'?j.error:j.error.message);
     const text=j.message?.content||'';
     // format:'json' forces an object, so unwrap arrays the model put inside one
@@ -364,7 +395,7 @@ async function askOllama(prompt,{search=false,queries=[]}={}){
     return {data:d,sources};
   });
 }
-async function retrying(fn){ let last; for(let n=0;n<3;n++){ try{ return await fn() }catch(e){ last=e; if(!/rate|overload|429|503|500|busy|garbled/i.test(e.message)||n===2) throw e; await sleep(2500*(n+1)) } } throw last }
+async function retrying(fn){ let last; for(let n=0;n<3;n++){ try{ return await fn() }catch(e){ last=e; if(!/rate|overload|429|503|500|busy|garbled|limit|quota|exhaust/i.test(e.message)||n===2) throw e; await sleep((isLimit(e)?6000:2500)*(n+1)) } } throw last }
 function tryParse(cands){ for(const c of cands){ try{ return parseJSON(c) }catch(e){} } throw new Error('the reply came back garbled') }
 async function askOpenAI(prompt,{search=false}={}){
   return retrying(async()=>{
@@ -450,9 +481,9 @@ async function writeFor(c,announce){
   if(announce) emit('say',{who:'quill',text:m.data.name?`wrote to ${m.data.name} at ${c.s.company}.`:`wrote to the ${c.s.decision_role} at ${c.s.company}. couldn't find a name, so check that one.`});
 }
 async function go(){
-  const q=$('#q').value.trim(); if(!q||busy) return; if(!S.key && S.prov!=='ollama') return openSet();
+  const q=$('#q').value.trim(); if(!q||busy) return;
   busy=true; $('#go').disabled=true; const geo=$('#geo').value.trim();
-  RUN={input:q,mode,geo,model:S.model,at:new Date().toISOString(),events:[]}; clock(true);
+  RUN={input:q,mode,geo,model:S.model,at:new Date().toISOString(),events:[]}; clock(true); LIMIT_NOTED=false;
   emit('reset'); emit('you',{text:`find me buyers for ${q}${geo?` (focus: ${geo})`:''}`});
   try{
     emit('typing',{who:'sniff'});
