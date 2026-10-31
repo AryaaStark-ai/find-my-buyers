@@ -421,7 +421,7 @@ async function ask(prompt,opt={}){
 function noteLimit(e){ if(LIMIT_NOTED) return; LIMIT_NOTED=true; const why=isLimit(e)?'hit its speed limit':'did not work ('+String(e&&e.message||e).slice(0,80)+')'; try{ emit('say',{who:'scout',text:`your key ${why}, so i'm finishing this run on the built-in brain.`}) }catch(x){} }
 let OLLAMA_SEARCH_OFF_UNTIL=0;
 const INDIA_PLACE=/india|bengaluru|bangalore|chennai|hyderabad|mumbai|pune|delhi|kolkata|ahmedabad|coimbatore|kerala|karnataka|tamil nadu|maharashtra|gujarat|telangana|andhra/i;
-async function freeSearch(q){ if(!(await helperUp())) return []; const jobs=q.startsWith('jobs:'), gl=RUN?.profile?.home_market_code||(INDIA_PLACE.test(RUN?.geo||'')?'IN':''); const r=await fetch('/api/search?q='+encodeURIComponent(q.replace(/^jobs:/,''))+(gl?'&gl='+encodeURIComponent(gl):'')+(jobs?'&kind=jobs':'')); const j=await r.json(); return (j.results||[]).map(x=>({...x,title:plainText(x.title),content:plainText(x.content)})) }
+async function freeSearch(q){ if(!(await helperUp())) return []; const jobs=q.startsWith('jobs:'), gl=RUN?.profile?.home_market_code||(RUN?.memory===MEMORY_PACK||INDIA_PLACE.test(RUN?.geo||'')?'IN':''); const r=await fetch('/api/search?q='+encodeURIComponent(q.replace(/^jobs:/,''))+(gl?'&gl='+encodeURIComponent(gl):'')+(jobs?'&kind=jobs':'')); const j=await r.json(); return (j.results||[]).map(x=>({...x,title:plainText(x.title),content:plainText(x.content)})) }
 const plainText=t=>String(t??'').replace(/&amp;/g,'&').replace(/&#(\d+);/g,(m,n)=>String.fromCharCode(n)).replace(/&#x27;/g,"'").replace(/&quot;/g,'"');
 async function webSearch(q){
   const free=await freeSearch(q.replace(/site:\S+/g,'').replace(/"/g,'')).catch(()=>[]);
@@ -507,7 +507,7 @@ async function askGemini(prompt,{search=false}={}){
 const MEMORY_PACK=`COMPANY: DS Group (Dharampal Satyapal Group), India
 SELLS: FMCG. Confectionery (Pulse and Chingles are candy, LuvIt is chocolate), mouth fresheners (Pass Pass, Rajnigandha Silver Pearls), spices (Catch), plus other F&B.
 WHO ACTUALLY PAYS (the buyers): the TRADE, not consumers.
-  1. Quick commerce: Blinkit, Zepto, Swiggy Instamart, Flipkart Minutes, BigBasket (bbnow)
+  1. Quick commerce: Blinkit, Zepto, Swiggy Instamart, Flipkart Minutes, BigBasket (bbnow), Amazon Now
   2. Modern trade: DMart, Reliance Smart/Retail, Star Bazaar, Spencer's, More
   3. Distributors / stockists in towns where DS Group is under-penetrated
   4. HoReCa & travel: hotels, restaurants (after-meal mouth freshener), airports, cinemas
@@ -520,7 +520,15 @@ PRIORITIES (use for Fit scoring):
 NOT BUYERS: consumers, regulators, schools banning snacks, US/EU retailers, competitors (Parle, Mondelez, Perfetti, ITC, Nestle).
 IMPORTANT: existing retail partners EXPANDING (new city, new stores, new format) ARE valid leads in FMCG. This is an upsell / new-listing signal.
 COMPLIANCE: no health claims, no FSSAI-unsafe wording, no celebrity or third-party brand use without permission, no invented partnerships or numbers.`;
+// swap these with the pack: the accounts this business already knows it wants, hunted by name
+const KEY_ACCOUNT_NAMES=/blinkit|zepto|instamart|swiggy|flipkart|bigbasket|bbnow|amazon|dmart|avenue supermarts|reliance (retail|smart|fresh)|star bazaar|spencer|more retail|irctc/i;
+const rollout=[{signal:'store rollout',look_for:'new stores, new cities, dark store rollout'}];
+const KEY_ACCOUNTS=[
+  {segment:'quick commerce',who:'Blinkit, Zepto, Swiggy Instamart, Flipkart Minutes, BigBasket, Amazon Now',signals:rollout,queries:['Flipkart Minutes dark stores expansion 2026','Blinkit new dark stores cities 2026','Swiggy Instamart dark stores expansion 2026','Zepto new cities dark stores 2026']},
+  {segment:'modern trade',who:"DMart, Reliance Retail, Star Bazaar, Spencer's, More",signals:rollout,queries:['DMart new stores opened 2026','Reliance Smart Bazaar new stores South India 2026','Star Bazaar new store 2026','More Retail new stores 2026']}
+];
 const MEMORY_MATCH=/ds\s*group|dharampal|rajnigandha|pass\s*pass|pulse\s*candy/i;
+const isKeyAccount=s=>RUN?.memory===MEMORY_PACK&&KEY_ACCOUNT_NAMES.test(s.company);
 const memoryFor=q=>MEMORY_MATCH.test(q)?MEMORY_PACK:`No memory pack on file for this business. Work out who actually pays it and its priorities from the search results. Consumers, regulators and competitors are never buyers.`;
 /* signal type decides the play */
 const PLAYS={
@@ -767,13 +775,15 @@ function rule(found,verdicts){
   const out=(s,check,reason)=>rejected.push({id:s.id,company:s.company,headline:s.headline,check,reason});
   for(const s of found){ const v=byId.get(s.id);
     // regulation never goes on the wall, whatever the Judge called it
-    const isRisk=v?.verdict==='risk_watch'||(v?.verdict==='keep'&&(s.fromRisk||s.type==='regulation'))||(s.type==='regulation'&&String(v?.failed_check).toUpperCase()==='BUYER');
+    const isRisk=!isKeyAccount(s)&&(v?.verdict==='risk_watch'||(v?.verdict==='keep'&&(s.fromRisk||s.type==='regulation'))||(s.type==='regulation'&&String(v?.failed_check).toUpperCase()==='BUYER'));
     if(isRisk){ const k=coKey(s.company); if(!s.date) out(s,'EVENT','no dated proof'); else if(riskCos.has(k)) out(s,'UNIQUE','same body already on risk watch'); else { riskCos.add(k); risks.push(s) } }
-    else if(v?.verdict!=='keep') out(s,String(v?.failed_check||'OTHER').toUpperCase(),v?.reason||'');
+    else if(v?.verdict!=='keep'&&!(isKeyAccount(s)&&String(v?.failed_check).toUpperCase()==='BUYER')) out(s,String(v?.failed_check||'OTHER').toUpperCase(),v?.reason||'');
     else if(!s.date||one3(s.proof)<2) out(s,'EVENT','no dated proof');
     else kept.push(s) }
   const best=[...kept].sort(byPriority).filter(s=>{ const k=coKey(s.company); if([...cos].some(o=>o.startsWith(k)||k.startsWith(o))){ out(s,'UNIQUE','second event at the same company'); return false } cos.add(k); return true });
-  return {kept:best,risks,rejected};
+  // the wall is a call list: 4 cards at most, known accounts first, P4 only if nothing else
+  const strong=best.filter(s=>priority(s)!=='P4'), pool=(strong.length?strong:best).sort((a,b)=>isKeyAccount(b)-isKeyAccount(a)||byPriority(a,b)), top=pool.slice(0,4).sort(byPriority);
+  return {kept:top,bench:best.filter(s=>!top.includes(s)),risks,rejected};
 }
 async function go(){
   const q=$('#q').value.trim(); if(!q||busy) return;
@@ -793,8 +803,8 @@ async function go(){
     const found=[], seen=new Set(), recs=memHere(), net=typeNet(recs); let failed=0, lastErr='', skipped=0;
     const ownDone=huntOwn(p);
     const riskSeg=p.risk_signals?.length?{segment:'risk watch',risk:true,signals:p.risk_signals}:null;
-    await Promise.all([...p.segments,...(riskSeg?[riskSeg]:[])].map(async seg=>{
-      try{ const h=await ask(seg.risk?P.risk(p,seg):P.scout(p,seg,geo),{search:true,queries:seg.risk?seg.signals.map(r=>r.query):[seg.wide_query,seg.who&&String(seg.who).replace(/[,&]/g,' ')+' expansion',...seg.signals.map(r=>(r.type==='hiring'?'jobs:':'')+r.query)].filter(Boolean).map(q=>q+(geo&&!q.includes(geo)?' '+geo:''))}); let n=0, line='';
+    await Promise.all([...p.segments,...(RUN.memory===MEMORY_PACK?KEY_ACCOUNTS:[]),...(riskSeg?[riskSeg]:[])].map(async seg=>{
+      try{ const h=await ask(seg.risk?P.risk(p,seg):P.scout(p,seg,geo),{search:true,queries:seg.queries||(seg.risk?seg.signals.map(r=>r.query):[seg.wide_query,seg.who&&String(seg.who).replace(/[,&]/g,' ')+' expansion',...seg.signals.map(r=>(r.type==='hiring'?'jobs:':'')+r.query)].filter(Boolean).map(q=>q+(geo&&!q.includes(geo)?' '+geo:'')))}); let n=0, line='';
         for(const s of (Array.isArray(h.data)?h.data:[])){ if(!s?.company||!pinSource(s,h.sources||[])) continue; const yr=+(String(s.date||'').match(/20\d\d/)||[0])[0]; if(yr && yr < new Date().getFullYear()-1) continue; const k=s.source_url+'|'+coKey(s.company); if(seen.has(k)) continue; seen.add(k); if(handled(s,recs)){ skipped++; continue } nudge(s,net); ageEarly(s); s.id='c'+(found.length+1); s.segment=seg.segment; s.fromRisk=!!seg.risk; found.push(s); n++; line=line||s.say||s.headline }
         if(typingEls.scout){typingEls.scout.remove(); delete typingEls.scout}
         emit('say',{who:'scout',text:`${seg.segment}: ${n} find${n===1?'':'s'}.${line?' '+line:''}`}); await sleep(350); emit('typing',{who:'scout'});
@@ -808,9 +818,9 @@ async function go(){
     emit('typing',{who:'judge'});
     let verdicts; try{ const v=await ask(P.judge(p,found)); verdicts=Array.isArray(v.data)?v.data:[] }
     catch(e){ emit('error',{who:'judge',text:`${e.message}. nothing gets pinned without a verdict, run it again.`}); await ownDone; return }
-    const {kept,risks,rejected}=rule(found,verdicts); RUN.signals=kept; RUN.risks=risks; RUN.rejected=rejected;
+    const {kept,bench,risks,rejected}=rule(found,verdicts); RUN.signals=kept; RUN.bench=bench; RUN.risks=risks; RUN.rejected=rejected;
     const tally=Object.entries(rejected.reduce((o,r)=>(o[r.check]=(o[r.check]||0)+1,o),{})).map(([k,n])=>`${n} ${WHY[k]||WHY.OTHER}`).join(', ');
-    emit('say',{who:'judge',text:`threw out ${rejected.length} of ${found.length}${tally?': '+tally:''}.${risks.length?` ${risks.length} sent to risk watch, no outreach.`:''}`,chips:rejected.slice(0,5).map(r=>`${r.company}: ${r.reason||WHY[r.check]||WHY.OTHER}`)});
+    emit('say',{who:'judge',text:`threw out ${rejected.length} of ${found.length}${tally?': '+tally:''}.${risks.length?` ${risks.length} sent to risk watch, no outreach.`:''}${bench.length?` ${bench.length} on the bench: ${bench.map(s=>s.company).join(', ')}.`:''}`,chips:rejected.slice(0,5).map(r=>`${r.company}: ${r.reason||WHY[r.check]||WHY.OTHER}`)});
     risks.forEach(s=>emit('risk',{s}));
     const alerts=Promise.all([...risks.slice(0,3).map(writeAlert),ownDone]);
     if(!kept.length){ emit('say',{who:'judge',text:'nothing survived. an empty wall beats a bad lead.'}); await alerts; return }

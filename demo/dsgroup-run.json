@@ -1,10 +1,10 @@
 {
- "input": "https://www.dsgroup.com/",
+ "input": "DS Group",
  "mode": "company",
- "geo": "South India, quick commerce",
+ "geo": "",
  "model": "gpt-oss:120b",
- "at": "2026-10-31T06:30:34.234Z",
- "memory": "COMPANY: DS Group (Dharampal Satyapal Group), India\nSELLS: FMCG. Confectionery (Pulse, Chingles, LuvIt chocolates), mouth fresheners (Pass Pass, Rajnigandha Silver Pearls), spices (Catch), plus other F&B.\nWHO ACTUALLY PAYS (the buyers): the TRADE, not consumers.\n  1. Quick commerce: Blinkit, Zepto, Swiggy Instamart, Flipkart Minutes, BigBasket (bbnow)\n  2. Modern trade: DMart, Reliance Smart/Retail, Star Bazaar, Spencer's, More\n  3. Distributors / stockists in towns where DS Group is under-penetrated\n  4. HoReCa & travel: hotels, restaurants (after-meal mouth freshener), airports, cinemas\n  5. Institutional: CSD canteens, IRCTC, corporate canteens (via tenders, e.g. GeM)\nPRIORITIES (use for Fit scoring):\n  - Grow confectionery toward Rs 5,000 cr (from ~Rs 1,000 cr, FY24)\n  - Expand in SOUTH and WEST India (already strong in North and East)\n  - Quick commerce and e-commerce push for Pulse, Pass Pass, Silver Pearls, LuvIt\n  - New formats and line extensions; exports (recently entered Nepal)\nNOT BUYERS: consumers, regulators, schools banning snacks, US/EU retailers, competitors (Parle, Mondelez, Perfetti, ITC, Nestle).\nIMPORTANT: existing retail partners EXPANDING (new city, new stores, new format) ARE valid leads in FMCG. This is an upsell / new-listing signal.\nCOMPLIANCE: no health claims, no FSSAI-unsafe wording, no celebrity or third-party brand use without permission, no invented partnerships or numbers.",
+ "at": "2026-10-31T06:50:59.398Z",
+ "memory": "COMPANY: DS Group (Dharampal Satyapal Group), India\nSELLS: FMCG. Confectionery (Pulse and Chingles are candy, LuvIt is chocolate), mouth fresheners (Pass Pass, Rajnigandha Silver Pearls), spices (Catch), plus other F&B.\nWHO ACTUALLY PAYS (the buyers): the TRADE, not consumers.\n  1. Quick commerce: Blinkit, Zepto, Swiggy Instamart, Flipkart Minutes, BigBasket (bbnow), Amazon Now\n  2. Modern trade: DMart, Reliance Smart/Retail, Star Bazaar, Spencer's, More\n  3. Distributors / stockists in towns where DS Group is under-penetrated\n  4. HoReCa & travel: hotels, restaurants (after-meal mouth freshener), airports, cinemas\n  5. Institutional: CSD canteens, IRCTC, corporate canteens (via tenders, e.g. GeM)\nPRIORITIES (use for Fit scoring):\n  - Grow confectionery toward Rs 5,000 cr (from ~Rs 1,000 cr, FY24)\n  - Expand in SOUTH and WEST India (already strong in North and East)\n  - Quick commerce and e-commerce push for Pulse, Pass Pass, Silver Pearls, LuvIt\n  - New formats and line extensions; exports (recently entered Nepal)\nNOT BUYERS: consumers, regulators, schools banning snacks, US/EU retailers, competitors (Parle, Mondelez, Perfetti, ITC, Nestle).\nIMPORTANT: existing retail partners EXPANDING (new city, new stores, new format) ARE valid leads in FMCG. This is an upsell / new-listing signal.\nCOMPLIANCE: no health claims, no FSSAI-unsafe wording, no celebrity or third-party brand use without permission, no invented partnerships or numbers.",
  "events": [
   {
    "t": 0,
@@ -12,47 +12,47 @@
    "p": {}
   },
   {
-   "t": 0,
+   "t": 1,
    "type": "you",
    "p": {
-    "text": "find me buyers for https://www.dsgroup.com/ (focus: South India, quick commerce)"
+    "text": "find me buyers for DS Group"
    }
   },
   {
-   "t": 1,
+   "t": 2,
    "type": "typing",
    "p": {
     "who": "sniff"
    }
   },
   {
-   "t": 8786,
+   "t": 7182,
    "type": "say",
    "p": {
     "who": "sniff",
-    "text": "they dominate north snacks, now hunting south quick‑commerce shelves"
+    "text": "candy, spices and fresh breath – they’ve got the whole snack aisle covered"
    }
   },
   {
-   "t": 8787,
+   "t": 7182,
    "type": "center",
    "p": {
     "name": "DS Group",
-    "one_liner": "fmcg snacks and spices like chocolates, mouth fresheners, and catch spices",
-    "trigger_moment": "when a platform adds a new city or dark‑store hub in south india"
+    "one_liner": "confectionery, mouth fresheners, spices and other FMCG foods",
+    "trigger_moment": "when the platform opens a new city or adds a dark‑store in South or West India."
    }
   },
   {
-   "t": 8787,
+   "t": 7183,
    "type": "say",
    "p": {
     "who": "sniff",
-    "text": "the trade pays – platforms, chains, hotels and canteens when they open or tender",
+    "text": "the trade pays – retailers, quick‑commerce platforms, distributors, hotels and canteens when they need stock",
     "big": true
    }
   },
   {
-   "t": 8789,
+   "t": 7185,
    "type": "say",
    "p": {
     "who": "sniff",
@@ -60,38 +60,101 @@
     "chips": [
      "quick commerce",
      "modern trade",
-     "horeca",
+     "distributors & stockists",
+     "horeca & travel",
      "institutional"
     ]
    }
   },
   {
-   "t": 8790,
+   "t": 7187,
    "type": "say",
    "p": {
     "who": "sniff",
-    "text": "one scout per segment, 4 of you. go look for these:",
+    "text": "one scout per segment, 5 of you. go look for these:",
     "chips": [
-     "blinkit hiring hyderabad",
-     "flipkart minutes karnataka",
+     "new city launch south",
+     "dark store hiring hyderabad",
      "dmart tamil nadu",
-     "reliance smart karnataka",
-     "bangalore airport concession",
-     "hyderabad hotel pantry",
+     "spencers karnataka",
+     "new distributor maharashtra",
+     "stockist hiring karnataka",
+     "new hotel bengaluru",
+     "airport concession tender delhi",
      "irctc catering tender",
-     "karnataka govt canteen"
+     "csd canteen contract maharashtra"
     ]
    }
   },
   {
-   "t": 8791,
+   "t": 7188,
    "type": "typing",
    "p": {
     "who": "scout"
    }
   },
   {
-   "t": 13597,
+   "t": 16009,
+   "type": "say",
+   "p": {
+    "who": "scout",
+    "text": "horeca & travel: 3 finds. new hilton lxr The Den opens in Bengaluru, great south foothold"
+   }
+  },
+  {
+   "t": 16194,
+   "type": "say",
+   "p": {
+    "who": "scout",
+    "text": "modern trade: 4 finds. dmart just hit 500 stores, time to push our candy into more aisles"
+   }
+  },
+  {
+   "t": 16375,
+   "type": "typing",
+   "p": {
+    "who": "scout"
+   }
+  },
+  {
+   "t": 16548,
+   "type": "typing",
+   "p": {
+    "who": "scout"
+   }
+  },
+  {
+   "t": 21694,
+   "type": "say",
+   "p": {
+    "who": "scout",
+    "text": "quick commerce: 6 finds. amazon now eyeing 100 cities, perfect window for our impulse snacks"
+   }
+  },
+  {
+   "t": 21807,
+   "type": "say",
+   "p": {
+    "who": "scout",
+    "text": "institutional: 1 find. irctc court win keeps catering contract termination, watch institutional supply impact"
+   }
+  },
+  {
+   "t": 22055,
+   "type": "typing",
+   "p": {
+    "who": "scout"
+   }
+  },
+  {
+   "t": 22166,
+   "type": "typing",
+   "p": {
+    "who": "scout"
+   }
+  },
+  {
+   "t": 24065,
    "type": "say",
    "p": {
     "who": "sniff",
@@ -99,7 +162,7 @@
    }
   },
   {
-   "t": 13598,
+   "t": 24067,
    "type": "clue",
    "p": {
     "s": {
@@ -126,102 +189,87 @@
    }
   },
   {
-   "t": 21442,
+   "t": 25855,
    "type": "say",
    "p": {
     "who": "scout",
-    "text": "modern trade: 2 finds. sri narasu's coffee moving into karnataka, could stock our mouth fresheners"
+    "text": "distributors & stockists: 3 finds. digidukaan just added three cities, big chance for our candy on new shelves"
    }
   },
   {
-   "t": 21811,
+   "t": 26222,
    "type": "typing",
    "p": {
     "who": "scout"
    }
   },
   {
-   "t": 22474,
+   "t": 30182,
    "type": "say",
    "p": {
     "who": "scout",
-    "text": "horeca: 3 finds. swiggy's bolt rollout opens fresh impulse aisle, cue our snack pitch"
+    "text": "risk watch: 2 finds. heads up: fssai's label crackdown could stall our candy launches, check packaging asap"
    }
   },
   {
-   "t": 22839,
+   "t": 30535,
    "type": "typing",
    "p": {
     "who": "scout"
    }
   },
   {
-   "t": 24312,
+   "t": 33006,
    "type": "say",
    "p": {
     "who": "scout",
-    "text": "institutional: 0 finds."
+    "text": "quick commerce: 6 finds. flipkart minutes hitting 1k dark stores, big chance for our impulse range"
    }
   },
   {
-   "t": 24664,
+   "t": 33200,
+   "type": "say",
+   "p": {
+    "who": "scout",
+    "text": "modern trade: 6 finds. dmart just opened in pali – fresh shelf space for our candies."
+   }
+  },
+  {
+   "t": 33368,
    "type": "typing",
    "p": {
     "who": "scout"
    }
   },
   {
-   "t": 27588,
-   "type": "say",
-   "p": {
-    "who": "scout",
-    "text": "quick commerce: 4 finds. flipkart minutes eyeing 1k new dark stores, great for our impulse push"
-   }
-  },
-  {
-   "t": 27950,
+   "t": 33555,
    "type": "typing",
    "p": {
     "who": "scout"
    }
   },
   {
-   "t": 28571,
-   "type": "say",
-   "p": {
-    "who": "scout",
-    "text": "risk watch: 2 finds. fssai might cut school sales of our candy – watch the sweet‑tooth market shrink"
-   }
-  },
-  {
-   "t": 28930,
-   "type": "typing",
-   "p": {
-    "who": "scout"
-   }
-  },
-  {
-   "t": 28933,
+   "t": 33555,
    "type": "typing",
    "p": {
     "who": "judge"
    }
   },
   {
-   "t": 38337,
+   "t": 37722,
    "type": "letter",
    "p": {
     "company": "All quick commerce + modern trade buyers",
     "m": {
-     "name": "",
-     "title": "Category Manager - Spices",
+     "name": "Category Manager - Spices",
+     "title": "Category Manager",
      "person_source": "DS Group internal",
      "asset_type": "Email",
-     "subject": "Early listing request – Catch Ginger Garlic Paste (squeezy bottle)",
-     "body": "Catch launches India's first ginger garlic paste in a squeezy bottle (Oct 2026). The SKU fits your quick‑commerce and modern‑trade range alongside our popular Catch spices. We’d like to partner on an early launch and secure shelf space. Can we set a 15‑minute call this week to discuss details? Yes/No?",
-     "linkedin": "Catch just introduced India's first squeezy‑bottle ginger garlic paste. Would love to explore early listing for your quick‑commerce & modern‑trade stores. Quick chat?",
-     "email": "Catch launches India's first ginger garlic paste in a squeezy bottle (Oct 2026). The SKU fits your quick‑commerce and modern‑trade range alongside our popular Catch spices. We’d like to partner on an early launch and secure shelf space. Can we set a 15‑minute call this week to discuss details? Yes/No?",
-     "email_subject": "Early listing request – Catch Ginger Garlic Paste (squeezy bottle)",
+     "subject": "Early listing opportunity – Catch Ginger Garlic Paste squeezy bottle",
+     "body": "Hi Category Manager, Catch has just launched India’s first ginger‑garlic paste in a squeezy bottle (Oct 2026). We’d love to get it on your shelves early and partner on a joint launch for quick‑commerce and modern‑trade formats. Can we set a 15‑minute call this week to discuss? Please let us know Yes or No.",
+     "linkedin": "Catch’s new ginger‑garlic paste squeezy bottle is live. Interested in an early listing and launch partnership for quick‑commerce & modern‑trade? Happy to chat. Yes/No?",
+     "email": "Hi Category Manager, Catch has just launched India’s first ginger‑garlic paste in a squeezy bottle (Oct 2026). We’d love to get it on your shelves early and partner on a joint launch for quick‑commerce and modern‑trade formats. Can we set a 15‑minute call this week to discuss? Please let us know Yes or No.",
+     "email_subject": "Early listing opportunity – Catch Ginger Garlic Paste squeezy bottle",
      "compliance": {
       "status": "clean",
       "issues": []
@@ -231,175 +279,253 @@
    }
   },
   {
-   "t": 40494,
+   "t": 46056,
    "type": "say",
    "p": {
     "who": "judge",
-    "text": "threw out 8 of 11: 4 not a buyer, 1 off priority, 3 duplicate. 1 sent to risk watch, no outreach.",
+    "text": "threw out 17 of 31: 14 duplicate, 3 not a buyer. 1 sent to risk watch, no outreach. 8 on the bench: Hilton Garden Inn Bengaluru ORR, Zepto, Reliance Retail, Smart Bazaar, The Den Bengaluru (Hilton LXR), Olive Hospitality, BigBasket, DigiDukaan.",
     "chips": [
-     "Sri Narasu’s Coffee: Coffee chain not a DS Group buyer",
-     "KPN Fresh: Not a confirmed DS Group buyer",
-     "Swiggy: Event not a store/format expansion",
-     "Rapido's Ownly: Platform not a direct buyer",
-     "Haldiram Group: Competitor, not a buyer"
+     "DMart: Duplicate of DMart milestone",
+     "UFO Moviez: Not a buyer of FMCG",
+     "Annapurna Group: Competitor, not a buyer",
+     "Mondelez: Competitor price hike, not a buyer",
+     "Flipkart: second event at the same company"
     ]
    }
   },
   {
-   "t": 40497,
+   "t": 46063,
    "type": "risk",
    "p": {
     "s": {
      "company": "FSSAI",
      "type": "regulation",
-     "headline": "FSSAI proposes stricter sugar, fat, salt thresholds for foods sold in schools",
-     "date": "Aug 2026",
-     "source_n": 3,
-     "source_title": "DD News",
-     "why_now": "could limit sales of Pulse candies and other sweets to school canteens, hurting institutional growth",
-     "say": "fssai might cut school sales of our candy – watch the sweet‑tooth market shrink",
-     "source_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNTGZ1VmZWVTc5MjZDc01yNDkzaFdRVXdkczlYOEtHWEdPY1U5SENLX0p3TmxET3BTVTJIeE12UXcyNE5NNW02a3hFR09peEl3cG5uQzRBMEQya2paRThnYkI4Q1RPdWFrQjVJVUNXbG9NRENXUHNQNVFzMGx4RWdzY2l4MkJkOV9QMTFVMjZ0cHJBcE5KLWs2MTJGZ3FjVVhiaEpiR0pOaDF2M1RIb1Y0UHBLdw?oc=5",
-     "evidence": "DD News, published 11 Aug 2026. FSSAI proposes stricter thresholds for foods high in fat, sugar and salt sold in schools - DD News",
+     "headline": "FSSAI cracks down on misleading candy and chocolate labels",
+     "date": "Jul 2026",
+     "source_n": "2",
+     "source_title": "The Times of India",
+     "why_now": "our Pulse, Chingles and LuvIt may need label redesign, risking shelf delays",
+     "say": "heads up: fssai's label crackdown could stall our candy launches, check packaging asap",
+     "source_url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNdVQ4NEFkcmJ1SXFIa0htQ3QtNTgyWnVSR1ZNTkV3OTM2S3RrWUk4WG9OZU1zUVJtdUpRYWFibFRKZEFSSEY5WnZ3blg1X1JQYWNMZXppaVB1elZ1bmwtU0tfMGtIeGY0MzFIYWxhU3Q3b2wxLWZ1aHp6bWg5RlVfZ3hHWXJOUm1JQVY3MDR2M2JPRWNqQTFYZk54UkpobkxlWjkyMDRXaWlQdzNCek5mWUE0dFQ5NjYzSHFTcG9sZTBteThkUndHbExXRmRJRjF0NUFKcXp0Umc3UGJpS0xnYzh3c2kwMEXSAewBQVVfeXFMT0Zwd1RVdlUxS2FzSHNieXc0VHZNNnZXZVpaWmJxOWtsbTN6R1JxNlplemlrdVFKbFAtOHo5TUtucEx5SkZtU3pZTHU1ekRYVzMteUZaR0o5aURFTG5teG90S1FFZ29ucEtibUFPVklFWkZFQWdkbGd2bkp4Wjl6R1daVTQtOUxRRGFGMXF3ejVJRjAzT1dGYk1tcUhLTVVBN1hfVG8wcVR3djBKNjdwMzVqc21vRnlnV1Q4S1ZTdlBfbEg5VTdOQWJNOFdlRkdOa2dWMmJjZ2ZTNVRVSFA2NDk0ZGR3X3FrRVBwbHE?oc=5",
+     "evidence": "The Times of India, published 09 Jul 2026. No fruit in fruit candy, no cocoa in chocolate: FSSAI cracks down on misleading labels - The Times of India",
      "early": 1,
-     "id": "c10",
+     "id": "c18",
      "segment": "risk watch",
      "fromRisk": true
     }
    }
   },
   {
-   "t": 40500,
+   "t": 46064,
    "type": "typing",
    "p": {
     "who": "play"
    }
   },
   {
-   "t": 42317,
+   "t": 48809,
    "type": "say",
    "p": {
     "who": "play",
     "text": "next move for each one:",
     "chips": [
+     "Amazon Now: Get in early",
      "Flipkart Minutes: Get in early",
-     "Amazon: Get in early"
+     "Blinkit: Launch partnership",
+     "DMart: Launch partnership"
     ]
    }
   },
   {
-   "t": 42320,
+   "t": 48812,
    "type": "say",
    "p": {
     "who": "scout",
-    "text": "P1 Flipkart Minutes. flipkart minutes eyeing 1k new dark stores, great for our impulse push"
+    "text": "P1 Amazon Now. amazon now eyeing 100 cities, perfect window for our impulse snacks"
    }
   },
   {
-   "t": 42322,
+   "t": 48814,
    "type": "clue",
    "p": {
     "s": {
-     "company": "Flipkart Minutes",
+     "company": "Amazon Now",
      "type": "expansion",
-     "headline": "Flipkart Minutes plans to add 1,000 dark stores by mid‑2027",
-     "date": "04 Sep 2026",
-     "source_n": "6",
-     "source_title": "Inc42",
-     "why_now": "massive capex plan signals rapid growth, opening slots for impulse snacks",
+     "headline": "Amazon Now targets 100 cities by Diwali, hits $1bn annualised sales",
+     "date": "Sep 2026",
+     "source_n": "19",
+     "source_title": "Rediff",
+     "why_now": "targeting festive season demand, leveraging Diwali shopping surge across South India",
      "early": 3,
      "fit": 3,
      "size": 3,
      "proof": 3,
      "momentum": "up",
      "decision_role": "Category Manager - Impulse/Confectionery",
-     "say": "flipkart minutes eyeing 1k new dark stores, great for our impulse push",
-     "source_url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPX0JoX0NLbGtuYXlpaW55UzRINjBneWlSUkdRTnVrYXVNZElTTlVKS1NmcXE0S1dZZ0I3Zmt5V2NGd1J4cktuMkpzdFVzdFI5VVM5eWt1OWdzaktYdFVjdHR4YUlDQ2V3V01oSm5JMklac0FhVXpLQlM0YVc2Z3lxMlFUWDdNSVNlTFRj?oc=5",
-     "evidence": "Inc42, published 04 Sep 2026. Flipkart Minutes Could Add 1,000 Dark Stores By Mid-2027: UBS - Inc42",
-     "id": "c6",
+     "say": "amazon now eyeing 100 cities, perfect window for our impulse snacks",
+     "source_url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOMlZZYVg0ZmNJSVUwdmxrdWdSNmFsS2EyTzVDZkN5NTY5ZXpMeUJnWFNqVDdYa0JxdGhIM0Zreno3SHRjZGlDeFpNd1hZMW9FLU1BdkY3Y1BqRUVZOXZTSGhPWFpHWXZ5ZnY4NUdiTGJTd0dod0xKQUNIWTJHT2ZtMzR6TGp2bUNaZHQzcVl1eTZRU2IweWtsY2Q5Q3hSZkVlU0ZmendHOTdmT3RSRXBoQVE2U1JkWjV6MU1ORTBFM1NSSVp4Q0tZQ2YteWxlUdIB0AFBVV95cUxQVDN6MXlNS0NDWEVyYVZlMzRHd3lxMlpid2dEOEtPalplOGpBUTdVSFlCRFF6TXZRQlpxWjhzVEVzSFRpZEVQMjZVT0dVUTc4YXM0QU12TC1VNFZKQ3JjLXdObGFiWmFkM1pPbEJ6ZG1heFo5UW5FV0k4R2J6VHhHaThYV2R4Nm9oNnZYbnVkN0EtQi0xSmhtamlFY2FvejlJVmZMLWwwbHM2UEdreDh4NDFJXzNtTU13dE9ub1k5c1laYlNJY3p4anNMMWo2Y2dB?oc=5",
+     "evidence": "Rediff, published 15 Sep 2026. Amazon Now hits $1 billion annualised gross sales in India, eyes 100 cities by Diwali - Rediff",
+     "id": "c8",
      "segment": "quick commerce",
      "fromRisk": false,
      "play": "Get in early",
-     "next_step": "Draft note to regional category lead about stocking impulse snacks in new dark stores",
-     "owner": "Trade Marketing Manager"
+     "next_step": "Send note to regional category lead for upcoming Diwali city launches",
+     "owner": "Regional Category Lead"
     }
    }
   },
   {
-   "t": 42674,
+   "t": 49175,
    "type": "say",
    "p": {
     "who": "scout",
-    "text": "P1 Amazon. amazon adding dark stores, another channel for our products"
+    "text": "P1 Flipkart Minutes. flipkart minutes hitting 1k dark stores, big chance for our impulse range"
    }
   },
   {
-   "t": 42678,
+   "t": 49181,
    "type": "clue",
    "p": {
     "s": {
-     "company": "Amazon",
+     "company": "Flipkart Minutes",
      "type": "expansion",
-     "headline": "Amazon expands dark stores amid quick‑commerce race",
-     "date": "24 Jun 2026",
-     "source_n": "27",
-     "source_title": "The Hindu",
-     "why_now": "amazon scaling in south, new dark stores can stock impulse snacks",
+     "headline": "Flipkart Minutes scales to 1,000+ dark stores",
+     "date": "Sep 2026",
+     "source_n": 1,
+     "source_title": "ET Retail",
+     "why_now": "rapid dark‑store rollout aligns with our push into quick‑commerce impulse categories",
+     "early": 3,
+     "fit": 3,
+     "size": 3,
+     "proof": 3,
+     "momentum": "up",
+     "decision_role": "Category Manager - Impulse/Confectionery",
+     "say": "flipkart minutes hitting 1k dark stores, big chance for our impulse range",
+     "source_url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxPN3ZVZi1iY0lCdFNSRDFTRU5FLTRKd1BieVljWEdCVXJvWThrdG51Y3FXZ3FIbTNEYUltaVhxa2hzbU55Zy13YkVnT0RLZHI2M19oc1VyOTllYnEtNVlFVFlZZjR0bVdUTVM0N1JMV2JCbVdLejc4cDFhdVlUdFVuNEUxVXpEMWszblRtNE12Q1FYdDhYdFc5Sk56SXZOQzhEdWxrTllOX2IzV251RFc4dFFGcUYwWWVud1d1NWtieTRwZ2JJOXZsQnNaLW9JWVR2TEtIUTJiVXJLUmd2UUhzdmkxQ081Z1BNRnNVZDNESU1Ed9IB9gFBVV95cUxNcjU4ekp4bDU4WEdXSjc3QlJOMVdGX2NTWHRDR3hXUWFFY2dIUkZSSnp3b09RMzZfN1B4QllUVW1yZGp0X1B2TUlxWUt6TVJQWHlWTXh5RVVDalFISXhqWDFocEJDVWU0VFU5VExyU0pnb21ZbWZGWGduLWVQYzR2Ukl4NUJQLW1fekR2aUpYaDJxX3RpTW9WYU1veExpWXZNZUZaREdpN3RVS3FVU3dpTFpjdEEtMWpkY1ljbTAtTV9rTURZVnpHZnhMN08yLXdRaVZHeFdpa2p2U0ZqaW5VUmozRG5RYUN0TGRTQmp0eFkxeW1USXc?oc=5",
+     "evidence": "ET Retail, published 05 Sep 2026. Flipkart Minutes scales to 1,000+ dark stores, narrows order-value gap with Blinkit - ET Retail",
+     "id": "c20",
+     "segment": "quick commerce",
+     "fromRisk": false,
+     "play": "Get in early",
+     "next_step": "Draft early outreach note to regional lead for new dark‑store roll‑out",
+     "owner": "Regional Category Lead"
+    }
+   }
+  },
+  {
+   "t": 49535,
+   "type": "say",
+   "p": {
+    "who": "scout",
+    "text": "P1 Blinkit. blinkit launching gourmet dark stores in eight cities – perfect for premium mouth fresheners"
+   }
+  },
+  {
+   "t": 49543,
+   "type": "clue",
+   "p": {
+    "s": {
+     "company": "Blinkit",
+     "type": "expansion",
+     "headline": "Blinkit to open gourmet dark stores in top 8 cities",
+     "date": "Jul 2026",
+     "source_n": 25,
+     "source_title": "BusinessLine",
+     "why_now": "gourmet dark stores target premium shoppers in key south‑west metros",
      "early": 2,
      "fit": 3,
      "size": 3,
      "proof": 3,
      "momentum": "up",
      "decision_role": "Category Manager - Impulse/Confectionery",
-     "say": "amazon adding dark stores, another channel for our products",
-     "source_url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNU0dudDA0QVZmNVZveGc1bzFkUGgwLWJZSk8wTW8zVjJNSjJ0Y1dfYlFKSG5wRmRSSjgwMXZkR21uNlpPY1VNelRDdVdmTEVYYlF4UGFwNVc4eV83Qzh5SjgyUVVQVkVmRkdvNEdnZTlCWjBPTTJnNEVxZ3B2SGk4U1hpNW40VmxzN0hBdWJmb2tPWGhQQXVWc3pRTEwtUVA1amZtU1BKZVhOMlNJNExTU0o1UmxhSFhLTU13dFI3ZlBVV1A1N1psSmZtRFNzSnpSTlVabmw0YUs5cEhRNzRCcXBtY0dJN185SnNWdNIB8wFBVV95cUxNMWRHTEdWQUNOVzJFaHE4cFNrVEtYR0NkT3J1S0JUVnZDUHZ6WjU5Q19OblMzNG5QRzM4T2JKWUlRS2dNU1JHNmVicFduSWl0VWpNLXJqcGprbHRzNnpKb0lhUWcyZG1qNHJBaTAwcjNheExwdHFnME9FbjJoNG5YYWw0d1BETDJ1S3o0SjFwTUtqTThKU3ZuLXBOYmZzT3V1WWNLMVlJY21hd1V5aVNndFFIRVBSNkxoRV9nOUxrSTZ0c2hGdXhRR2VZOFZXa3JpX1N5WC1sa09oTTJOWDFvQ0J1RF9ZZzNPQ1BaUU95LUdVaWs?oc=5",
-     "evidence": "The Hindu, published 24 Jun 2026. Quick commerce race intensifies as Flipkart Minutes and Amazon Now scale up operations - The Hindu",
-     "id": "c9",
+     "say": "blinkit launching gourmet dark stores in eight cities – perfect for premium mouth fresheners",
+     "source_url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOYURUTy1VR0s3UDlBNl9wcHJOM2dWQ0x0V1lSc08yNnp3OXVxdHdsVDEtWXl0TXYtMHpab3kwZHFFWkZaLVAzTU90U0JCZEpBYUZmbHhvZUFKZEFMVmh2VG93U1MtTS0wQVZTMTUwTV9FcWxpZWNLb0ZEeEc5LUhNdTlVOG0yQU1DdWRuVHlBOHhYY0NHUlF5aFM1dGIyQ1VDaFBaZWhhTFlRZTNfSTlSNUQzWTJlRXpkcWxhS3J3RkRMWjFEX1VJT256VFlwLV9YTnpN0gHaAUFVX3lxTFBTUHYzZzRydXlsVzJlQUVSRXNuUmNZbWxhbVZveVVBWERVUVljZFBtSVdrTTFTSkxCWXJnS0xkZG9NRzdGM2hqUVVXVWd6QWwtVVpkSnNWckZ5c3dsSjMwZnN5dDR4N3l5LU8tekhtY3NOYmZEV2RJMWxZREdBUGxQckxzcVlwb19rRW1JV0JvSWVzSV9uWXhrNzNlRUQxTEsyTkJxNlF4ZUJzYnNxVU5ONEhCbGRtSEFWN29YV2hLMGFVR3h4a0xCNWNOQXd2WTh3V3IzNVZrQzJn?oc=5",
+     "evidence": "BusinessLine, published 23 Jul 2026. Blinkit to open gourmet dark stores in select location in top 8 cities - BusinessLine",
+     "id": "c23",
      "segment": "quick commerce",
      "fromRisk": false,
-     "play": "Get in early",
-     "next_step": "Draft note to regional category lead about stocking impulse snacks in new dark stores",
+     "play": "Launch partnership",
+     "next_step": "Propose sampling partnership for gourmet dark‑store launch in each city",
      "owner": "Trade Marketing Manager"
     }
    }
   },
   {
-   "t": 43040,
+   "t": 49896,
    "type": "say",
    "p": {
     "who": "scout",
-    "text": "2 clues on the wall. call Flipkart Minutes first. quill, you're up."
+    "text": "P2 DMart. dmart rolling out 15 new outlets – big chance to get pulse on more shelves."
    }
   },
   {
-   "t": 43043,
+   "t": 49901,
+   "type": "clue",
+   "p": {
+    "s": {
+     "company": "DMart",
+     "type": "expansion",
+     "headline": "DMart opens 15 stores in Q2 FY27, revenue rises 18%",
+     "date": "Oct 2026",
+     "source_n": "2",
+     "source_title": "Storyboard18",
+     "why_now": "large batch of stores indicates aggressive rollout phase",
+     "early": 2,
+     "fit": 2,
+     "size": 3,
+     "proof": 3,
+     "momentum": "up",
+     "decision_role": "Category Buyer - Confectionery",
+     "say": "dmart rolling out 15 new outlets – big chance to get pulse on more shelves.",
+     "source_url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPLUFoQm1WQkdmTHliVVdJTWgtYWNWbGdmMG5QbTUta3dRQnJrRGtTUWNwdnZoYkVWRWtYT056UThoeC03US1jdzFPSHNmdkhrNFFFZjRqVlJQbUlFRnlHd1hsZ0xrTkdQRHFUYzdjSHA1b0JySkNGTEpNM0RRMzFrSDNhN2pfZGszSGcxT3FGNHdyY2taZmdFcFk4OVA2OWhnb3VQVHY1Z0hwc293ekw3NGswQ1M0cHVOX0FoM1FlMklwOUVXYzFMY0liNkxiUWhuWXZ5RtIB2gFBVV95cUxQNDgzc0ZBWDRrRXlCNWN1VGlGTHB1ZVZjdGxmVVFxbUtfSnVLMmtJdEVWSy1SQlpzV2F5X0NwNWRfN0RNWG9ONDFESndWdzNGTUFOYW9IZzZaVjJoLWZua0Jhb1hpcGxzN2FMcTMwNVl3RjJrOVRCRUdPOGI1S1FkNUVra2E5Y0VLeDAxVjJURFRTOEJPV3dxODhKYkZ3WHN2X1hpc2NxVmJEbEtnLUJhb0RmYktKRFFMRGZSb2k4N0VFY3ZqSEdZZ1JiMks4OUUxVmRndFF3UGRFZw?oc=5",
+     "evidence": "Storyboard18, published 10 Oct 2026. Avenue Supermarts Q2 FY27: DMart opens 15 stores, revenue rises 18% to Rs 19,644 crore - Storyboard18",
+     "id": "c27",
+     "segment": "modern trade",
+     "fromRisk": false,
+     "play": "Launch partnership",
+     "next_step": "Arrange launch‑day sampling offer for DMart’s 15 new stores",
+     "owner": "Trade Marketing Manager"
+    }
+   }
+  },
+  {
+   "t": 50264,
+   "type": "say",
+   "p": {
+    "who": "scout",
+    "text": "4 clues on the wall. call Amazon Now first. quill, you're up."
+   }
+  },
+  {
+   "t": 50269,
    "type": "typing",
    "p": {
     "who": "quill"
    }
   },
   {
-   "t": 44836,
+   "t": 53460,
    "type": "alert",
    "p": {
-    "id": "c10",
-    "text": "FSSAI's new proposal to tighten sugar, fat and salt thresholds for school canteens may impact Pulse candies in institutional sales.\nDo we need to adjust our institutional strategy now? Yes/No"
+    "id": "c18",
+    "text": "FSSAI has tightened rules on candy and chocolate labels (Jul 2026). Our Pulse candy and LuvIt chocolate will need redesign to stay on Blinkit, Zepto and Swiggy Instamart shelves. Can we set a brief call this week to align on the new artwork and launch timeline? Yes/No?"
    }
   },
   {
-   "t": 48171,
+   "t": 71638,
    "type": "letter",
    "p": {
-    "company": "Amazon",
+    "company": "Flipkart Minutes",
     "m": {
      "name": "",
      "title": "Category Manager - Impulse/Confectionery",
      "person_source": "",
      "asset_type": "Email",
-     "subject": "Quick‑commerce opportunity: Impulse snacks for Amazon dark stores",
-     "body": "Congrats on Amazon’s rollout of new dark stores. DS Group’s Pulse candies and Pass Pass mouth fresheners are perfect impulse picks for quick‑commerce shelves. Can we discuss an early‑listing partnership and set up a brief call next week? Please let me know a convenient slot.",
-     "linkedin": "Congrats on Amazon’s new dark stores. DS Group’s Pulse candies & Pass Pass fresheners fit impulse quick‑commerce. Open to early‑listing partnership – can we chat?",
-     "email": "Congrats on Amazon’s rollout of new dark stores. DS Group’s Pulse candies and Pass Pass mouth fresheners are perfect impulse picks for quick‑commerce shelves. Can we discuss an early‑listing partnership and set up a brief call next week? Please let me know a convenient slot.",
-     "email_subject": "Quick‑commerce opportunity: Impulse snacks for Amazon dark stores",
+     "subject": "Early listing opportunity for DS Group impulse range on Flipkart Minutes",
+     "body": "Hi Category Manager,\n\nCongrats on Flipkart Minutes reaching 1,000+ dark stores. With that rapid rollout, we’d like to get DS Group’s impulse range – Pulse candy and Pass Pass mouth freshener – on board early. A quick call can outline how we support your quick‑commerce shelves.\n\nCan we schedule a 15‑minute chat next week?",
+     "linkedin": "Congrats on 1,000+ dark stores, Flipkart Minutes! Can we explore early listing of Pulse candy and Pass Pass for your impulse shelves? Quick 15‑min chat?",
+     "email": "Hi Category Manager,\n\nCongrats on Flipkart Minutes reaching 1,000+ dark stores. With that rapid rollout, we’d like to get DS Group’s impulse range – Pulse candy and Pass Pass mouth freshener – on board early. A quick call can outline how we support your quick‑commerce shelves.\n\nCan we schedule a 15‑minute chat next week?",
+     "email_subject": "Early listing opportunity for DS Group impulse range on Flipkart Minutes",
      "compliance": {
       "status": "clean",
       "issues": []
@@ -409,20 +535,20 @@
    }
   },
   {
-   "t": 51753,
+   "t": 73189,
    "type": "letter",
    "p": {
-    "company": "Flipkart Minutes",
+    "company": "Blinkit",
     "m": {
      "name": "",
-     "title": "",
+     "title": "Category Manager - Impulse/Confectionery",
      "person_source": "",
      "asset_type": "Email",
-     "subject": "Impulse snack partnership for Flipkart Minutes dark stores",
-     "body": "Hi Category Manager, Congrats on the plan to add 1,000 dark stores by mid‑2027. Our Pulse candies are ready‑to‑grab, shelf‑stable treats that fit quick‑commerce impulse moments. We’d love to be among the first snack partners in the new locations. Would you like us to share samples next week?",
-     "linkedin": "Congrats on the 1,000 new dark stores, Flipkart Minutes! Our Pulse candies are perfect impulse snacks for quick‑commerce. Can we send samples?",
-     "email": "Hi Category Manager, Congrats on the plan to add 1,000 dark stores by mid‑2027. Our Pulse candies are ready‑to‑grab, shelf‑stable treats that fit quick‑commerce impulse moments. We’d love to be among the first snack partners in the new locations. Would you like us to share samples next week?",
-     "email_subject": "Impulse snack partnership for Flipkart Minutes dark stores",
+     "subject": "Partner on Blinkit gourmet dark‑store launch",
+     "body": "Hi Category Manager,\n\nCongrats on the plan for gourmet dark stores in the top 8 cities. Our Pulse candy and Pass Pass fresheners are premium impulse items that fit the upscale shopper profile. We’d love to run a sampling activation at each new store to drive trial. Could we set a 15‑minute call next week to discuss?\n\nBest,\nDS Group team",
+     "linkedin": "Congrats on the gourmet dark‑store rollout! Our Pulse candy & Pass Pass fresheners are perfect for premium impulse shoppers. Can we explore a sampling activation together? – DS Group",
+     "email": "Hi Category Manager,\n\nCongrats on the plan for gourmet dark stores in the top 8 cities. Our Pulse candy and Pass Pass fresheners are premium impulse items that fit the upscale shopper profile. We’d love to run a sampling activation at each new store to drive trial. Could we set a 15‑minute call next week to discuss?\n\nBest,\nDS Group team",
+     "email_subject": "Partner on Blinkit gourmet dark‑store launch",
      "compliance": {
       "status": "clean",
       "issues": []
@@ -432,37 +558,60 @@
    }
   },
   {
-   "t": 51753,
+   "t": 74877,
+   "type": "letter",
+   "p": {
+    "company": "Amazon Now",
+    "m": {
+     "name": "",
+     "title": "Category Manager - Impulse/Confectionery",
+     "person_source": "",
+     "asset_type": "Email",
+     "subject": "Early Diwali launch partnership for Pulse on Amazon Now",
+     "body": "Hi Category Manager, Congrats on Amazon Now’s plan to be in 100 cities for Diwali and the $1 bn annualised target. DS Group would love to get Pulse candy on Amazon Now ahead of the festive rush. Can we set up a 15‑minute call next week to discuss the early launch?",
+     "linkedin": "Congrats on Amazon Now’s Diwali expansion! Can we explore an early Pulse candy launch on your platform for South India? Quick chat?",
+     "email": "Hi Category Manager, Congrats on Amazon Now’s plan to be in 100 cities for Diwali and the $1 bn annualised target. DS Group would love to get Pulse candy on Amazon Now ahead of the festive rush. Can we set up a 15‑minute call next week to discuss the early launch?",
+     "email_subject": "Early Diwali launch partnership for Pulse on Amazon Now",
+     "compliance": {
+      "status": "clean",
+      "issues": []
+     }
+    },
+    "open": false
+   }
+  },
+  {
+   "t": 74877,
    "type": "say",
    "p": {
     "who": "quill",
-    "text": "2 letters ready. click any clue and i'll write that one too."
+    "text": "3 letters ready. click any clue and i'll write that one too."
    }
   },
   {
-   "t": 51755,
+   "t": 74880,
    "type": "say",
    "p": {
     "who": "comply",
-    "text": "checked 2 drafts: 2 clean, 0 fixed, 0 blocked. a human still signs off.",
+    "text": "checked 3 drafts: 3 clean, 0 fixed, 0 blocked. a human still signs off.",
     "chips": []
    }
   },
   {
-   "t": 51757,
+   "t": 74883,
    "type": "letter",
    "p": {
-    "company": "Flipkart Minutes",
+    "company": "Amazon Now",
     "m": {
      "name": "",
-     "title": "",
+     "title": "Category Manager - Impulse/Confectionery",
      "person_source": "",
      "asset_type": "Email",
-     "subject": "Impulse snack partnership for Flipkart Minutes dark stores",
-     "body": "Hi Category Manager, Congrats on the plan to add 1,000 dark stores by mid‑2027. Our Pulse candies are ready‑to‑grab, shelf‑stable treats that fit quick‑commerce impulse moments. We’d love to be among the first snack partners in the new locations. Would you like us to share samples next week?",
-     "linkedin": "Congrats on the 1,000 new dark stores, Flipkart Minutes! Our Pulse candies are perfect impulse snacks for quick‑commerce. Can we send samples?",
-     "email": "Hi Category Manager, Congrats on the plan to add 1,000 dark stores by mid‑2027. Our Pulse candies are ready‑to‑grab, shelf‑stable treats that fit quick‑commerce impulse moments. We’d love to be among the first snack partners in the new locations. Would you like us to share samples next week?",
-     "email_subject": "Impulse snack partnership for Flipkart Minutes dark stores",
+     "subject": "Early Diwali launch partnership for Pulse on Amazon Now",
+     "body": "Hi Category Manager, Congrats on Amazon Now’s plan to be in 100 cities for Diwali and the $1 bn annualised target. DS Group would love to get Pulse candy on Amazon Now ahead of the festive rush. Can we set up a 15‑minute call next week to discuss the early launch?",
+     "linkedin": "Congrats on Amazon Now’s Diwali expansion! Can we explore an early Pulse candy launch on your platform for South India? Quick chat?",
+     "email": "Hi Category Manager, Congrats on Amazon Now’s plan to be in 100 cities for Diwali and the $1 bn annualised target. DS Group would love to get Pulse candy on Amazon Now ahead of the festive rush. Can we set up a 15‑minute call next week to discuss the early launch?",
+     "email_subject": "Early Diwali launch partnership for Pulse on Amazon Now",
      "compliance": {
       "status": "clean",
       "issues": []
@@ -474,244 +623,295 @@
  ],
  "profile": {
   "name": "DS Group",
-  "one_liner": "fmcg snacks and spices like chocolates, mouth fresheners, and catch spices",
+  "one_liner": "confectionery, mouth fresheners, spices and other FMCG foods",
   "home_market": "India",
   "home_market_code": "IN",
   "segments": [
    {
     "segment": "quick commerce",
-    "who": "blinkit, zepto, swiggy instamart, flipkart minutes, bigbasket bbnow",
-    "trigger_moment": "when a platform adds a new city or dark‑store hub in south india",
-    "wide_query": "quick commerce dark stores south india",
+    "who": "Blinkit, Zepto, Swiggy Instamart, Flipkart Minutes, BigBasket, Amazon Now",
+    "trigger_moment": "when the platform opens a new city or adds a dark‑store in South or West India.",
+    "wide_query": "quick commerce city expansion 2026",
     "signals": [
      {
       "segment": "quick commerce",
-      "signal": "blinkit hiring hyderabad",
-      "type": "hiring",
-      "look_for": "dark‑store manager or operations hires in hyderabad",
-      "query": "blinkit dark store manager hiring hyderabad"
+      "signal": "new city launch south",
+      "type": "expansion",
+      "look_for": "platform adding a new city in South India",
+      "query": "Flipkart Minutes expands new cities South India"
      },
      {
       "segment": "quick commerce",
-      "signal": "flipkart minutes karnataka",
-      "type": "expansion",
-      "look_for": "flipkart minutes launching new city in karnataka",
-      "query": "flipkart minutes expands new city karnataka 2026"
+      "signal": "dark store hiring hyderabad",
+      "type": "hiring",
+      "look_for": "dark‑store manager recruitment in Hyderabad",
+      "query": "dark store manager hiring Hyderabad"
      }
     ]
    },
    {
     "segment": "modern trade",
-    "who": "dmart, reliance smart, star bazaar, spencer's, more",
-    "trigger_moment": "when a chain opens a new store or format in south india",
-    "wide_query": "modern trade new store openings south",
+    "who": "DMart, Reliance Smart, Star Bazaar, Spencer's, More",
+    "trigger_moment": "when a retailer opens a new outlet or adds a format in target regions.",
+    "wide_query": "modern trade store openings 2026",
     "signals": [
      {
       "segment": "modern trade",
       "signal": "dmart tamil nadu",
       "type": "expansion",
-      "look_for": "dmart announcing a new outlet in tamil nadu",
-      "query": "dmart new store opening tamil nadu 2026"
+      "look_for": "DMart new store opening in Tamil Nadu",
+      "query": "DMart new store opening Tamil Nadu"
      },
      {
       "segment": "modern trade",
-      "signal": "reliance smart karnataka",
+      "signal": "spencers karnataka",
       "type": "expansion",
-      "look_for": "reliance smart adding stores in bengaluru or other karnataka cities",
-      "query": "reliance smart expansion karnataka 2026"
+      "look_for": "Spencer's new outlet launch in Karnataka",
+      "query": "Spencer's new store opening Karnataka"
      }
     ]
    },
    {
-    "segment": "horeca",
-    "who": "hotels, airports, cinema chains, restaurant groups",
-    "trigger_moment": "when a hotel, airport or cinema signs a new F&B vendor contract in south india",
-    "wide_query": "hotel airport restaurant concessions south india",
+    "segment": "distributors & stockists",
+    "who": "regional distributors, stockists in tier‑2/3 towns",
+    "trigger_moment": "when a new distributor signs up or a stockist expands coverage in under‑penetrated areas.",
+    "wide_query": "distributor partnership expansion 2026",
     "signals": [
      {
-      "segment": "horeca",
-      "signal": "bangalore airport concession",
+      "segment": "distributors & stockists",
+      "signal": "new distributor maharashtra",
       "type": "purchase",
-      "look_for": "new snack concession at kempegowda international airport",
-      "query": "bangalore airport new snack concession 2026"
+      "look_for": "announcement of a new FMCG distributor in Maharashtra",
+      "query": "new distributor partnership Maharashtra FMCG"
      },
      {
-      "segment": "horeca",
-      "signal": "hyderabad hotel pantry",
-      "type": "purchase",
-      "look_for": "hotel chain in hyderabad adding confectionery supplier",
-      "query": "hyderabad hotel pantry supplier 2026"
+      "segment": "distributors & stockists",
+      "signal": "stockist hiring karnataka",
+      "type": "hiring",
+      "look_for": "stockist recruitment drive in Karnataka",
+      "query": "stockist recruitment Karnataka"
+     }
+    ]
+   },
+   {
+    "segment": "horeca & travel",
+    "who": "hotels, restaurants, airports, cinemas, travel catering firms",
+    "trigger_moment": "when a hotel chain opens a property or an airport issues a concession tender.",
+    "wide_query": "hotel airport concession tender 2026",
+    "signals": [
+     {
+      "segment": "horeca & travel",
+      "signal": "new hotel bengaluru",
+      "type": "expansion",
+      "look_for": "new hotel opening in Bengaluru in 2026",
+      "query": "new hotel opening Bengaluru 2026"
+     },
+     {
+      "segment": "horeca & travel",
+      "signal": "airport concession tender delhi",
+      "type": "tender",
+      "look_for": "airport concession tender issued for Delhi",
+      "query": "airport concession tender Delhi 2026"
      }
     ]
    },
    {
     "segment": "institutional",
-    "who": "irctc, government canteens, corporate canteens via tenders",
-    "trigger_moment": "when a government or corporate tender for confectionery or spices is issued in south india",
-    "wide_query": "government corporate canteen tenders south",
+    "who": "CSD canteens, IRCTC, corporate canteens via GeM tenders",
+    "trigger_moment": "when a government or corporate tender is released for bulk confectionery or mouth‑freshener supply.",
+    "wide_query": "institutional catering tenders 2026",
     "signals": [
      {
       "segment": "institutional",
       "signal": "irctc catering tender",
       "type": "tender",
-      "look_for": "irctc issuing a south india catering tender for snacks",
-      "query": "irctc catering tender south india 2026"
+      "look_for": "IRCTC catering supply tender for 2026",
+      "query": "IRCTC catering tender 2026"
      },
      {
       "segment": "institutional",
-      "signal": "karnataka govt canteen",
-      "type": "tender",
-      "look_for": "karnataka government canteen supply tender for confectionery",
-      "query": "karnataka government canteen supply tender 2026"
+      "signal": "csd canteen contract maharashtra",
+      "type": "purchase",
+      "look_for": "CSD canteen supply contract awarded in Maharashtra",
+      "query": "CSD canteen supply contract Maharashtra"
      }
     ]
    }
   ],
   "risk_signals": [
    {
-    "signal": "fssai sugar limit",
+    "signal": "fssai confectionery rule",
     "type": "regulation",
-    "look_for": "new FSSAI rule capping sugar in confectionery",
-    "query": "FSSAI confectionery sugar limit 2026"
+    "look_for": "new FSSAI regulation affecting confectionery labeling",
+    "query": "FSSAI new rule confectionery 2026"
    },
    {
-    "signal": "mondelez new candy",
+    "signal": "mondelez price hike",
     "type": "competitor",
-    "look_for": "Mondelez launching a new candy line in south india",
-    "query": "Mondelez new candy launch south india 2026"
+    "look_for": "Mondelez announces candy price increase in India",
+    "query": "Mondelez candy price hike India 2026"
    }
   ],
   "not_buyers": [
    "consumers",
    "regulators",
    "schools",
-   "us/eu retailers",
+   "US/EU retailers",
    "competitors"
   ],
-  "say_1": "they dominate north snacks, now hunting south quick‑commerce shelves",
-  "say_2": "the trade pays – platforms, chains, hotels and canteens when they open or tender",
+  "say_1": "candy, spices and fresh breath – they’ve got the whole snack aisle covered",
+  "say_2": "the trade pays – retailers, quick‑commerce platforms, distributors, hotels and canteens when they need stock",
   "signals": [
    {
     "segment": "quick commerce",
-    "signal": "blinkit hiring hyderabad",
-    "type": "hiring",
-    "look_for": "dark‑store manager or operations hires in hyderabad",
-    "query": "blinkit dark store manager hiring hyderabad"
+    "signal": "new city launch south",
+    "type": "expansion",
+    "look_for": "platform adding a new city in South India",
+    "query": "Flipkart Minutes expands new cities South India"
    },
    {
     "segment": "quick commerce",
-    "signal": "flipkart minutes karnataka",
-    "type": "expansion",
-    "look_for": "flipkart minutes launching new city in karnataka",
-    "query": "flipkart minutes expands new city karnataka 2026"
+    "signal": "dark store hiring hyderabad",
+    "type": "hiring",
+    "look_for": "dark‑store manager recruitment in Hyderabad",
+    "query": "dark store manager hiring Hyderabad"
    },
    {
     "segment": "modern trade",
     "signal": "dmart tamil nadu",
     "type": "expansion",
-    "look_for": "dmart announcing a new outlet in tamil nadu",
-    "query": "dmart new store opening tamil nadu 2026"
+    "look_for": "DMart new store opening in Tamil Nadu",
+    "query": "DMart new store opening Tamil Nadu"
    },
    {
     "segment": "modern trade",
-    "signal": "reliance smart karnataka",
+    "signal": "spencers karnataka",
     "type": "expansion",
-    "look_for": "reliance smart adding stores in bengaluru or other karnataka cities",
-    "query": "reliance smart expansion karnataka 2026"
+    "look_for": "Spencer's new outlet launch in Karnataka",
+    "query": "Spencer's new store opening Karnataka"
    },
    {
-    "segment": "horeca",
-    "signal": "bangalore airport concession",
+    "segment": "distributors & stockists",
+    "signal": "new distributor maharashtra",
     "type": "purchase",
-    "look_for": "new snack concession at kempegowda international airport",
-    "query": "bangalore airport new snack concession 2026"
+    "look_for": "announcement of a new FMCG distributor in Maharashtra",
+    "query": "new distributor partnership Maharashtra FMCG"
    },
    {
-    "segment": "horeca",
-    "signal": "hyderabad hotel pantry",
-    "type": "purchase",
-    "look_for": "hotel chain in hyderabad adding confectionery supplier",
-    "query": "hyderabad hotel pantry supplier 2026"
+    "segment": "distributors & stockists",
+    "signal": "stockist hiring karnataka",
+    "type": "hiring",
+    "look_for": "stockist recruitment drive in Karnataka",
+    "query": "stockist recruitment Karnataka"
+   },
+   {
+    "segment": "horeca & travel",
+    "signal": "new hotel bengaluru",
+    "type": "expansion",
+    "look_for": "new hotel opening in Bengaluru in 2026",
+    "query": "new hotel opening Bengaluru 2026"
+   },
+   {
+    "segment": "horeca & travel",
+    "signal": "airport concession tender delhi",
+    "type": "tender",
+    "look_for": "airport concession tender issued for Delhi",
+    "query": "airport concession tender Delhi 2026"
    },
    {
     "segment": "institutional",
     "signal": "irctc catering tender",
     "type": "tender",
-    "look_for": "irctc issuing a south india catering tender for snacks",
-    "query": "irctc catering tender south india 2026"
+    "look_for": "IRCTC catering supply tender for 2026",
+    "query": "IRCTC catering tender 2026"
    },
    {
     "segment": "institutional",
-    "signal": "karnataka govt canteen",
-    "type": "tender",
-    "look_for": "karnataka government canteen supply tender for confectionery",
-    "query": "karnataka government canteen supply tender 2026"
+    "signal": "csd canteen contract maharashtra",
+    "type": "purchase",
+    "look_for": "CSD canteen supply contract awarded in Maharashtra",
+    "query": "CSD canteen supply contract Maharashtra"
    }
   ],
   "buyers": [
    "quick commerce",
    "modern trade",
-   "horeca",
+   "distributors & stockists",
+   "horeca & travel",
    "institutional"
   ],
-  "trigger_moment": "when a platform adds a new city or dark‑store hub in south india"
+  "trigger_moment": "when the platform opens a new city or adds a dark‑store in South or West India."
  },
  "recipe": [
   {
    "segment": "quick commerce",
-   "signal": "blinkit hiring hyderabad",
-   "type": "hiring",
-   "look_for": "dark‑store manager or operations hires in hyderabad",
-   "query": "blinkit dark store manager hiring hyderabad"
+   "signal": "new city launch south",
+   "type": "expansion",
+   "look_for": "platform adding a new city in South India",
+   "query": "Flipkart Minutes expands new cities South India"
   },
   {
    "segment": "quick commerce",
-   "signal": "flipkart minutes karnataka",
-   "type": "expansion",
-   "look_for": "flipkart minutes launching new city in karnataka",
-   "query": "flipkart minutes expands new city karnataka 2026"
+   "signal": "dark store hiring hyderabad",
+   "type": "hiring",
+   "look_for": "dark‑store manager recruitment in Hyderabad",
+   "query": "dark store manager hiring Hyderabad"
   },
   {
    "segment": "modern trade",
    "signal": "dmart tamil nadu",
    "type": "expansion",
-   "look_for": "dmart announcing a new outlet in tamil nadu",
-   "query": "dmart new store opening tamil nadu 2026"
+   "look_for": "DMart new store opening in Tamil Nadu",
+   "query": "DMart new store opening Tamil Nadu"
   },
   {
    "segment": "modern trade",
-   "signal": "reliance smart karnataka",
+   "signal": "spencers karnataka",
    "type": "expansion",
-   "look_for": "reliance smart adding stores in bengaluru or other karnataka cities",
-   "query": "reliance smart expansion karnataka 2026"
+   "look_for": "Spencer's new outlet launch in Karnataka",
+   "query": "Spencer's new store opening Karnataka"
   },
   {
-   "segment": "horeca",
-   "signal": "bangalore airport concession",
+   "segment": "distributors & stockists",
+   "signal": "new distributor maharashtra",
    "type": "purchase",
-   "look_for": "new snack concession at kempegowda international airport",
-   "query": "bangalore airport new snack concession 2026"
+   "look_for": "announcement of a new FMCG distributor in Maharashtra",
+   "query": "new distributor partnership Maharashtra FMCG"
   },
   {
-   "segment": "horeca",
-   "signal": "hyderabad hotel pantry",
-   "type": "purchase",
-   "look_for": "hotel chain in hyderabad adding confectionery supplier",
-   "query": "hyderabad hotel pantry supplier 2026"
+   "segment": "distributors & stockists",
+   "signal": "stockist hiring karnataka",
+   "type": "hiring",
+   "look_for": "stockist recruitment drive in Karnataka",
+   "query": "stockist recruitment Karnataka"
+  },
+  {
+   "segment": "horeca & travel",
+   "signal": "new hotel bengaluru",
+   "type": "expansion",
+   "look_for": "new hotel opening in Bengaluru in 2026",
+   "query": "new hotel opening Bengaluru 2026"
+  },
+  {
+   "segment": "horeca & travel",
+   "signal": "airport concession tender delhi",
+   "type": "tender",
+   "look_for": "airport concession tender issued for Delhi",
+   "query": "airport concession tender Delhi 2026"
   },
   {
    "segment": "institutional",
    "signal": "irctc catering tender",
    "type": "tender",
-   "look_for": "irctc issuing a south india catering tender for snacks",
-   "query": "irctc catering tender south india 2026"
+   "look_for": "IRCTC catering supply tender for 2026",
+   "query": "IRCTC catering tender 2026"
   },
   {
    "segment": "institutional",
-   "signal": "karnataka govt canteen",
-   "type": "tender",
-   "look_for": "karnataka government canteen supply tender for confectionery",
-   "query": "karnataka government canteen supply tender 2026"
+   "signal": "csd canteen contract maharashtra",
+   "type": "purchase",
+   "look_for": "CSD canteen supply contract awarded in Maharashtra",
+   "query": "CSD canteen supply contract Maharashtra"
   }
  ],
  "ownLaunch": {
@@ -737,355 +937,1062 @@
  },
  "candidates": [
   {
-   "company": "Sri Narasu’s Coffee",
+   "company": "The Den Bengaluru (Hilton LXR)",
    "type": "expansion",
-   "headline": "Sri Narasu’s Coffee expands into Karnataka and Andhra Pradesh",
+   "headline": "The Den Bengaluru becomes Hilton’s first LXR in India’s Silicon Valley",
+   "date": "Oct 2026",
+   "source_n": 24,
+   "source_title": "La Revue des Hôtels",
+   "why_now": "south india hotel opening matches DS push to grow confectionery in south region",
+   "early": 2,
+   "fit": 3,
+   "size": 1,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Purchase Manager",
+   "say": "new hilton lxr The Den opens in Bengaluru, great south foothold",
+   "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNZTUxU205c2FXUC1NWGR3Y1hidFdTZUw2VmFRV0JjclRLRU14aHgwWGRuTnVHaUl3cGxnN1JOaVNvRDZaS2c2UlJ6UkVITnd5eG40ekxRcTJIXzJvYTJNQTQ0cms4czlwSGNfb3oyamJtY25iZUZnX1NjbERoaXktajZ2QVdZaFFSSW9jbzBmbFJxemtubzNGNA?oc=5",
+   "evidence": "La Revue des Hôtels, published 20 Oct 2026. The Den Bengaluru hotel becomes Hilton’s first LXR in India’s Silicon Valley - La Revue des Hôtels",
+   "id": "c1",
+   "segment": "horeca & travel",
+   "fromRisk": false
+  },
+  {
+   "company": "Olive Hospitality",
+   "type": "expansion",
+   "headline": "Olive Hospitality launches new hotel in North Bengaluru",
    "date": "May 2026",
-   "source_n": 4,
-   "source_title": "MediaNews4U",
-   "why_now": "south india push aligns with ds group’s confectionery growth targets",
+   "source_n": 27,
+   "source_title": "Hotelier India",
+   "why_now": "adds another south‑India outlet, supporting DS’s southern expansion priority",
    "early": 1,
-   "fit": 2,
+   "fit": 3,
    "size": 2,
    "proof": 3,
    "momentum": "up",
-   "decision_role": "Purchase Manager / F&B Manager",
-   "say": "sri narasu's coffee moving into karnataka, could stock our mouth fresheners",
-   "source_url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPZU5CSWx0RDM1c0pBYmFnY2d4ZDlKNW95ZjZVWm16TV9qMUx1bEZaY2tPTHdxTlJaaUJkRklpVnhOZXpMSUJUbnp0R0lGSUR5XzAxemJpbUZQSWh4Q1lldmN3cGZsSXl0M3dmMzAwTTN3TWh0OGJGNkVJRHBtelJzUWt1NTVQck96eGlVRFpnSTI3MVdaOWt0SzZETDJ5aTMwVE96dWVCb0NSWGZmQ3pFZy1WV19oUXpGM3JFYVpwUGF4cVdq?oc=5",
-   "evidence": "MediaNews4U, published 28 May 2026. Sri Narasu’s Coffee accelerates South India expansion with entry into Karnataka and Andhra Pradesh - MediaNews4U",
-   "id": "c1",
+   "decision_role": "Purchase Manager",
+   "say": "olive hospitality adds north Bengaluru hotel, adds another south entry",
+   "source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQSE9xeFNZNkJndTBuX0MzOGNtdDdiODJTQTFPNTdEalZlSjRQcjVEeUVOc0gwNm8tSHBLZERaMElVZ2NoaFRXQnVScGdySzN2SEVZcXpzeE1kTFVvWXFnZENSNzNzNFdBamlNU3VzRkxsbFdrQ3BtNWdtYk5jbG1SdDFvVHUxaFROWHZrdU1mc1JwR1JpT08wSmRZcThSQQ?oc=5",
+   "evidence": "Hotelier India, published 12 May 2026. Olive Hospitality launches new hotel in North Bengaluru - Hotelier India",
+   "id": "c2",
+   "segment": "horeca & travel",
+   "fromRisk": false
+  },
+  {
+   "company": "Hilton Garden Inn Bengaluru ORR",
+   "type": "expansion",
+   "headline": "Hilton Garden Inn opens in Bengaluru’s ORR, offering preview of two‑hotel complex and convention centre",
+   "date": "Jul 2026",
+   "source_n": 28,
+   "source_title": "ET HospitalityWorld",
+   "why_now": "new south‑India hotel aligns with DS’s focus on HoReCa growth in the region",
+   "early": 2,
+   "fit": 3,
+   "size": 2,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Purchase Manager",
+   "say": "hilton garden inn opens on ORR, preview of larger complex, south push",
+   "source_url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxOQ0pNV2YyXzhRNGtZLUQxVFRJMG5YMDZRWk1vTkZ5a2NpNl9sMkZFRHE4YW4taFBKOUxXR0dsR3IySUNXX1k5LVZJNnBLajdxN2gxVGRQcklIYkV6YTBWR3JlQkVJOEZKR1ZRNzBFc2NTWFRmZnA5dzNPbWhnNlVpcHFUOWZWTHhLMUhTX2ZFUGx3Z0pZb1hiaWJRV0QtaGFTb1J0TnZ4LXZsN2xtMTNDQnR3cEthQlVjOTg1eW5XWW5aei1wZFJCZUc0V0lvYVNqTHlXTGN1ck9TOU1QcnVfTVdvWi0yb2x2aVJwOFJjZk1KOHU5NHZIeHlpb3IzWXVo0gGGAkFVX3lxTE93S1hKUDR2V1JhaVA4LTVYTXJmanpOOEE2Vng3UlRFRXhZYVhlVXNEYkY4YkNyRUpYZnNWaDc2WVBja2hkNE0xaTU2TTBKMFpQcEFrWUZtWjNlQWFZbFZleDlMYzlvSHJpel9VWHdRR2h1SW9VWVRlc3FsNG54WW9uZTc0QXF2SjV6UnR6Sk5STUJPZjJBN3ZWV3hLQ3dhQ1AyeXlKQk4ya1hDb09EV3l2YmV5VkJ5RFh2d183akZYSllPejc5eGdzVUdMVy0zbGo4R3pqaEdlbU9kbDY0UldlaTZQWmZYM2ZqN29Wbnc1OExLZWZLV2RaMWhrRnpvUHM2bGJSYkE?oc=5",
+   "evidence": "ET HospitalityWorld, published 08 Jul 2026. Hilton Garden Inn opens in Bengaluru’s ORR, offering preview of two-hotel complex and convention centre - ET HospitalityWorld",
+   "id": "c3",
+   "segment": "horeca & travel",
+   "fromRisk": false
+  },
+  {
+   "company": "DMart",
+   "type": "expansion",
+   "headline": "DMart store count hits 500, shares rally 8%",
+   "date": "Apr 2026",
+   "source_n": 24,
+   "source_title": "ET Retail",
+   "why_now": "signals continued aggressive store rollout, good for listing new confectionery SKUs",
+   "early": 1,
+   "fit": 2,
+   "size": 3,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Category Buyer - Confectionery",
+   "say": "dmart just hit 500 stores, time to push our candy into more aisles",
+   "source_url": "https://news.google.com/rss/articles/CBMijAJBVV95cUxPR083VjRtUE9ncDBGRDN0S1RJWHBoLXJqbHFhOGM5MVNHNnFmR0hPemZlTjVIXzBsZzFqSFRnaUpjblVIYnJuWWVLM29abXByQ0ozOHlDS3BucTVRQlRReDlvaGFaZElyd2lHdDdNbUxTUXg4dGNwV0o5UjViaFZJSzBHcW9NYXROYVYxc1ljYWhRM3gtdVAtZU12QlFKUW1PWEM0V2RyQ0kya2N5Rm5xNUpBT3JKTlFYWnk2M2VCcHJ5MkVXR1pfRWZ0RHRpTVZBc3V6WE80Y2Y0aUw1UFJtRzhrWVdleEpuMnZNX1R4NmduMXdQVjFKRWZJVkpvdFc5MHRlRXVDSEtOTXBz0gGQAkFVX3lxTFB2VkR1WnZZZW00NWpOZlNDSnViM0xleUpxYzBqZUVyMmN3VDBWcHFRMjEyZ0QyeFpoYU1pUzJLUFBRRm9ualpDMERjNVB5Y3FPWHV1aWZwR2s4ZWVmN2NZN1dId2hTTXJCOHdZT0ZLTmxmakFlMWdrY2FaNDJYbHhGVmhuaTB6cTJpbFNkOXBqVUVENy1TSzU3V2U4X1lvaWd3QkJWbXY4OVc4d1Z2d19BZWVLc2E3RE9PS3NEd1ByLUduQ2NhYXBVZFdIVWFHakRwZDk0bFc4V0ZZcGc5bkRZM3B4VzB5T2FqbzF6cjExbko1Q3ZGM3dZdUVVUEFMQ2paRDVhc2hKcFNwdnlYM0NS?oc=5",
+   "evidence": "ET Retail, published 02 Apr 2026. DMart shares rally 8% after firm's store count hits 500: Should you buy? - ET Retail",
+   "id": "c4",
    "segment": "modern trade",
    "fromRisk": false
   },
   {
-   "company": "KPN Fresh",
+   "company": "DMart",
    "type": "expansion",
-   "headline": "KPN Fresh launches 300‑store south india food‑store network",
-   "date": "Aug 2026",
-   "source_n": 5,
-   "source_title": "India Retailing",
-   "why_now": "massive south india footprint perfect for scaling pulse and pass‑pass",
-   "early": 2,
-   "fit": 3,
+   "headline": "DMart crosses 500‑store milestone",
+   "date": "Jul 2026",
+   "source_n": 25,
+   "source_title": "Lapaas Voice",
+   "why_now": "milestone shows momentum, opportunity to add our range in new outlets",
+   "early": 1,
+   "fit": 2,
+   "size": 3,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Category Buyer - Confectionery",
+   "say": "dmart milestone means fresh shelf space, let’s get our pulse stocked",
+   "source_url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9fZVltc2lVQjRzZ29vTFhMdnJ6ZjVzM2JtS0R5dXZ5Y0tWUlFKZ2x2b2JnV3RRb1dGVUZ5Tk1JSjFSa0Y3c1RjbWZhbEVwLWJsdTFhM3NQeXBtWWpRRnhJc3lzQ01vN0dS?oc=5",
+   "evidence": "Lapaas Voice, published 12 Jul 2026. DMart cross 500-store Milestone - Lapaas Voice",
+   "id": "c5",
+   "segment": "modern trade",
+   "fromRisk": false
+  },
+  {
+   "company": "DMart",
+   "type": "expansion",
+   "headline": "DMart adds three stores in two days",
+   "date": "Mar 2026",
+   "source_n": 26,
+   "source_title": "Dalal Street Investment Journal",
+   "why_now": "rapid store additions could accommodate impulse confectionery",
+   "early": 1,
+   "fit": 2,
+   "size": 3,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Category Buyer - Confectionery",
+   "say": "three new dmarts in two days – perfect for a quick‑launch of our new chocolate",
+   "source_url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOZnpDU3NfTEVOWG5idXl6YUZ6cHYzQ2dsWXBaSm4xYTdZOUdETDBfVFdCbDdyYjRGRmF0T0NGQ29fUEpjTE9ZQTQwektuSDlnRV9zSm93Wm1yNEIwVlNJWU9iVE1vZmE2Y3p0TTBEZENyZzdyZjhFV1ljWWxIeU1fMFUxVmxEMUtIcjNKaU01cXZrWFJqQ3I2Y1BOam5mRGVPX0wyekFyMDM1bVpFRkRkeHgzVldsQkVsaG1jc3VwX3VFTXBrRkl4UXlLVVdQbWhRYzNr?oc=5",
+   "evidence": "Dalal Street Investment Journal, published 26 Mar 2026. Dmart Adds 3 Stores in 2 Days; Shares Jump Over 4% as 500-Store Milestone Comes into Sight - Dalal Street Investment Journal",
+   "id": "c6",
+   "segment": "modern trade",
+   "fromRisk": false
+  },
+  {
+   "company": "DMart",
+   "type": "expansion",
+   "headline": "DMart opens stores in Kota, Ghaziabad, Greater Noida",
+   "date": "Feb 2026",
+   "source_n": 27,
+   "source_title": "scanx.trade",
+   "why_now": "new northern locations expand footprint, but still relevant for national brand",
+   "early": 1,
+   "fit": 1,
    "size": 2,
    "proof": 3,
    "momentum": "up",
    "decision_role": "Category Buyer - Confectionery",
-   "say": "kpn fresh rolling out 300 stores in south, prime for our confectionery shelf",
-   "source_url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQV0xzU3pOOUdZR2c1dEVPenJHVC12dktILWxyUEVyeXpqOVdLWllDWWpNR0YyZjFhQ3B3UlVIV0ZPRGNXek1rMjM2S0FZZWZYRjNHbGFydWU5bnRRa3d2WFFpcUQ4b2MwQUtHYk03N3dFZXhZbl9OazFuMXIzWXJnWWMtRW9HTzNyZ0dZNkdUXzNqTXdqQkoxbEt4U2hLc2V6UEluMThveUQwQ0RPOEZwSVFHdGl4OWl4NW5WWUxQRDBMelZJU1lYQVBR?oc=5",
-   "evidence": "India Retailing, published 24 Aug 2026. KPN Fresh’s 300-Store Leap: How a Coimbatore Retail Legacy Is Building a South India Food-Store Network - India Retailing",
-   "id": "c2",
+   "say": "dmart’s north‑india push adds three stores, keep eyes on shelf space there",
+   "source_url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQeXNaejdrMktRS3kzdlRDNG9aTDNUQkhyclRGLXlvSzZNRVhuTVd6WmtyU3BwTm5iSXJPcVBvUjhiWkxzc2tLWmJuNWVHRkZBTmZMUUVXNWFxWmZCN3Q2XzFFRy1qdl9JdjRKLVlGNFhZM2s3ak5HT0s0dlpOVGItWWtXZnhmeXZxYTF2N21yVVE2QUFHblpqdi1KcUtVZ0ZEVU1QaWcxbmtCQnU2T0NQWEVDRDNhUEQyd196MWxucHpTQ3VOY1BKUnU3MkI?oc=5",
+   "evidence": "scanx.trade, published 23 Feb 2026. Avenue Supermarts Opens 3 New DMart Stores in Kota, Ghaziabad and Greater Noida - scanx.trade",
+   "id": "c7",
    "segment": "modern trade",
    "fromRisk": false
   },
   {
-   "company": "Swiggy",
+   "company": "Amazon Now",
    "type": "expansion",
-   "headline": "Swiggy to expand use cases for Bolt",
-   "date": "Nov 2025",
-   "source_n": 10,
-   "source_title": "The Times of India",
-   "why_now": "new category push could open shelf for DS confectionery",
-   "early": 1,
-   "fit": 3,
-   "size": 3,
-   "proof": 3,
-   "momentum": "up",
-   "decision_role": "Category Manager - Impulse/Confectionery",
-   "say": "swiggy's bolt rollout opens fresh impulse aisle, cue our snack pitch",
-   "source_url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQcUIxNTFwLVl5YjFZeHNIS000QnVDbW1NbzBJd0dKZC1VVkVqOHB3ZWxlT2hNdUpKa01rYnlvY3VfZk9Gd2x1V3hBUW02VW5pVF9ObnlNalgybW5DeUpnODAwYTEyc2U4REM0ajduRTlzUS1PTzlpRklmbzVjOEZ0OF94Wlc2ZTZ6WG42aWd0T2xHLWZkQ0pFQWZlbzRRUU9wLUxWUkVYVmVfN013YWw5NmFzdWtPaHFIT24yZUdRYk5kLWc3ZzhmS2NuQzdVTEVSUlJmUldUWHLSAd4BQVVfeXFMUFAyeExTelNjSENUcmlzWVhOdTVvYjl6UVFzSU1fcWZsR3d1ektPdkV1eV9oczV3WHZVc3BOYkV0RmhuQjVjVFpVSExRWks4LW5SR1g0aGtlcXVGOEVuSU1IbU44Qy1OQUZPb3NRQUpTYmdNcWg1NkZXM1pZeXFxdVRJVlA5LUVxdm9UVTRkcmgwN0gwSjFaNXBJWDFjS1F3bFotQ3FJRVNRQ1Z1amthVjkyRmRTNHIyRkZHaFE4TDd4eGo1dWVXVHNveWRjQVpOZkRCWHc1X0VUWGJZY2dn?oc=5",
-   "evidence": "The Times of India, published 17 Nov 2025. Quick-commerce boom: Swiggy to expand use cases for Bolt - The Times of India",
-   "id": "c3",
-   "segment": "horeca",
-   "fromRisk": false
-  },
-  {
-   "company": "Rapido's Ownly",
-   "type": "expansion",
-   "headline": "Rapido's Ownly expands restaurant partnership via NRAI agreement",
-   "date": "Aug 2026",
-   "source_n": 17,
-   "source_title": "Indian Retailer",
-   "why_now": "new restaurant network boosts demand for quick‑snack supplies",
-   "early": 2,
-   "fit": 3,
-   "size": 3,
-   "proof": 3,
-   "momentum": "up",
-   "decision_role": "Category Manager - Impulse/Confectionery",
-   "say": "rapido's ownly adds restaurants, perfect time to push our mouth fresheners",
-   "source_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPbDFXUzI3U1hlZTk0TC1KeTlIUy1SVWZmRENzQXhURmhIZXZ1Nk9CUENBd0lzakFJVFJzZ0ZBZUY2NDZNaDhtMnZPNWU3WlpYSlZ2Y1N0TkRQODNFS0t5QWxTWl9MV0lvVU5sX0Y1Vl9iZ0EzcHY5blJsbUpneFcwUzFaYzJHeHNFWFRoMFFUZklVLWtqVjZYS2pFRFZXbHVJcy1MMENR?oc=5",
-   "evidence": "Indian Retailer, published 03 Aug 2026. Rapido's Ownly Expands Restaurant Partnership Through NRAI Agreement - Indian Retailer",
-   "id": "c4",
-   "segment": "horeca",
-   "fromRisk": false
-  },
-  {
-   "company": "Haldiram Group",
-   "type": "expansion",
-   "headline": "Haldiram to launch Jimmy John's QSR in India",
-   "date": "Nov 2025",
-   "source_n": 19,
-   "source_title": "Indian Retailer",
-   "why_now": "QSR rollout will need ready‑to‑eat snacks for customers",
-   "early": 1,
-   "fit": 3,
-   "size": 3,
-   "proof": 3,
-   "momentum": "up",
-   "decision_role": "Purchase Manager / F&B Manager",
-   "say": "haldiram's jimmy john's launch means new snack orders, let's get on their list",
-   "source_url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNa1R6bE5uUFdlNFFrNGVyekpGei0zR3ZpWHlGbGFIc2pRTVdxRl9BTlIwNS01YkVPb1ZqYm55ZS1NenhoazZCYkkxMU1Gb1FNanhHY29Ka21CUFpfemRYN1F6ME5qMmVPQ0Q2aDBRSVUxZm5VUmhLSGdJSUNPTVpjcHV0d1lYOHhfSng5eXI1RERvZ3BCQWxyWm5tQThZVjVoUHdrQUhxeVE?oc=5",
-   "evidence": "Indian Retailer, published 12 Nov 2025. Haldiram Group Plans QSR Foray with Jimmy John’s in India - Indian Retailer",
-   "id": "c5",
-   "segment": "horeca",
-   "fromRisk": false
-  },
-  {
-   "company": "Flipkart Minutes",
-   "type": "expansion",
-   "headline": "Flipkart Minutes plans to add 1,000 dark stores by mid‑2027",
-   "date": "04 Sep 2026",
-   "source_n": "6",
-   "source_title": "Inc42",
-   "why_now": "massive capex plan signals rapid growth, opening slots for impulse snacks",
+   "headline": "Amazon Now targets 100 cities by Diwali, hits $1bn annualised sales",
+   "date": "Sep 2026",
+   "source_n": "19",
+   "source_title": "Rediff",
+   "why_now": "targeting festive season demand, leveraging Diwali shopping surge across South India",
    "early": 3,
    "fit": 3,
    "size": 3,
    "proof": 3,
    "momentum": "up",
    "decision_role": "Category Manager - Impulse/Confectionery",
-   "say": "flipkart minutes eyeing 1k new dark stores, great for our impulse push",
-   "source_url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPX0JoX0NLbGtuYXlpaW55UzRINjBneWlSUkdRTnVrYXVNZElTTlVKS1NmcXE0S1dZZ0I3Zmt5V2NGd1J4cktuMkpzdFVzdFI5VVM5eWt1OWdzaktYdFVjdHR4YUlDQ2V3V01oSm5JMklac0FhVXpLQlM0YVc2Z3lxMlFUWDdNSVNlTFRj?oc=5",
-   "evidence": "Inc42, published 04 Sep 2026. Flipkart Minutes Could Add 1,000 Dark Stores By Mid-2027: UBS - Inc42",
-   "id": "c6",
+   "say": "amazon now eyeing 100 cities, perfect window for our impulse snacks",
+   "source_url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOMlZZYVg0ZmNJSVUwdmxrdWdSNmFsS2EyTzVDZkN5NTY5ZXpMeUJnWFNqVDdYa0JxdGhIM0Zreno3SHRjZGlDeFpNd1hZMW9FLU1BdkY3Y1BqRUVZOXZTSGhPWFpHWXZ5ZnY4NUdiTGJTd0dod0xKQUNIWTJHT2ZtMzR6TGp2bUNaZHQzcVl1eTZRU2IweWtsY2Q5Q3hSZkVlU0ZmendHOTdmT3RSRXBoQVE2U1JkWjV6MU1ORTBFM1NSSVp4Q0tZQ2YteWxlUdIB0AFBVV95cUxQVDN6MXlNS0NDWEVyYVZlMzRHd3lxMlpid2dEOEtPalplOGpBUTdVSFlCRFF6TXZRQlpxWjhzVEVzSFRpZEVQMjZVT0dVUTc4YXM0QU12TC1VNFZKQ3JjLXdObGFiWmFkM1pPbEJ6ZG1heFo5UW5FV0k4R2J6VHhHaThYV2R4Nm9oNnZYbnVkN0EtQi0xSmhtamlFY2FvejlJVmZMLWwwbHM2UEdreDh4NDFJXzNtTU13dE9ub1k5c1laYlNJY3p4anNMMWo2Y2dB?oc=5",
+   "evidence": "Rediff, published 15 Sep 2026. Amazon Now hits $1 billion annualised gross sales in India, eyes 100 cities by Diwali - Rediff",
+   "id": "c8",
    "segment": "quick commerce",
    "fromRisk": false,
    "play": "Get in early",
-   "next_step": "Draft note to regional category lead about stocking impulse snacks in new dark stores",
-   "owner": "Trade Marketing Manager"
+   "next_step": "Send note to regional category lead for upcoming Diwali city launches",
+   "owner": "Regional Category Lead"
   },
   {
-   "company": "Flipkart Minutes",
+   "company": "Flipkart",
    "type": "expansion",
-   "headline": "Flipkart Minutes scales up operations across India",
-   "date": "24 Jun 2026",
-   "source_n": "27",
-   "source_title": "The Hindu",
-   "why_now": "national rollout likely to hit Karnataka soon, aligning with south focus",
-   "early": 2,
-   "fit": 3,
+   "headline": "Flipkart and Amazon add new dark‑store locations to boost delivery speed",
+   "date": "Mar 2026",
+   "source_n": "24",
+   "source_title": "The Economic Times",
+   "why_now": "profit slowdown pushes both to add dark stores to cut delivery times",
+   "early": 1,
+   "fit": 2,
    "size": 3,
    "proof": 3,
    "momentum": "up",
    "decision_role": "Category Manager - Impulse/Confectionery",
-   "say": "flipkart minutes scaling up, likely entering more south cities soon",
-   "source_url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNU0dudDA0QVZmNVZveGc1bzFkUGgwLWJZSk8wTW8zVjJNSjJ0Y1dfYlFKSG5wRmRSSjgwMXZkR21uNlpPY1VNelRDdVdmTEVYYlF4UGFwNVc4eV83Qzh5SjgyUVVQVkVmRkdvNEdnZTlCWjBPTTJnNEVxZ3B2SGk4U1hpNW40VmxzN0hBdWJmb2tPWGhQQXVWc3pRTEwtUVA1amZtU1BKZVhOMlNJNExTU0o1UmxhSFhLTU13dFI3ZlBVV1A1N1psSmZtRFNzSnpSTlVabmw0YUs5cEhRNzRCcXBtY0dJN185SnNWdNIB8wFBVV95cUxNMWRHTEdWQUNOVzJFaHE4cFNrVEtYR0NkT3J1S0JUVnZDUHZ6WjU5Q19OblMzNG5QRzM4T2JKWUlRS2dNU1JHNmVicFduSWl0VWpNLXJqcGprbHRzNnpKb0lhUWcyZG1qNHJBaTAwcjNheExwdHFnME9FbjJoNG5YYWw0d1BETDJ1S3o0SjFwTUtqTThKU3ZuLXBOYmZzT3V1WWNLMVlJY21hd1V5aVNndFFIRVBSNkxoRV9nOUxrSTZ0c2hGdXhRR2VZOFZXa3JpX1N5WC1sa09oTTJOWDFvQ0J1RF9ZZzNPQ1BaUU95LUdVaWs?oc=5",
-   "evidence": "The Hindu, published 24 Jun 2026. Quick commerce race intensifies as Flipkart Minutes and Amazon Now scale up operations - The Hindu",
-   "id": "c7",
+   "say": "new dark stores rolling out – good chance to get shelf space for our candies",
+   "source_url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNcGNoWEJQaDltY3RQS0dBZVk0b3o1dnJBcEVqMURxRWNiTWdVUlRqRHJPcFNXRkRvb0d1VnJTRFVqZmFhOFNERmJJZU5DeXA1OU9WVlo3MVo5LWtfVTZQUi1nODFwZlljeUppblN3Z0U1WElxZXRZMXFnWVkwMnMxM3RtTVdfeVcxcWxCUmNmOUFCalhhQ21kUHJkWEk1UzEyRWRYNjdFQXRLNzR4ZGJDMDNFTHJFRzhFVnh6Z0VBNUFqQnR1a19aV3hRalJEZkVEcVhMaF9JclBfbkZsTllydU14REtEbmvSAecBQVVfeXFMTXBjaFhCUGg5bWN0UEtHQWVZNG96NXZyQXBFajFEcUVjYk1nVVJUakRyT3BTV0ZEb29HdVZyU0RVamZhYThTREZiSWVOQ3lwNTlPVlZaNzFaOS1rX1U2UFItZzgxcGZZY3lKaW5Td2dFNVhJcWV0WTFxZ1lZMDJzMTN0bU1XX3lXMXFsQlJjZjlBQmpYYUNtZFByZFhJNVMxMkVkWDY3RUF0Szc0eGRiQzAzRUxyRUc4RVZ4emdFQTVBakJ0dWtfWld4UWpSRGZFRHFYTGhfSXJQX25GbE5ZcnVNeERLRG5r?oc=5",
+   "evidence": "The Economic Times, published 13 Mar 2026. Flipkart, Amazon expand dark stores as profit check slows quick commerce majors - The Economic Times",
+   "id": "c9",
+   "segment": "quick commerce",
+   "fromRisk": false
+  },
+  {
+   "company": "Amazon",
+   "type": "expansion",
+   "headline": "Amazon, Flipkart expansion plans trigger dark‑store race across Indian metros",
+   "date": "Jun 2026",
+   "source_n": "17",
+   "source_title": "Entrackr",
+   "why_now": "expansion plans spark competition, aiming to capture market share in new metros",
+   "early": 2,
+   "fit": 2,
+   "size": 3,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Category Manager - Impulse/Confectionery",
+   "say": "dark‑store race heating up, we should prep impulse range for their new hubs",
+   "source_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNa0xuMHNPRkFIX2o2dW5kWTBSalhock5nNG8yelZTWjBGbnZpTHVTSFdTZHVOU3VFbWFVQ2lkS3hvOUZhT3gyNFJtb3VfUXRRZVFZMlhUS1ItOGF0THZUS05SSFlPcXd3bzMxN3pMMXBkczNqSk9WTWNHWFcxQ09sY1hJSWhBZFp5MGdhbmRMYWNMY1lyVUM3RHd4TUs3SngzcU41Vm8xZW1SV0VPbm42LV9n0gGyAUFVX3lxTE1rTG4wc09GQUhfajZ1bmRZMFJqWGhyTmc0bzJ6VlNaMEZudmlMdVNIV1NkdU5TdUVtYVVDaWRLeG85RmFPeDI0Um1vdV9RdFFlUVkyWFRLUi04YXRMdlRLTlJIWU9xd3dvMzE3ekwxcGRzM2pKT1ZNY0dYVzFDT2xjWElJaEFkWnkwZ2FuZExhY0xjWXJVQzdEd3hNSzdKeDNxTjVWbzFlbVJXRU9ubjYtX2c?oc=5",
+   "evidence": "Entrackr, published 25 Jun 2026. Amazon, Flipkart expansion plans trigger dark store race in quick commerce - Entrackr",
+   "id": "c10",
    "segment": "quick commerce",
    "fromRisk": false
   },
   {
    "company": "Flipkart",
    "type": "expansion",
-   "headline": "Flipkart expands dark stores as profit check slows",
-   "date": "13 Mar 2026",
-   "source_n": "10",
-   "source_title": "ET BrandEquity",
-   "why_now": "aggressive dark‑store push creates shelf space for confectionery in south markets",
-   "early": 1,
-   "fit": 3,
-   "size": 3,
-   "proof": 3,
-   "momentum": "up",
-   "decision_role": "Category Manager - Impulse/Confectionery",
-   "say": "flipkart adding dark stores, could boost our shelf space",
-   "source_url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxQMTlsRUMwS2loSzR1b0Q2Z05pRmhoM1dCeVJ6YVF5QzAyNzF3MmZGdU4za3hCSjZXbkpLN2FWd0xqSFhrbklfODVBY2pPWkc1aENwRUJpQms3WDNxUHVKOW5hbHBjNExobFRld01RVW43SFVGNk95RXRtOU5XR051LXRfVUFkdTVGM3FOYXA0aWpZdmlHM0lZVTNBWUxUTjMwZmROMW5nN2c5bzBQVkI0eTNvb1dMMVp0QzFic2J5dDVnU0drRmFNZEZFd0hxWFpPMDd1a0RFSkhBWU9Qb0h1UmRJVWJwdTlFWXRwaQ?oc=5",
-   "evidence": "ET BrandEquity, published 13 Mar 2026. Flipkart, Amazon Expand Dark Stores as Profit Check Slows QuickComm Majors - ET BrandEquity",
-   "id": "c8",
-   "segment": "quick commerce",
-   "fromRisk": false
-  },
-  {
-   "company": "Amazon",
-   "type": "expansion",
-   "headline": "Amazon expands dark stores amid quick‑commerce race",
-   "date": "24 Jun 2026",
-   "source_n": "27",
-   "source_title": "The Hindu",
-   "why_now": "amazon scaling in south, new dark stores can stock impulse snacks",
+   "headline": "Flipkart, Amazon step up quick‑commerce bets with new city launches in South",
+   "date": "Jun 2026",
+   "source_n": "5",
+   "source_title": "Reuters",
+   "why_now": "intensifying rivalry forces platforms to launch services in untapped South cities",
    "early": 2,
    "fit": 3,
    "size": 3,
    "proof": 3,
    "momentum": "up",
    "decision_role": "Category Manager - Impulse/Confectionery",
-   "say": "amazon adding dark stores, another channel for our products",
-   "source_url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNU0dudDA0QVZmNVZveGc1bzFkUGgwLWJZSk8wTW8zVjJNSjJ0Y1dfYlFKSG5wRmRSSjgwMXZkR21uNlpPY1VNelRDdVdmTEVYYlF4UGFwNVc4eV83Qzh5SjgyUVVQVkVmRkdvNEdnZTlCWjBPTTJnNEVxZ3B2SGk4U1hpNW40VmxzN0hBdWJmb2tPWGhQQXVWc3pRTEwtUVA1amZtU1BKZVhOMlNJNExTU0o1UmxhSFhLTU13dFI3ZlBVV1A1N1psSmZtRFNzSnpSTlVabmw0YUs5cEhRNzRCcXBtY0dJN185SnNWdNIB8wFBVV95cUxNMWRHTEdWQUNOVzJFaHE4cFNrVEtYR0NkT3J1S0JUVnZDUHZ6WjU5Q19OblMzNG5QRzM4T2JKWUlRS2dNU1JHNmVicFduSWl0VWpNLXJqcGprbHRzNnpKb0lhUWcyZG1qNHJBaTAwcjNheExwdHFnME9FbjJoNG5YYWw0d1BETDJ1S3o0SjFwTUtqTThKU3ZuLXBOYmZzT3V1WWNLMVlJY21hd1V5aVNndFFIRVBSNkxoRV9nOUxrSTZ0c2hGdXhRR2VZOFZXa3JpX1N5WC1sa09oTTJOWDFvQ0J1RF9ZZzNPQ1BaUU95LUdVaWs?oc=5",
-   "evidence": "The Hindu, published 24 Jun 2026. Quick commerce race intensifies as Flipkart Minutes and Amazon Now scale up operations - The Hindu",
-   "id": "c9",
-   "segment": "quick commerce",
-   "fromRisk": false,
-   "play": "Get in early",
-   "next_step": "Draft note to regional category lead about stocking impulse snacks in new dark stores",
-   "owner": "Trade Marketing Manager"
-  },
-  {
-   "company": "FSSAI",
-   "type": "regulation",
-   "headline": "FSSAI proposes stricter sugar, fat, salt thresholds for foods sold in schools",
-   "date": "Aug 2026",
-   "source_n": 3,
-   "source_title": "DD News",
-   "why_now": "could limit sales of Pulse candies and other sweets to school canteens, hurting institutional growth",
-   "say": "fssai might cut school sales of our candy – watch the sweet‑tooth market shrink",
-   "source_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNTGZ1VmZWVTc5MjZDc01yNDkzaFdRVXdkczlYOEtHWEdPY1U5SENLX0p3TmxET3BTVTJIeE12UXcyNE5NNW02a3hFR09peEl3cG5uQzRBMEQya2paRThnYkI4Q1RPdWFrQjVJVUNXbG9NRENXUHNQNVFzMGx4RWdzY2l4MkJkOV9QMTFVMjZ0cHJBcE5KLWs2MTJGZ3FjVVhiaEpiR0pOaDF2M1RIb1Y0UHBLdw?oc=5",
-   "evidence": "DD News, published 11 Aug 2026. FSSAI proposes stricter thresholds for foods high in fat, sugar and salt sold in schools - DD News",
-   "early": 1,
-   "id": "c10",
-   "segment": "risk watch",
-   "fromRisk": true
-  },
-  {
-   "company": "FSSAI",
-   "type": "regulation",
-   "headline": "FSSAI proposes warning labels on junk food, targeting high‑sugar confectionery",
-   "date": "Aug 2026",
-   "source_n": 5,
-   "source_title": "Fortune India",
-   "why_now": "mandatory warnings could deter retailers, impacting pulse and luvit shelf space in modern trade",
-   "say": "new junk‑food warnings may scare retailers away from our chocolates – brace for shelf loss",
-   "source_url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNaHdoTWpzQ2Rzd1N2aUNHZ01Tal9KZWVZVGloRUk2bERSOHFQVFQzVGI3VDQteGIybjRBZV9mdEFwZTR4UUdibFNnQ0tEMDVndGt2QzV2U1FYakxGNVBwcEFhNkJWLTBybGxzOG5SRnpxV3B6Q0lwd01HSlNRUktvZWlaMG9rbGJEbElwSHF6YlhRVkh0OURrZ0hkSElUNHA1NVdxc0N2cE1uUXF3d1NITlRsX1Y2dHZJaWdfNHJyaEQzdE5FTTQtMzB0SUxyZ3BLUmfSAd8BQVVfeXFMT2VXLXdkZFpvalhNME13UVlaZVNubmhBUGNxekpfNmpuTEZ3QkpIRllmbzhrQnNROWRHNXNuQy1HYWx4TlRtZExrbTdXTkdJcWx2S0dyTHJEYXU3TllLTklIdFk4SlY1RVZCN0hvbXVqUl9ENkkzQ2JpbDFuU05NdXZLSHFmOXkwSUdkZHF0a1FJd09zZGRmeW01SjRyOWFpcFNQSDFZOEtFN0h4UWlrVWxHUlJfR2ZGSS1aZHFucC11cWx5OURkU2pDM01RRDV4VlJLRnJwd05KQ1ZDU2lDTQ?oc=5",
-   "evidence": "Fortune India, published 30 Aug 2026. Spicy rules: FSSAI cracks down on sub-standard hing powder, proposes warning labels on junk food - Fortune India",
-   "early": 1,
+   "say": "south city roll‑outs mean fresh impulse slots for us in those markets",
+   "source_url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPNUI4Slp5cXZjbllOVWVialpZUmdzV0pwY3poaXlRcElOWkhvbXV2RlV6ZXVXaUtIcjFkOEk4dzlWN1B2Y3FnVkt4S3laMk41aUNIWjVDQldKLWEyQkRKZlRDeklxOFdUMVljNG1iTFJOMk9PXy1XbW5FdlBYOGxIcjFERUtaX19UN2hNN2ltdTRPMElYdk5Mc1gtYUJsemZ0RHgwb0NleGJDZ1hsSkZhTGRn?oc=5",
+   "evidence": "Reuters, published 24 Jun 2026. Walmart's Flipkart, Amazon step up India 'quick commerce' bet as competition heats up - Reuters",
    "id": "c11",
+   "segment": "quick commerce",
+   "fromRisk": false
+  },
+  {
+   "company": "Zepto",
+   "type": "expansion",
+   "headline": "Zepto to launch 'Select' premium grocery service with imported and gourmet items",
+   "date": "Jul 2026",
+   "source_n": "26",
+   "source_title": "Instagram",
+   "why_now": "aiming at high‑spending urban consumers with curated gourmet range",
+   "early": 2,
+   "fit": 2,
+   "size": 3,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Category Manager - Impulse/Confectionery",
+   "say": "zepto's premium line could be a new shelf for our upscale confectionery",
+   "source_url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1VWW55aVNEY2U5UDdULVgyWHJVTTNNN3VoZGtFNy1qVWVGa3hYcDRBZFduLUltNW90cTktYnBRU09jSmFHWWt2cG5meEVHVWVzeXc?oc=5",
+   "evidence": "Instagram, published 14 Jul 2026. IPO-bound Zepto is preparing to launch \"Select,\" a premium grocery service within its app, offering imported foods, gourmet groceries and curated high-end products, according to a Moneycontrol report. The service is expected to launch in the coming weeks a - Instagr",
+   "id": "c12",
+   "segment": "quick commerce",
+   "fromRisk": false
+  },
+  {
+   "company": "BigBasket",
+   "type": "expansion",
+   "headline": "BigBasket scales quick‑commerce entry, expanding its rapid‑delivery network",
+   "date": "Apr 2026",
+   "source_n": "8",
+   "source_title": "Yahoo Finance UK",
+   "why_now": "entering quick‑commerce to compete with established players and grow basket size",
+   "early": 1,
+   "fit": 2,
+   "size": 3,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Category Manager - Impulse/Confectionery",
+   "say": "bigbasket's quick‑commerce push opens another channel for our impulse range",
+   "source_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNU280YTJfVUR4cVNvZmtSMUNWdk5lRm1jZHB5NzdmeHh5MTlHY1lJakRwcTV3a0JhRFFjQjVYSWx5TjVmUzJMZ0J3UWxfWHdmSHc1WXB5VEs2dEEta3NpR2oza29PU1F5cmQxWVgwLUlVY0dRSlNvWEt4bUVaYTY1SWJWSGFaZDVq?oc=5",
+   "evidence": "Yahoo Finance UK, published 20 Apr 2026. India Quick Commerce Report 2026: Market to Reach $12.97 Billion by 2029 - Blinkit, Zepto, and Swiggy Instamart Lead Surge as JioMart and BigBasket Scale Competitive Entry - Yahoo Finance UK",
+   "id": "c13",
+   "segment": "quick commerce",
+   "fromRisk": false
+  },
+  {
+   "company": "IRCTC",
+   "type": "regulation",
+   "headline": "Delhi HC denies relief against IRCTC's termination of catering contract",
+   "date": "Jan 2026",
+   "source_n": 23,
+   "source_title": "ETLegalWorld.com",
+   "why_now": "court ruling keeps IRCTC catering contract termination active, affecting institutional supply opportunities",
+   "early": 1,
+   "fit": 2,
+   "size": 3,
+   "proof": 3,
+   "momentum": "down",
+   "decision_role": "Catering Contract Officer",
+   "say": "irctc court win keeps catering contract termination, watch institutional supply impact",
+   "source_url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPdW1WVEtFMVFNRklxcVVYMmlHaGxDTnJHN3FJN0tWdVlCS1JncHFOX2VGOUdVRHlKbzEzanRyaElKQWFjampBaFFLTFE2eS1ZZGIwQ2s4R2kyY29lbUpLTEJHRDVBU0ctM19TclZReENNbWIyUXA1T3dCQUdmZnBERjdoX1ZfTTd4c1YyVGhNZVVzMlNmTlBhelhjaFFRZ2MxWHM1QW03Mjd1bVBPbnJkME92Ui1UOXNfNDBnTUktSVQ1bnoyaW9DWkRxZ1E4Z9IB0wFBVV95cUxOQlB6V1FqWWNPalQ5RC1maFRPQmRzNFBVV2dBa2FVZ0RvOWtvTnBJeWVYMkdpVWRaWUJKa2xiTGNJcW9vdTBZNzlFLWhMZDZOajZYLTl5cVVBOEQ1SnhTelo3X2lkYWNzcy0tZ0dkVG9MaGQ2ZHg0SThaSkJCT01lRU9ZU3BZRW5DOUszUjA5RGNWM3hmeFZVSTdHeUJCQWVaRWlrcjVWYl81M21zMWNkWThsWDRMUDFLaFlrSkxrRW5VMngxMmtVRlFJcWM0RDFHZmJn?oc=5",
+   "evidence": "ETLegalWorld.com, published 22 Jan 2026. Delhi HC denies relief against catering contract termination by IRCTC - ETLegalWorld.com",
+   "id": "c14",
+   "segment": "institutional",
+   "fromRisk": false
+  },
+  {
+   "company": "DigiDukaan",
+   "type": "expansion",
+   "headline": "DigiDukaan expands platform to three new Indian cities, linking 21,000 retailers",
+   "date": "Oct 2026",
+   "source_n": 27,
+   "source_title": "DD India",
+   "why_now": "new city rollout opens fresh shelf space for DS Group confectionery in South/West",
+   "early": 1,
+   "fit": 2,
+   "size": 2,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Category Manager - Confectionery",
+   "say": "digidukaan just added three cities, big chance for our candy on new shelves",
+   "source_url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxOV3Zsc1Izblg3emljR015QTg4RWNqSTBwdVBqUU1adEpTYkt5QVV4YTZXc0R3NGVnWDFGNGhhSmphWG1sWFQ4ck1hLXJTMkJEVnY2QzUtSld5ak5ZZ1FISU9KUENvdjYtc3JGV1ZHNkRLQWw4OUF1QWQyWWdiZDBsWC1Xd3B0aEJuWUZrc2RMQWxCNUUxZE1fenZCMEU0UENBS0tjeWppendqYVA1eHB2YlpXbnhmNGtfenk5bTBWbDdteWFiZVRWaGhTNUpKbTRwNS1MZWxlc01rb2F3OWo2VUlLcEYyRmJMbjlWV0MtbHEyWHp5YzFfaEtHZHFDZzI1RTRqbQ?oc=5",
+   "evidence": "DD India, published 30 Oct 2026. DigiDukaan Connects Over 21,000 Retailers with More Than 450 Brands Across Three Cities; Piyush Goyal Chairs Chintan Shivir on Trade Digitisation - DD India",
+   "id": "c15",
+   "segment": "distributors & stockists",
+   "fromRisk": false
+  },
+  {
+   "company": "UFO Moviez",
+   "type": "expansion",
+   "headline": "UFO Moviez partners with DCDC to extend Indian cinema distribution to North America",
+   "date": "Aug 2026",
+   "source_n": 10,
+   "source_title": "scanx.trade",
+   "why_now": "cinema chain growth creates after‑movie mouth‑freshener demand, potential DS Group tie‑up",
+   "early": 2,
+   "fit": 2,
+   "size": 2,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Purchase Manager",
+   "say": "ufo moviez eyeing north america, could stock our fresheners after shows",
+   "source_url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQMjlaVDU2cXdLTm9iRi1ueGVTakFPRkhRRTJONzg4WmM1eG42Z0haTXVsaXoxeGJaOFBkS2xqVVUwdzFDS3pzQlVReFdJdEw4NjZXWVFlNW5xckZuck8xTkNUeTI1U2FBS3NVbDRfUkM0MWktY05jWEozUXNWeHluZGxieGtQUE9vZmdjM2NwSHlXb1piTXJvcFlNRTBJSGJvQm5jemdCV0ljSE1yR2tibm4ta0FMRS1yNUxxQ3dDSnFXRWVrVl9LUkMyQV9sRGpYRXh6THFlQQ?oc=5",
+   "evidence": "scanx.trade, published 07 Aug 2026. UFO Moviez partners with DCDC to expand Indian cinema distribution in North America - scanx.trade",
+   "id": "c16",
+   "segment": "distributors & stockists",
+   "fromRisk": false
+  },
+  {
+   "company": "Annapurna Group",
+   "type": "competitor",
+   "headline": "Annapurna Group scales national FMCG brand, targeting wider Indian market",
+   "date": "Feb 2026",
+   "source_n": 28,
+   "source_title": "ANI News",
+   "why_now": "competitor's push in South/West threatens DS Group market share, need counter‑play",
+   "early": 1,
+   "fit": 2,
+   "size": 3,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Brand Manager",
+   "say": "annapurna's brand surge in south west puts pressure on our candy sales",
+   "source_url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPbU52a1VOY2doT1pBR1pFdVRaZ1JlWWVwN2cxUVFDbkF2OEwyVzk0YjMxQWZuN0JwWGFUM25DX01rMWFUOXRuSW1CWEJtejF5V25XRjdoTmFKbGoxWExCM0pCejlCdVVTb25HVHRXWktwelBITjdUdGlNdkxVRVlQR01pd2ZvZ082N2RSMHdTX0FzZHV3bjNRandDcDB6anBrTHhfelg2Mm1rSFNyOGhUM2pkb0dxV1lTeFRBSUJnXzNZYm9kTlpoRFJWaFVCcTJwSWZNag?oc=5",
+   "evidence": "ANI News, published 26 Feb 2026. Annapurna Group on Scaling with Purpose: Building a National FMCG Brand Rooted in Purity - ANI News",
+   "id": "c17",
+   "segment": "distributors & stockists",
+   "fromRisk": false
+  },
+  {
+   "company": "FSSAI",
+   "type": "regulation",
+   "headline": "FSSAI cracks down on misleading candy and chocolate labels",
+   "date": "Jul 2026",
+   "source_n": "2",
+   "source_title": "The Times of India",
+   "why_now": "our Pulse, Chingles and LuvIt may need label redesign, risking shelf delays",
+   "say": "heads up: fssai's label crackdown could stall our candy launches, check packaging asap",
+   "source_url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNdVQ4NEFkcmJ1SXFIa0htQ3QtNTgyWnVSR1ZNTkV3OTM2S3RrWUk4WG9OZU1zUVJtdUpRYWFibFRKZEFSSEY5WnZ3blg1X1JQYWNMZXppaVB1elZ1bmwtU0tfMGtIeGY0MzFIYWxhU3Q3b2wxLWZ1aHp6bWg5RlVfZ3hHWXJOUm1JQVY3MDR2M2JPRWNqQTFYZk54UkpobkxlWjkyMDRXaWlQdzNCek5mWUE0dFQ5NjYzSHFTcG9sZTBteThkUndHbExXRmRJRjF0NUFKcXp0Umc3UGJpS0xnYzh3c2kwMEXSAewBQVVfeXFMT0Zwd1RVdlUxS2FzSHNieXc0VHZNNnZXZVpaWmJxOWtsbTN6R1JxNlplemlrdVFKbFAtOHo5TUtucEx5SkZtU3pZTHU1ekRYVzMteUZaR0o5aURFTG5teG90S1FFZ29ucEtibUFPVklFWkZFQWdkbGd2bkp4Wjl6R1daVTQtOUxRRGFGMXF3ejVJRjAzT1dGYk1tcUhLTVVBN1hfVG8wcVR3djBKNjdwMzVqc21vRnlnV1Q4S1ZTdlBfbEg5VTdOQWJNOFdlRkdOa2dWMmJjZ2ZTNVRVSFA2NDk0ZGR3X3FrRVBwbHE?oc=5",
+   "evidence": "The Times of India, published 09 Jul 2026. No fruit in fruit candy, no cocoa in chocolate: FSSAI cracks down on misleading labels - The Times of India",
+   "early": 1,
+   "id": "c18",
    "segment": "risk watch",
    "fromRisk": true
-  }
- ],
- "signals": [
+  },
+  {
+   "company": "Mondelez",
+   "type": "competitor",
+   "headline": "Mondelez lifts candy prices in India, warns of consumer pushback",
+   "date": "Feb 2026",
+   "source_n": "18",
+   "source_title": "Reuters",
+   "why_now": "competitor price rise could push trade buyers toward our cheaper candy range",
+   "say": "mondelez just hiked candy rates, might open doors for us in quick‑commerce channels",
+   "source_url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPS3pScXJOQTFSV3U0VV9sS2tDRVFUcFp6S21mbEIxMmtRa0Jza2NFa3Y1ei1xbVhxX0JHTXZfSlJpNC04VTNyanhfN25SalRDMkpUZ1lYajhmSlpKcF96ZG54N1pRV0V1TU5TMXl0Skw4NjljWTRDQWZBWDdCcTBBLXBDQkhKS3FNaE1jWnRSZWVtLXlNSmxnaVBURnBMYmRTSGpiNDRJZENnS3V2?oc=5",
+   "evidence": "Reuters, published 03 Feb 2026. Mondelez forecasts muted 2026 as price hikes push consumers away - Reuters",
+   "early": 1,
+   "id": "c19",
+   "segment": "risk watch",
+   "fromRisk": true
+  },
   {
    "company": "Flipkart Minutes",
    "type": "expansion",
-   "headline": "Flipkart Minutes plans to add 1,000 dark stores by mid‑2027",
-   "date": "04 Sep 2026",
-   "source_n": "6",
-   "source_title": "Inc42",
-   "why_now": "massive capex plan signals rapid growth, opening slots for impulse snacks",
+   "headline": "Flipkart Minutes scales to 1,000+ dark stores",
+   "date": "Sep 2026",
+   "source_n": 1,
+   "source_title": "ET Retail",
+   "why_now": "rapid dark‑store rollout aligns with our push into quick‑commerce impulse categories",
    "early": 3,
    "fit": 3,
    "size": 3,
    "proof": 3,
    "momentum": "up",
    "decision_role": "Category Manager - Impulse/Confectionery",
-   "say": "flipkart minutes eyeing 1k new dark stores, great for our impulse push",
-   "source_url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPX0JoX0NLbGtuYXlpaW55UzRINjBneWlSUkdRTnVrYXVNZElTTlVKS1NmcXE0S1dZZ0I3Zmt5V2NGd1J4cktuMkpzdFVzdFI5VVM5eWt1OWdzaktYdFVjdHR4YUlDQ2V3V01oSm5JMklac0FhVXpLQlM0YVc2Z3lxMlFUWDdNSVNlTFRj?oc=5",
-   "evidence": "Inc42, published 04 Sep 2026. Flipkart Minutes Could Add 1,000 Dark Stores By Mid-2027: UBS - Inc42",
-   "id": "c6",
+   "say": "flipkart minutes hitting 1k dark stores, big chance for our impulse range",
+   "source_url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxPN3ZVZi1iY0lCdFNSRDFTRU5FLTRKd1BieVljWEdCVXJvWThrdG51Y3FXZ3FIbTNEYUltaVhxa2hzbU55Zy13YkVnT0RLZHI2M19oc1VyOTllYnEtNVlFVFlZZjR0bVdUTVM0N1JMV2JCbVdLejc4cDFhdVlUdFVuNEUxVXpEMWszblRtNE12Q1FYdDhYdFc5Sk56SXZOQzhEdWxrTllOX2IzV251RFc4dFFGcUYwWWVud1d1NWtieTRwZ2JJOXZsQnNaLW9JWVR2TEtIUTJiVXJLUmd2UUhzdmkxQ081Z1BNRnNVZDNESU1Ed9IB9gFBVV95cUxNcjU4ekp4bDU4WEdXSjc3QlJOMVdGX2NTWHRDR3hXUWFFY2dIUkZSSnp3b09RMzZfN1B4QllUVW1yZGp0X1B2TUlxWUt6TVJQWHlWTXh5RVVDalFISXhqWDFocEJDVWU0VFU5VExyU0pnb21ZbWZGWGduLWVQYzR2Ukl4NUJQLW1fekR2aUpYaDJxX3RpTW9WYU1veExpWXZNZUZaREdpN3RVS3FVU3dpTFpjdEEtMWpkY1ljbTAtTV9rTURZVnpHZnhMN08yLXdRaVZHeFdpa2p2U0ZqaW5VUmozRG5RYUN0TGRTQmp0eFkxeW1USXc?oc=5",
+   "evidence": "ET Retail, published 05 Sep 2026. Flipkart Minutes scales to 1,000+ dark stores, narrows order-value gap with Blinkit - ET Retail",
+   "id": "c20",
    "segment": "quick commerce",
    "fromRisk": false,
    "play": "Get in early",
-   "next_step": "Draft note to regional category lead about stocking impulse snacks in new dark stores",
-   "owner": "Trade Marketing Manager"
+   "next_step": "Draft early outreach note to regional lead for new dark‑store roll‑out",
+   "owner": "Regional Category Lead"
   },
   {
-   "company": "Amazon",
+   "company": "Flipkart Minutes",
    "type": "expansion",
-   "headline": "Amazon expands dark stores amid quick‑commerce race",
-   "date": "24 Jun 2026",
-   "source_n": "27",
-   "source_title": "The Hindu",
-   "why_now": "amazon scaling in south, new dark stores can stock impulse snacks",
+   "headline": "Flipkart Minutes aims to add 800 dark stores by end‑2026",
+   "date": "Apr 2026",
+   "source_n": 2,
+   "source_title": "Moneycontrol.com",
+   "why_now": "800 new stores will increase reach in south‑west markets where we aim to grow confectionery",
+   "early": 1,
+   "fit": 3,
+   "size": 3,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Category Manager - Impulse/Confectionery",
+   "say": "flipkart plans 800 more dark stores this year – eyes on our confectionery",
+   "source_url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQcDRDRnZoTWs3NmNUNVQ2WEhNMlRGUE5sY0d6V2VvRHJZVW94VkQ5NTNpRHZhUjcxMTdKYVN5QTc1QzY0enFxMTAxNVRjQVdiY0xQRnhPWjN2d18tOTloRWRWUU9HYVFCMF9CVHNzN0pzbGY2UXdBWlAzLVlKUmwyWXd6NXhCeVdrbEplMHotcFFPdXNEdEtrWHNDa2VTQ0h4TXpRWWlha3B5YjJtN3V2ejVpSUR0UmEyaDl5d3hnSC1kbDZqal9J0gHMAUFVX3lxTE5QLTVkV2ZCYXJtdXk0SjFiaXJycnhST1dnMkZ5bk1QcEZUZzBIUGxlSm5iN3BsWWg0OWlTdVI2ZTJRTXBqWW0wYnVyQkRIUWxHWVdfU0huZUh5clFNcUVOVlgtUmNaTE90VnVrUmlfTXBIekliMnRQekt2YUFBUHAwU3RjaWxtcFlzYWpjSm51OEQ1YXQxMFdsdHlLNGZHQWU3SnM0cW5hOVVXb19ocEFmdnc0ZGUyNlR3OGVxeEczZzRZOGEyX0JzdG4ycA?oc=5",
+   "evidence": "Moneycontrol.com, published 07 Apr 2026. Flipkart Minutes aims to add 800 dark stores by end of 2026: UBS - Moneycontrol.com",
+   "id": "c21",
+   "segment": "quick commerce",
+   "fromRisk": false
+  },
+  {
+   "company": "Flipkart Minutes",
+   "type": "event",
+   "headline": "Flipkart Minutes overtakes Instamart in dark‑store count across top cities",
+   "date": "Aug 2026",
+   "source_n": 8,
+   "source_title": "Indian Television Dot Com",
+   "why_now": "overtaking instamart shows platform strength, opening more slots for our products",
+   "early": 1,
+   "fit": 2,
+   "size": 3,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Category Manager - Impulse/Confectionery",
+   "say": "flipkart minutes now tops instamart in dark‑store count across top cities",
+   "source_url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPNW9ZQl90T3VNMjdDWjdfNk52MEllOFRzOV91RlhJVWJvNzZfeThIV3RuSm5SWjQweExXVk14WTJqVG92OUFSd25WY2ZXeW0yNjVKa1I2V2tEWVFrMWw5SnlsT1ZFYmFhOGwzSW44bE5mZVpTMFlUd1hjNnVXN2ZKNmhqN19HcTh6c0lSbmZGTnR3M1R5Z083TG5VMXYwZHNfc0xXbk93?oc=5",
+   "evidence": "Indian Television Dot Com, published 26 Aug 2026. Flipkart Minutes overtakes Instamart in dark stores across top cities - Indian Television Dot Com",
+   "id": "c22",
+   "segment": "quick commerce",
+   "fromRisk": false
+  },
+  {
+   "company": "Blinkit",
+   "type": "expansion",
+   "headline": "Blinkit to open gourmet dark stores in top 8 cities",
+   "date": "Jul 2026",
+   "source_n": 25,
+   "source_title": "BusinessLine",
+   "why_now": "gourmet dark stores target premium shoppers in key south‑west metros",
    "early": 2,
    "fit": 3,
    "size": 3,
    "proof": 3,
    "momentum": "up",
    "decision_role": "Category Manager - Impulse/Confectionery",
-   "say": "amazon adding dark stores, another channel for our products",
-   "source_url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxNU0dudDA0QVZmNVZveGc1bzFkUGgwLWJZSk8wTW8zVjJNSjJ0Y1dfYlFKSG5wRmRSSjgwMXZkR21uNlpPY1VNelRDdVdmTEVYYlF4UGFwNVc4eV83Qzh5SjgyUVVQVkVmRkdvNEdnZTlCWjBPTTJnNEVxZ3B2SGk4U1hpNW40VmxzN0hBdWJmb2tPWGhQQXVWc3pRTEwtUVA1amZtU1BKZVhOMlNJNExTU0o1UmxhSFhLTU13dFI3ZlBVV1A1N1psSmZtRFNzSnpSTlVabmw0YUs5cEhRNzRCcXBtY0dJN185SnNWdNIB8wFBVV95cUxNMWRHTEdWQUNOVzJFaHE4cFNrVEtYR0NkT3J1S0JUVnZDUHZ6WjU5Q19OblMzNG5QRzM4T2JKWUlRS2dNU1JHNmVicFduSWl0VWpNLXJqcGprbHRzNnpKb0lhUWcyZG1qNHJBaTAwcjNheExwdHFnME9FbjJoNG5YYWw0d1BETDJ1S3o0SjFwTUtqTThKU3ZuLXBOYmZzT3V1WWNLMVlJY21hd1V5aVNndFFIRVBSNkxoRV9nOUxrSTZ0c2hGdXhRR2VZOFZXa3JpX1N5WC1sa09oTTJOWDFvQ0J1RF9ZZzNPQ1BaUU95LUdVaWs?oc=5",
-   "evidence": "The Hindu, published 24 Jun 2026. Quick commerce race intensifies as Flipkart Minutes and Amazon Now scale up operations - The Hindu",
-   "id": "c9",
+   "say": "blinkit launching gourmet dark stores in eight cities – perfect for premium mouth fresheners",
+   "source_url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOYURUTy1VR0s3UDlBNl9wcHJOM2dWQ0x0V1lSc08yNnp3OXVxdHdsVDEtWXl0TXYtMHpab3kwZHFFWkZaLVAzTU90U0JCZEpBYUZmbHhvZUFKZEFMVmh2VG93U1MtTS0wQVZTMTUwTV9FcWxpZWNLb0ZEeEc5LUhNdTlVOG0yQU1DdWRuVHlBOHhYY0NHUlF5aFM1dGIyQ1VDaFBaZWhhTFlRZTNfSTlSNUQzWTJlRXpkcWxhS3J3RkRMWjFEX1VJT256VFlwLV9YTnpN0gHaAUFVX3lxTFBTUHYzZzRydXlsVzJlQUVSRXNuUmNZbWxhbVZveVVBWERVUVljZFBtSVdrTTFTSkxCWXJnS0xkZG9NRzdGM2hqUVVXVWd6QWwtVVpkSnNWckZ5c3dsSjMwZnN5dDR4N3l5LU8tekhtY3NOYmZEV2RJMWxZREdBUGxQckxzcVlwb19rRW1JV0JvSWVzSV9uWXhrNzNlRUQxTEsyTkJxNlF4ZUJzYnNxVU5ONEhCbGRtSEFWN29YV2hLMGFVR3h4a0xCNWNOQXd2WTh3V3IzNVZrQzJn?oc=5",
+   "evidence": "BusinessLine, published 23 Jul 2026. Blinkit to open gourmet dark stores in select location in top 8 cities - BusinessLine",
+   "id": "c23",
+   "segment": "quick commerce",
+   "fromRisk": false,
+   "play": "Launch partnership",
+   "next_step": "Propose sampling partnership for gourmet dark‑store launch in each city",
+   "owner": "Trade Marketing Manager"
+  },
+  {
+   "company": "Blinkit",
+   "type": "expansion",
+   "headline": "Blinkit extends lead in quick commerce beyond major cities",
+   "date": "Aug 2026",
+   "source_n": 21,
+   "source_title": "Rediff",
+   "why_now": "expansion beyond metros opens distribution in under‑penetrated towns",
+   "early": 1,
+   "fit": 2,
+   "size": 3,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Category Manager - Impulse/Confectionery",
+   "say": "blinkit pulling ahead beyond metros, could stock our candy in new towns",
+   "source_url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQa05iMjlfYmVzYjN1Qm4zWGhvWnpPZVJySkxMRXhReXRXanFEaFFnbEd4WUd5OUNXWjgyak45QXhrcE15elBLQXN6d1UxOFFHTkRNaF9rVlJLbkpmbWVHb0dpWjAtelhWMkNQTG94Ujd3TmxKeFlsYWlBZC1RVE42S1ZKNHVzTVU5S2dXa2hQQjVZVjkyVl9pMUlKZi1XdkwxNWxxQkpTM3hWOW01djk4R2pHbkEzeTgwSmN5VGEwUU1UY3RMUjFlTVRR0gHMAUFVX3lxTE5QSTY0bkVYUmVwRTVYa3h3QWRhVkNKRE50cENERnZid1NDZzN0TUhMMDVnLXZUWjNPbmQ3bk93QVJmeU9LaTVuZVk5akR2d0haWWlFM0FOUV9FMVNjV3JUNExxYTh3bmpZT1FuNWFzaFJFZVVQSlVvcTU3b2RGQURRNjJQX3RobGhJWklLbnFRdUQyQ0EyV2xMekE0U2FrRjBEcEgwQ0tkeWN2MC1xdTU2QzNFVDdMQTdXZ1RhcnJmNmhOby1QcWFCazVaQw?oc=5",
+   "evidence": "Rediff, published 27 Aug 2026. Blinkit extends lead in quick commerce, outperforming rivals beyond major cities - Rediff",
+   "id": "c24",
+   "segment": "quick commerce",
+   "fromRisk": false
+  },
+  {
+   "company": "Flipkart Minutes",
+   "type": "expansion",
+   "headline": "Flipkart Minutes and Amazon ramp up dark store networks",
+   "date": "Mar 2026",
+   "source_n": 9,
+   "source_title": "Storyboard18",
+   "why_now": "joint ramp‑up signals higher order volumes, creating new listing opportunities",
+   "early": 1,
+   "fit": 2,
+   "size": 3,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Category Manager - Impulse/Confectionery",
+   "say": "flipkart minutes and amazon cranking up dark stores together – more shelf space incoming",
+   "source_url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPbjdXNi1DNU9mbWc4U3oxWVE5dEs3N09kZUluU016Wm1rcUtCMGpxWEk4ak13aEVSYUdHVlFackpCNlBQQlFYOHVjWExOWDJmTDdOazhPaHhqNld5MlhpdG9NUl9DclltNUJoc1NmWTlqRTFIUzRWaDdvbUtYelU0S25rWXAwZXlyU19VY3lJTGJpUURBSnd4akdnUGl3WGN2eWx0a253U29TeWxWek1aMlg3NDhodHBCSmFhaW5ZWExkVFJsMG1ZaUxjSGxfc2pBS01fddIB2gFBVV95cUxQMElSX29qaFctYkY3UDhUdTM3cHpxMWRFUWRCR0dGS1JWQUFlYnFZMlJMTTVaZ3lkTTUzOWQxcjZ6WHNGaTJjZmxpNjJWSDZ1ZXJjQVBySHFGNGpSQlFuaDlNZGRucEVUYTdQMGlGRkFsVU80Q3pXZ0tIZHA4WDc1Uk5oZFZjUXpVQXp1QWdXSk11Y3ZXcHhOTzZxVEZYNVJ2Z1BOeFRydGc0Y0Y0RVFIRzdqcGhYaFl0cGlxakVKcEVaMzZ0SUkwUkduLUV3Y2FGeVVpZnlVaGNjZw?oc=5",
+   "evidence": "Storyboard18, published 13 Mar 2026. Flipkart Minutes and Amazon now ramp up dark store networks in India’s quick commerce battle - Storyboard18",
+   "id": "c25",
+   "segment": "quick commerce",
+   "fromRisk": false
+  },
+  {
+   "company": "DMart",
+   "type": "expansion",
+   "headline": "Avenue Supermarts opens new DMart store in Pali, Rajasthan",
+   "date": "Jan 2026",
+   "source_n": "1",
+   "source_title": "scanx.trade",
+   "why_now": "first DMart in Pali, adds presence in western market",
+   "early": 1,
+   "fit": 3,
+   "size": 3,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Category Buyer - Confectionery",
+   "say": "dmart just opened in pali – fresh shelf space for our candies.",
+   "source_url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNOVQ3ajZCYzR5RVFjemRTR0U0ZkdvT2wwSUNkV1JWTVY3RFliWHZIbnlMMjhiMHJmdVVRZGUydnVDVW1RQl9rbzNXazFEYVZybHU0YVJDQjdQMG1QdWdSaW84ZHJpSnlSSW42WTkzWDJuY1ZvM3VyRGM1cUZaUndmNjdxTUZyTzZvR0o1UWExQ1lMY3FLeFI5T2RNNlI5aFdoTjZlVEpEZU1WQVpjV1dubVFXcE9OTS1CanVoOS1mZk9iUW9qWTl1dnVKbkFrcEdTMWdmcjJxVng?oc=5",
+   "evidence": "scanx.trade, published 22 Jan 2026. Avenue Supermarts Opens New DMart Store in Pali, Rajasthan; Total Store Count Reaches 444 - scanx.trade",
+   "id": "c26",
+   "segment": "modern trade",
+   "fromRisk": false
+  },
+  {
+   "company": "DMart",
+   "type": "expansion",
+   "headline": "DMart opens 15 stores in Q2 FY27, revenue rises 18%",
+   "date": "Oct 2026",
+   "source_n": "2",
+   "source_title": "Storyboard18",
+   "why_now": "large batch of stores indicates aggressive rollout phase",
+   "early": 2,
+   "fit": 2,
+   "size": 3,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Category Buyer - Confectionery",
+   "say": "dmart rolling out 15 new outlets – big chance to get pulse on more shelves.",
+   "source_url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPLUFoQm1WQkdmTHliVVdJTWgtYWNWbGdmMG5QbTUta3dRQnJrRGtTUWNwdnZoYkVWRWtYT056UThoeC03US1jdzFPSHNmdkhrNFFFZjRqVlJQbUlFRnlHd1hsZ0xrTkdQRHFUYzdjSHA1b0JySkNGTEpNM0RRMzFrSDNhN2pfZGszSGcxT3FGNHdyY2taZmdFcFk4OVA2OWhnb3VQVHY1Z0hwc293ekw3NGswQ1M0cHVOX0FoM1FlMklwOUVXYzFMY0liNkxiUWhuWXZ5RtIB2gFBVV95cUxQNDgzc0ZBWDRrRXlCNWN1VGlGTHB1ZVZjdGxmVVFxbUtfSnVLMmtJdEVWSy1SQlpzV2F5X0NwNWRfN0RNWG9ONDFESndWdzNGTUFOYW9IZzZaVjJoLWZua0Jhb1hpcGxzN2FMcTMwNVl3RjJrOVRCRUdPOGI1S1FkNUVra2E5Y0VLeDAxVjJURFRTOEJPV3dxODhKYkZ3WHN2X1hpc2NxVmJEbEtnLUJhb0RmYktKRFFMRGZSb2k4N0VFY3ZqSEdZZ1JiMks4OUUxVmRndFF3UGRFZw?oc=5",
+   "evidence": "Storyboard18, published 10 Oct 2026. Avenue Supermarts Q2 FY27: DMart opens 15 stores, revenue rises 18% to Rs 19,644 crore - Storyboard18",
+   "id": "c27",
+   "segment": "modern trade",
+   "fromRisk": false,
+   "play": "Launch partnership",
+   "next_step": "Arrange launch‑day sampling offer for DMart’s 15 new stores",
+   "owner": "Trade Marketing Manager"
+  },
+  {
+   "company": "DMart",
+   "type": "expansion",
+   "headline": "Avenue Supermarts adds 8 new DMart stores across India",
+   "date": "Mar 2026",
+   "source_n": "9",
+   "source_title": "Entrepreneur India",
+   "why_now": "nation‑wide expansion creates new entry points for our range",
+   "early": 1,
+   "fit": 2,
+   "size": 3,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Category Buyer - Confectionery",
+   "say": "8 fresh dmart stores nation‑wide – another hook for our mouth fresheners.",
+   "source_url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQTjBpSnZPbnpTaGxpY1UxdHJ5WTA2SWdJbWVETk1zRUJ3SkZ2SzNYS200MDZoSmY3QTYxRTJoM1BSQ3huTWdMN1BPQlpPS0lGdWZlSEJrRFVHaFlZakdjdzRUd1VtSWIxWmEwSWdfSThEdkhOZXRoWHdpM3l4MWU4dk9vRm5Ra1J2Nmh2T0lGWkR5T0hFblFpVktPdW0zRjBqQ0RsOXFXRGdBaWM1Y2QzSnJEVXUwaUlzMG11MDQ0UjU4Wm8?oc=5",
+   "evidence": "Entrepreneur India, published 09 Mar 2026. Avenue Supermarts Expands Footprint with 8 New DMart Stores Across India - Entrepreneur India",
+   "id": "c28",
+   "segment": "modern trade",
+   "fromRisk": false
+  },
+  {
+   "company": "Reliance Retail",
+   "type": "expansion",
+   "headline": "Reliance Retail reaches 20,000 stores, FY26 revenue Rs 3.7 lakh crore",
+   "date": "Apr 2026",
+   "source_n": "18",
+   "source_title": "ET BrandEquity",
+   "why_now": "milestone shows massive modern‑trade footprint for distribution",
+   "early": 1,
+   "fit": 3,
+   "size": 3,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Category Buyer - Confectionery",
+   "say": "reliance retail hits 20k stores – huge modern‑trade network to tap.",
+   "source_url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxOWEJEWmRCSzJvRkhoWUgxa0FvYW0wc3UwV25JN0tPMDFKZVFjR2xTaTI5eFV4ME1oNzFjWUd6REpTZkVtV3VJN1gxTGR4b2VfQ1h2Rk04MF9uQ2NGLTc5WDhEMFJFbWhSRUdLUlhUdE1GSmdCMDVkVTdBdFlSMlBXdkdLM2x2ZjcyWllsZk8wVW05TFBtaldzZ3ViVXNhS01KMTJkbmtNTjJjUWhhZjc5UC1vLVFCd0Rsa1BzaVA0RDdsVW5jY19KcHVCdEFFZlpwekx1dUZXR2l4T2UwN2dtczQ5aGtyaElTVng1ZWcxZWfSAfYBQVVfeXFMTlM4V1FHUG5ZRTFKcUFvRVlkZ1FBUk1xRWhUczRzSTJMejhzVUJ3dzhObGEtaFRBNzRmWm9LN01CUE1LeG1Ed3IzVVZEWHNBbHctWHdSVFhObmt4Y1NsRzhDeHVRWDFTUndYTnRweDBXdmRHaXpCUEp3NmhnOU9wekM3b1ZnbEVKNGVvVElndWlBVlZQZWN1YU5YSTAyOE44bXVnemNRS0hFNzh5YjJSbWNHamN3MEtpTExicWV6a2p4UHprXzhhdUpiU3BsbEZGZnEyRVk3NUZfa1RPQzRlWF9ubUVTQUt5eE5GVThVSDIyaGZwMWJR?oc=5",
+   "evidence": "ET BrandEquity, published 25 Apr 2026. Reliance Retail FY26 revenue at Rs 3.7 lakh crore, hits 20,000 store milestone - ET BrandEquity",
+   "id": "c29",
+   "segment": "modern trade",
+   "fromRisk": false
+  },
+  {
+   "company": "Smart Bazaar",
+   "type": "expansion",
+   "headline": "Smart Bazaar crosses 1000 stores, milestone in consumption and distribution",
+   "date": "Apr 2026",
+   "source_n": "20",
+   "source_title": "India Retailing",
+   "why_now": "crossing 1k stores opens fresh shelf real‑estate in south‑west",
+   "early": 1,
+   "fit": 3,
+   "size": 3,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Category Buyer - Confectionery",
+   "say": "smart bazaar tops 1k stores – another channel for our confectionery.",
+   "source_url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPbG4zVi1iWUlHWDEyZ1dlU2lqc05rdkJEd241dnR0NkpERl84a1c5alNvT2FKUE4wREhJVndTQUlyYzE3NXYwZWtQOGpjbHh5NmpkSG9hN1JaRWQ1S3E1RlpjYWlqT21fSV92MkR0WWRQcGRTMzhja1JLbWpfeGdaaVoxSGJhc0NOemw0TnJ1ZmxhdjdpMW84U0pyU0hySlhrdDZlaXNfTXJVSW51ckJ1dWppN2E?oc=5",
+   "evidence": "India Retailing, published 23 Apr 2026. 1000+ Smart Bazaars: A Milestone Built on Consumption, Distribution and Category Depth - India Retailing",
+   "id": "c30",
+   "segment": "modern trade",
+   "fromRisk": false
+  },
+  {
+   "company": "Reliance Retail",
+   "type": "competitor",
+   "headline": "Reliance Retail shuts down all 7‑Eleven stores after franchise pact ends",
+   "date": "Oct 2026",
+   "source_n": "24",
+   "source_title": "Deccan Herald",
+   "why_now": "7‑Eleven exit reduces competition for impulse snack space",
+   "early": 1,
+   "fit": 1,
+   "size": 3,
+   "proof": 3,
+   "momentum": "down",
+   "decision_role": "Category Manager - Impulse/Confectionery",
+   "say": "7‑eleven exits, reliances pulls back – less competition for impulse buys.",
+   "source_url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPOXREOEFKd1RZVGlrdVpucmZuanQtTGlyb3BucldDYVhVR2k4VnhaQVZtRzc1RXlwYVJZcVVfSnljckxEWS0zTUNaeENzSXBGM2sxWG5BNE5TS0lVeTRiTWJNaE9uTWtmalBiZmkyXzRaUjNNTkFoWldyYS1iMzV0VzZ6Z3Frd3ZjWldKcHlkMFBHUzljT3dlZHRPR3JfRFFjYnVGaE1JRldCVWg1NDhLYmtydnN6UWhtQ2hoWjBHVnhiR0JfS1ZNams0RHE2VnBoMDE4?oc=5",
+   "evidence": "Deccan Herald, published 05 Oct 2026. Reliance Retail shuts down all 7-Eleven stores in India after franchise pact ends - Deccan Herald",
+   "id": "c31",
+   "segment": "modern trade",
+   "fromRisk": false
+  }
+ ],
+ "signals": [
+  {
+   "company": "Amazon Now",
+   "type": "expansion",
+   "headline": "Amazon Now targets 100 cities by Diwali, hits $1bn annualised sales",
+   "date": "Sep 2026",
+   "source_n": "19",
+   "source_title": "Rediff",
+   "why_now": "targeting festive season demand, leveraging Diwali shopping surge across South India",
+   "early": 3,
+   "fit": 3,
+   "size": 3,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Category Manager - Impulse/Confectionery",
+   "say": "amazon now eyeing 100 cities, perfect window for our impulse snacks",
+   "source_url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOMlZZYVg0ZmNJSVUwdmxrdWdSNmFsS2EyTzVDZkN5NTY5ZXpMeUJnWFNqVDdYa0JxdGhIM0Zreno3SHRjZGlDeFpNd1hZMW9FLU1BdkY3Y1BqRUVZOXZTSGhPWFpHWXZ5ZnY4NUdiTGJTd0dod0xKQUNIWTJHT2ZtMzR6TGp2bUNaZHQzcVl1eTZRU2IweWtsY2Q5Q3hSZkVlU0ZmendHOTdmT3RSRXBoQVE2U1JkWjV6MU1ORTBFM1NSSVp4Q0tZQ2YteWxlUdIB0AFBVV95cUxQVDN6MXlNS0NDWEVyYVZlMzRHd3lxMlpid2dEOEtPalplOGpBUTdVSFlCRFF6TXZRQlpxWjhzVEVzSFRpZEVQMjZVT0dVUTc4YXM0QU12TC1VNFZKQ3JjLXdObGFiWmFkM1pPbEJ6ZG1heFo5UW5FV0k4R2J6VHhHaThYV2R4Nm9oNnZYbnVkN0EtQi0xSmhtamlFY2FvejlJVmZMLWwwbHM2UEdreDh4NDFJXzNtTU13dE9ub1k5c1laYlNJY3p4anNMMWo2Y2dB?oc=5",
+   "evidence": "Rediff, published 15 Sep 2026. Amazon Now hits $1 billion annualised gross sales in India, eyes 100 cities by Diwali - Rediff",
+   "id": "c8",
    "segment": "quick commerce",
    "fromRisk": false,
    "play": "Get in early",
-   "next_step": "Draft note to regional category lead about stocking impulse snacks in new dark stores",
+   "next_step": "Send note to regional category lead for upcoming Diwali city launches",
+   "owner": "Regional Category Lead"
+  },
+  {
+   "company": "Flipkart Minutes",
+   "type": "expansion",
+   "headline": "Flipkart Minutes scales to 1,000+ dark stores",
+   "date": "Sep 2026",
+   "source_n": 1,
+   "source_title": "ET Retail",
+   "why_now": "rapid dark‑store rollout aligns with our push into quick‑commerce impulse categories",
+   "early": 3,
+   "fit": 3,
+   "size": 3,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Category Manager - Impulse/Confectionery",
+   "say": "flipkart minutes hitting 1k dark stores, big chance for our impulse range",
+   "source_url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxPN3ZVZi1iY0lCdFNSRDFTRU5FLTRKd1BieVljWEdCVXJvWThrdG51Y3FXZ3FIbTNEYUltaVhxa2hzbU55Zy13YkVnT0RLZHI2M19oc1VyOTllYnEtNVlFVFlZZjR0bVdUTVM0N1JMV2JCbVdLejc4cDFhdVlUdFVuNEUxVXpEMWszblRtNE12Q1FYdDhYdFc5Sk56SXZOQzhEdWxrTllOX2IzV251RFc4dFFGcUYwWWVud1d1NWtieTRwZ2JJOXZsQnNaLW9JWVR2TEtIUTJiVXJLUmd2UUhzdmkxQ081Z1BNRnNVZDNESU1Ed9IB9gFBVV95cUxNcjU4ekp4bDU4WEdXSjc3QlJOMVdGX2NTWHRDR3hXUWFFY2dIUkZSSnp3b09RMzZfN1B4QllUVW1yZGp0X1B2TUlxWUt6TVJQWHlWTXh5RVVDalFISXhqWDFocEJDVWU0VFU5VExyU0pnb21ZbWZGWGduLWVQYzR2Ukl4NUJQLW1fekR2aUpYaDJxX3RpTW9WYU1veExpWXZNZUZaREdpN3RVS3FVU3dpTFpjdEEtMWpkY1ljbTAtTV9rTURZVnpHZnhMN08yLXdRaVZHeFdpa2p2U0ZqaW5VUmozRG5RYUN0TGRTQmp0eFkxeW1USXc?oc=5",
+   "evidence": "ET Retail, published 05 Sep 2026. Flipkart Minutes scales to 1,000+ dark stores, narrows order-value gap with Blinkit - ET Retail",
+   "id": "c20",
+   "segment": "quick commerce",
+   "fromRisk": false,
+   "play": "Get in early",
+   "next_step": "Draft early outreach note to regional lead for new dark‑store roll‑out",
+   "owner": "Regional Category Lead"
+  },
+  {
+   "company": "Blinkit",
+   "type": "expansion",
+   "headline": "Blinkit to open gourmet dark stores in top 8 cities",
+   "date": "Jul 2026",
+   "source_n": 25,
+   "source_title": "BusinessLine",
+   "why_now": "gourmet dark stores target premium shoppers in key south‑west metros",
+   "early": 2,
+   "fit": 3,
+   "size": 3,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Category Manager - Impulse/Confectionery",
+   "say": "blinkit launching gourmet dark stores in eight cities – perfect for premium mouth fresheners",
+   "source_url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOYURUTy1VR0s3UDlBNl9wcHJOM2dWQ0x0V1lSc08yNnp3OXVxdHdsVDEtWXl0TXYtMHpab3kwZHFFWkZaLVAzTU90U0JCZEpBYUZmbHhvZUFKZEFMVmh2VG93U1MtTS0wQVZTMTUwTV9FcWxpZWNLb0ZEeEc5LUhNdTlVOG0yQU1DdWRuVHlBOHhYY0NHUlF5aFM1dGIyQ1VDaFBaZWhhTFlRZTNfSTlSNUQzWTJlRXpkcWxhS3J3RkRMWjFEX1VJT256VFlwLV9YTnpN0gHaAUFVX3lxTFBTUHYzZzRydXlsVzJlQUVSRXNuUmNZbWxhbVZveVVBWERVUVljZFBtSVdrTTFTSkxCWXJnS0xkZG9NRzdGM2hqUVVXVWd6QWwtVVpkSnNWckZ5c3dsSjMwZnN5dDR4N3l5LU8tekhtY3NOYmZEV2RJMWxZREdBUGxQckxzcVlwb19rRW1JV0JvSWVzSV9uWXhrNzNlRUQxTEsyTkJxNlF4ZUJzYnNxVU5ONEhCbGRtSEFWN29YV2hLMGFVR3h4a0xCNWNOQXd2WTh3V3IzNVZrQzJn?oc=5",
+   "evidence": "BusinessLine, published 23 Jul 2026. Blinkit to open gourmet dark stores in select location in top 8 cities - BusinessLine",
+   "id": "c23",
+   "segment": "quick commerce",
+   "fromRisk": false,
+   "play": "Launch partnership",
+   "next_step": "Propose sampling partnership for gourmet dark‑store launch in each city",
    "owner": "Trade Marketing Manager"
+  },
+  {
+   "company": "DMart",
+   "type": "expansion",
+   "headline": "DMart opens 15 stores in Q2 FY27, revenue rises 18%",
+   "date": "Oct 2026",
+   "source_n": "2",
+   "source_title": "Storyboard18",
+   "why_now": "large batch of stores indicates aggressive rollout phase",
+   "early": 2,
+   "fit": 2,
+   "size": 3,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Category Buyer - Confectionery",
+   "say": "dmart rolling out 15 new outlets – big chance to get pulse on more shelves.",
+   "source_url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPLUFoQm1WQkdmTHliVVdJTWgtYWNWbGdmMG5QbTUta3dRQnJrRGtTUWNwdnZoYkVWRWtYT056UThoeC03US1jdzFPSHNmdkhrNFFFZjRqVlJQbUlFRnlHd1hsZ0xrTkdQRHFUYzdjSHA1b0JySkNGTEpNM0RRMzFrSDNhN2pfZGszSGcxT3FGNHdyY2taZmdFcFk4OVA2OWhnb3VQVHY1Z0hwc293ekw3NGswQ1M0cHVOX0FoM1FlMklwOUVXYzFMY0liNkxiUWhuWXZ5RtIB2gFBVV95cUxQNDgzc0ZBWDRrRXlCNWN1VGlGTHB1ZVZjdGxmVVFxbUtfSnVLMmtJdEVWSy1SQlpzV2F5X0NwNWRfN0RNWG9ONDFESndWdzNGTUFOYW9IZzZaVjJoLWZua0Jhb1hpcGxzN2FMcTMwNVl3RjJrOVRCRUdPOGI1S1FkNUVra2E5Y0VLeDAxVjJURFRTOEJPV3dxODhKYkZ3WHN2X1hpc2NxVmJEbEtnLUJhb0RmYktKRFFMRGZSb2k4N0VFY3ZqSEdZZ1JiMks4OUUxVmRndFF3UGRFZw?oc=5",
+   "evidence": "Storyboard18, published 10 Oct 2026. Avenue Supermarts Q2 FY27: DMart opens 15 stores, revenue rises 18% to Rs 19,644 crore - Storyboard18",
+   "id": "c27",
+   "segment": "modern trade",
+   "fromRisk": false,
+   "play": "Launch partnership",
+   "next_step": "Arrange launch‑day sampling offer for DMart’s 15 new stores",
+   "owner": "Trade Marketing Manager"
+  }
+ ],
+ "bench": [
+  {
+   "company": "Hilton Garden Inn Bengaluru ORR",
+   "type": "expansion",
+   "headline": "Hilton Garden Inn opens in Bengaluru’s ORR, offering preview of two‑hotel complex and convention centre",
+   "date": "Jul 2026",
+   "source_n": 28,
+   "source_title": "ET HospitalityWorld",
+   "why_now": "new south‑India hotel aligns with DS’s focus on HoReCa growth in the region",
+   "early": 2,
+   "fit": 3,
+   "size": 2,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Purchase Manager",
+   "say": "hilton garden inn opens on ORR, preview of larger complex, south push",
+   "source_url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxOQ0pNV2YyXzhRNGtZLUQxVFRJMG5YMDZRWk1vTkZ5a2NpNl9sMkZFRHE4YW4taFBKOUxXR0dsR3IySUNXX1k5LVZJNnBLajdxN2gxVGRQcklIYkV6YTBWR3JlQkVJOEZKR1ZRNzBFc2NTWFRmZnA5dzNPbWhnNlVpcHFUOWZWTHhLMUhTX2ZFUGx3Z0pZb1hiaWJRV0QtaGFTb1J0TnZ4LXZsN2xtMTNDQnR3cEthQlVjOTg1eW5XWW5aei1wZFJCZUc0V0lvYVNqTHlXTGN1ck9TOU1QcnVfTVdvWi0yb2x2aVJwOFJjZk1KOHU5NHZIeHlpb3IzWXVo0gGGAkFVX3lxTE93S1hKUDR2V1JhaVA4LTVYTXJmanpOOEE2Vng3UlRFRXhZYVhlVXNEYkY4YkNyRUpYZnNWaDc2WVBja2hkNE0xaTU2TTBKMFpQcEFrWUZtWjNlQWFZbFZleDlMYzlvSHJpel9VWHdRR2h1SW9VWVRlc3FsNG54WW9uZTc0QXF2SjV6UnR6Sk5STUJPZjJBN3ZWV3hLQ3dhQ1AyeXlKQk4ya1hDb09EV3l2YmV5VkJ5RFh2d183akZYSllPejc5eGdzVUdMVy0zbGo4R3pqaEdlbU9kbDY0UldlaTZQWmZYM2ZqN29Wbnc1OExLZWZLV2RaMWhrRnpvUHM2bGJSYkE?oc=5",
+   "evidence": "ET HospitalityWorld, published 08 Jul 2026. Hilton Garden Inn opens in Bengaluru’s ORR, offering preview of two-hotel complex and convention centre - ET HospitalityWorld",
+   "id": "c3",
+   "segment": "horeca & travel",
+   "fromRisk": false
+  },
+  {
+   "company": "Zepto",
+   "type": "expansion",
+   "headline": "Zepto to launch 'Select' premium grocery service with imported and gourmet items",
+   "date": "Jul 2026",
+   "source_n": "26",
+   "source_title": "Instagram",
+   "why_now": "aiming at high‑spending urban consumers with curated gourmet range",
+   "early": 2,
+   "fit": 2,
+   "size": 3,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Category Manager - Impulse/Confectionery",
+   "say": "zepto's premium line could be a new shelf for our upscale confectionery",
+   "source_url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1VWW55aVNEY2U5UDdULVgyWHJVTTNNN3VoZGtFNy1qVWVGa3hYcDRBZFduLUltNW90cTktYnBRU09jSmFHWWt2cG5meEVHVWVzeXc?oc=5",
+   "evidence": "Instagram, published 14 Jul 2026. IPO-bound Zepto is preparing to launch \"Select,\" a premium grocery service within its app, offering imported foods, gourmet groceries and curated high-end products, according to a Moneycontrol report. The service is expected to launch in the coming weeks a - Instagr",
+   "id": "c12",
+   "segment": "quick commerce",
+   "fromRisk": false
+  },
+  {
+   "company": "Reliance Retail",
+   "type": "expansion",
+   "headline": "Reliance Retail reaches 20,000 stores, FY26 revenue Rs 3.7 lakh crore",
+   "date": "Apr 2026",
+   "source_n": "18",
+   "source_title": "ET BrandEquity",
+   "why_now": "milestone shows massive modern‑trade footprint for distribution",
+   "early": 1,
+   "fit": 3,
+   "size": 3,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Category Buyer - Confectionery",
+   "say": "reliance retail hits 20k stores – huge modern‑trade network to tap.",
+   "source_url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxOWEJEWmRCSzJvRkhoWUgxa0FvYW0wc3UwV25JN0tPMDFKZVFjR2xTaTI5eFV4ME1oNzFjWUd6REpTZkVtV3VJN1gxTGR4b2VfQ1h2Rk04MF9uQ2NGLTc5WDhEMFJFbWhSRUdLUlhUdE1GSmdCMDVkVTdBdFlSMlBXdkdLM2x2ZjcyWllsZk8wVW05TFBtaldzZ3ViVXNhS01KMTJkbmtNTjJjUWhhZjc5UC1vLVFCd0Rsa1BzaVA0RDdsVW5jY19KcHVCdEFFZlpwekx1dUZXR2l4T2UwN2dtczQ5aGtyaElTVng1ZWcxZWfSAfYBQVVfeXFMTlM4V1FHUG5ZRTFKcUFvRVlkZ1FBUk1xRWhUczRzSTJMejhzVUJ3dzhObGEtaFRBNzRmWm9LN01CUE1LeG1Ed3IzVVZEWHNBbHctWHdSVFhObmt4Y1NsRzhDeHVRWDFTUndYTnRweDBXdmRHaXpCUEp3NmhnOU9wekM3b1ZnbEVKNGVvVElndWlBVlZQZWN1YU5YSTAyOE44bXVnemNRS0hFNzh5YjJSbWNHamN3MEtpTExicWV6a2p4UHprXzhhdUpiU3BsbEZGZnEyRVk3NUZfa1RPQzRlWF9ubUVTQUt5eE5GVThVSDIyaGZwMWJR?oc=5",
+   "evidence": "ET BrandEquity, published 25 Apr 2026. Reliance Retail FY26 revenue at Rs 3.7 lakh crore, hits 20,000 store milestone - ET BrandEquity",
+   "id": "c29",
+   "segment": "modern trade",
+   "fromRisk": false
+  },
+  {
+   "company": "Smart Bazaar",
+   "type": "expansion",
+   "headline": "Smart Bazaar crosses 1000 stores, milestone in consumption and distribution",
+   "date": "Apr 2026",
+   "source_n": "20",
+   "source_title": "India Retailing",
+   "why_now": "crossing 1k stores opens fresh shelf real‑estate in south‑west",
+   "early": 1,
+   "fit": 3,
+   "size": 3,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Category Buyer - Confectionery",
+   "say": "smart bazaar tops 1k stores – another channel for our confectionery.",
+   "source_url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPbG4zVi1iWUlHWDEyZ1dlU2lqc05rdkJEd241dnR0NkpERl84a1c5alNvT2FKUE4wREhJVndTQUlyYzE3NXYwZWtQOGpjbHh5NmpkSG9hN1JaRWQ1S3E1RlpjYWlqT21fSV92MkR0WWRQcGRTMzhja1JLbWpfeGdaaVoxSGJhc0NOemw0TnJ1ZmxhdjdpMW84U0pyU0hySlhrdDZlaXNfTXJVSW51ckJ1dWppN2E?oc=5",
+   "evidence": "India Retailing, published 23 Apr 2026. 1000+ Smart Bazaars: A Milestone Built on Consumption, Distribution and Category Depth - India Retailing",
+   "id": "c30",
+   "segment": "modern trade",
+   "fromRisk": false
+  },
+  {
+   "company": "The Den Bengaluru (Hilton LXR)",
+   "type": "expansion",
+   "headline": "The Den Bengaluru becomes Hilton’s first LXR in India’s Silicon Valley",
+   "date": "Oct 2026",
+   "source_n": 24,
+   "source_title": "La Revue des Hôtels",
+   "why_now": "south india hotel opening matches DS push to grow confectionery in south region",
+   "early": 2,
+   "fit": 3,
+   "size": 1,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Purchase Manager",
+   "say": "new hilton lxr The Den opens in Bengaluru, great south foothold",
+   "source_url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNZTUxU205c2FXUC1NWGR3Y1hidFdTZUw2VmFRV0JjclRLRU14aHgwWGRuTnVHaUl3cGxnN1JOaVNvRDZaS2c2UlJ6UkVITnd5eG40ekxRcTJIXzJvYTJNQTQ0cms4czlwSGNfb3oyamJtY25iZUZnX1NjbERoaXktajZ2QVdZaFFSSW9jbzBmbFJxemtubzNGNA?oc=5",
+   "evidence": "La Revue des Hôtels, published 20 Oct 2026. The Den Bengaluru hotel becomes Hilton’s first LXR in India’s Silicon Valley - La Revue des Hôtels",
+   "id": "c1",
+   "segment": "horeca & travel",
+   "fromRisk": false
+  },
+  {
+   "company": "Olive Hospitality",
+   "type": "expansion",
+   "headline": "Olive Hospitality launches new hotel in North Bengaluru",
+   "date": "May 2026",
+   "source_n": 27,
+   "source_title": "Hotelier India",
+   "why_now": "adds another south‑India outlet, supporting DS’s southern expansion priority",
+   "early": 1,
+   "fit": 3,
+   "size": 2,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Purchase Manager",
+   "say": "olive hospitality adds north Bengaluru hotel, adds another south entry",
+   "source_url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQSE9xeFNZNkJndTBuX0MzOGNtdDdiODJTQTFPNTdEalZlSjRQcjVEeUVOc0gwNm8tSHBLZERaMElVZ2NoaFRXQnVScGdySzN2SEVZcXpzeE1kTFVvWXFnZENSNzNzNFdBamlNU3VzRkxsbFdrQ3BtNWdtYk5jbG1SdDFvVHUxaFROWHZrdU1mc1JwR1JpT08wSmRZcThSQQ?oc=5",
+   "evidence": "Hotelier India, published 12 May 2026. Olive Hospitality launches new hotel in North Bengaluru - Hotelier India",
+   "id": "c2",
+   "segment": "horeca & travel",
+   "fromRisk": false
+  },
+  {
+   "company": "BigBasket",
+   "type": "expansion",
+   "headline": "BigBasket scales quick‑commerce entry, expanding its rapid‑delivery network",
+   "date": "Apr 2026",
+   "source_n": "8",
+   "source_title": "Yahoo Finance UK",
+   "why_now": "entering quick‑commerce to compete with established players and grow basket size",
+   "early": 1,
+   "fit": 2,
+   "size": 3,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Category Manager - Impulse/Confectionery",
+   "say": "bigbasket's quick‑commerce push opens another channel for our impulse range",
+   "source_url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNU280YTJfVUR4cVNvZmtSMUNWdk5lRm1jZHB5NzdmeHh5MTlHY1lJakRwcTV3a0JhRFFjQjVYSWx5TjVmUzJMZ0J3UWxfWHdmSHc1WXB5VEs2dEEta3NpR2oza29PU1F5cmQxWVgwLUlVY0dRSlNvWEt4bUVaYTY1SWJWSGFaZDVq?oc=5",
+   "evidence": "Yahoo Finance UK, published 20 Apr 2026. India Quick Commerce Report 2026: Market to Reach $12.97 Billion by 2029 - Blinkit, Zepto, and Swiggy Instamart Lead Surge as JioMart and BigBasket Scale Competitive Entry - Yahoo Finance UK",
+   "id": "c13",
+   "segment": "quick commerce",
+   "fromRisk": false
+  },
+  {
+   "company": "DigiDukaan",
+   "type": "expansion",
+   "headline": "DigiDukaan expands platform to three new Indian cities, linking 21,000 retailers",
+   "date": "Oct 2026",
+   "source_n": 27,
+   "source_title": "DD India",
+   "why_now": "new city rollout opens fresh shelf space for DS Group confectionery in South/West",
+   "early": 1,
+   "fit": 2,
+   "size": 2,
+   "proof": 3,
+   "momentum": "up",
+   "decision_role": "Category Manager - Confectionery",
+   "say": "digidukaan just added three cities, big chance for our candy on new shelves",
+   "source_url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxOV3Zsc1Izblg3emljR015QTg4RWNqSTBwdVBqUU1adEpTYkt5QVV4YTZXc0R3NGVnWDFGNGhhSmphWG1sWFQ4ck1hLXJTMkJEVnY2QzUtSld5ak5ZZ1FISU9KUENvdjYtc3JGV1ZHNkRLQWw4OUF1QWQyWWdiZDBsWC1Xd3B0aEJuWUZrc2RMQWxCNUUxZE1fenZCMEU0UENBS0tjeWppendqYVA1eHB2YlpXbnhmNGtfenk5bTBWbDdteWFiZVRWaGhTNUpKbTRwNS1MZWxlc01rb2F3OWo2VUlLcEYyRmJMbjlWV0MtbHEyWHp5YzFfaEtHZHFDZzI1RTRqbQ?oc=5",
+   "evidence": "DD India, published 30 Oct 2026. DigiDukaan Connects Over 21,000 Retailers with More Than 450 Brands Across Three Cities; Piyush Goyal Chairs Chintan Shivir on Trade Digitisation - DD India",
+   "id": "c15",
+   "segment": "distributors & stockists",
+   "fromRisk": false
   }
  ],
  "risks": [
   {
    "company": "FSSAI",
    "type": "regulation",
-   "headline": "FSSAI proposes stricter sugar, fat, salt thresholds for foods sold in schools",
-   "date": "Aug 2026",
-   "source_n": 3,
-   "source_title": "DD News",
-   "why_now": "could limit sales of Pulse candies and other sweets to school canteens, hurting institutional growth",
-   "say": "fssai might cut school sales of our candy – watch the sweet‑tooth market shrink",
-   "source_url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNTGZ1VmZWVTc5MjZDc01yNDkzaFdRVXdkczlYOEtHWEdPY1U5SENLX0p3TmxET3BTVTJIeE12UXcyNE5NNW02a3hFR09peEl3cG5uQzRBMEQya2paRThnYkI4Q1RPdWFrQjVJVUNXbG9NRENXUHNQNVFzMGx4RWdzY2l4MkJkOV9QMTFVMjZ0cHJBcE5KLWs2MTJGZ3FjVVhiaEpiR0pOaDF2M1RIb1Y0UHBLdw?oc=5",
-   "evidence": "DD News, published 11 Aug 2026. FSSAI proposes stricter thresholds for foods high in fat, sugar and salt sold in schools - DD News",
+   "headline": "FSSAI cracks down on misleading candy and chocolate labels",
+   "date": "Jul 2026",
+   "source_n": "2",
+   "source_title": "The Times of India",
+   "why_now": "our Pulse, Chingles and LuvIt may need label redesign, risking shelf delays",
+   "say": "heads up: fssai's label crackdown could stall our candy launches, check packaging asap",
+   "source_url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNdVQ4NEFkcmJ1SXFIa0htQ3QtNTgyWnVSR1ZNTkV3OTM2S3RrWUk4WG9OZU1zUVJtdUpRYWFibFRKZEFSSEY5WnZ3blg1X1JQYWNMZXppaVB1elZ1bmwtU0tfMGtIeGY0MzFIYWxhU3Q3b2wxLWZ1aHp6bWg5RlVfZ3hHWXJOUm1JQVY3MDR2M2JPRWNqQTFYZk54UkpobkxlWjkyMDRXaWlQdzNCek5mWUE0dFQ5NjYzSHFTcG9sZTBteThkUndHbExXRmRJRjF0NUFKcXp0Umc3UGJpS0xnYzh3c2kwMEXSAewBQVVfeXFMT0Zwd1RVdlUxS2FzSHNieXc0VHZNNnZXZVpaWmJxOWtsbTN6R1JxNlplemlrdVFKbFAtOHo5TUtucEx5SkZtU3pZTHU1ekRYVzMteUZaR0o5aURFTG5teG90S1FFZ29ucEtibUFPVklFWkZFQWdkbGd2bkp4Wjl6R1daVTQtOUxRRGFGMXF3ejVJRjAzT1dGYk1tcUhLTVVBN1hfVG8wcVR3djBKNjdwMzVqc21vRnlnV1Q4S1ZTdlBfbEg5VTdOQWJNOFdlRkdOa2dWMmJjZ2ZTNVRVSFA2NDk0ZGR3X3FrRVBwbHE?oc=5",
+   "evidence": "The Times of India, published 09 Jul 2026. No fruit in fruit candy, no cocoa in chocolate: FSSAI cracks down on misleading labels - The Times of India",
    "early": 1,
-   "id": "c10",
+   "id": "c18",
    "segment": "risk watch",
    "fromRisk": true
   }
  ],
  "rejected": [
   {
-   "id": "c1",
-   "company": "Sri Narasu’s Coffee",
-   "headline": "Sri Narasu’s Coffee expands into Karnataka and Andhra Pradesh",
-   "check": "BUYER",
-   "reason": "Coffee chain not a DS Group buyer"
-  },
-  {
-   "id": "c2",
-   "company": "KPN Fresh",
-   "headline": "KPN Fresh launches 300‑store south india food‑store network",
-   "check": "BUYER",
-   "reason": "Not a confirmed DS Group buyer"
-  },
-  {
-   "id": "c3",
-   "company": "Swiggy",
-   "headline": "Swiggy to expand use cases for Bolt",
-   "check": "FIT",
-   "reason": "Event not a store/format expansion"
-  },
-  {
-   "id": "c4",
-   "company": "Rapido's Ownly",
-   "headline": "Rapido's Ownly expands restaurant partnership via NRAI agreement",
-   "check": "BUYER",
-   "reason": "Platform not a direct buyer"
-  },
-  {
    "id": "c5",
-   "company": "Haldiram Group",
-   "headline": "Haldiram to launch Jimmy John's QSR in India",
+   "company": "DMart",
+   "headline": "DMart crosses 500‑store milestone",
+   "check": "UNIQUE",
+   "reason": "Duplicate of DMart milestone"
+  },
+  {
+   "id": "c16",
+   "company": "UFO Moviez",
+   "headline": "UFO Moviez partners with DCDC to extend Indian cinema distribution to North America",
+   "check": "BUYER",
+   "reason": "Not a buyer of FMCG"
+  },
+  {
+   "id": "c17",
+   "company": "Annapurna Group",
+   "headline": "Annapurna Group scales national FMCG brand, targeting wider Indian market",
    "check": "BUYER",
    "reason": "Competitor, not a buyer"
   },
   {
-   "id": "c7",
-   "company": "Flipkart Minutes",
-   "headline": "Flipkart Minutes scales up operations across India",
-   "check": "UNIQUE",
-   "reason": "Duplicate of Flipkart Minutes expansion"
+   "id": "c19",
+   "company": "Mondelez",
+   "headline": "Mondelez lifts candy prices in India, warns of consumer pushback",
+   "check": "BUYER",
+   "reason": "Competitor price hike, not a buyer"
   },
   {
    "id": "c11",
-   "company": "FSSAI",
-   "headline": "FSSAI proposes warning labels on junk food, targeting high‑sugar confectionery",
+   "company": "Flipkart",
+   "headline": "Flipkart, Amazon step up quick‑commerce bets with new city launches in South",
    "check": "UNIQUE",
-   "reason": "same body already on risk watch"
+   "reason": "second event at the same company"
   },
   {
-   "id": "c8",
+   "id": "c10",
+   "company": "Amazon",
+   "headline": "Amazon, Flipkart expansion plans trigger dark‑store race across Indian metros",
+   "check": "UNIQUE",
+   "reason": "second event at the same company"
+  },
+  {
+   "id": "c21",
+   "company": "Flipkart Minutes",
+   "headline": "Flipkart Minutes aims to add 800 dark stores by end‑2026",
+   "check": "UNIQUE",
+   "reason": "second event at the same company"
+  },
+  {
+   "id": "c26",
+   "company": "DMart",
+   "headline": "Avenue Supermarts opens new DMart store in Pali, Rajasthan",
+   "check": "UNIQUE",
+   "reason": "second event at the same company"
+  },
+  {
+   "id": "c22",
+   "company": "Flipkart Minutes",
+   "headline": "Flipkart Minutes overtakes Instamart in dark‑store count across top cities",
+   "check": "UNIQUE",
+   "reason": "second event at the same company"
+  },
+  {
+   "id": "c24",
+   "company": "Blinkit",
+   "headline": "Blinkit extends lead in quick commerce beyond major cities",
+   "check": "UNIQUE",
+   "reason": "second event at the same company"
+  },
+  {
+   "id": "c4",
+   "company": "DMart",
+   "headline": "DMart store count hits 500, shares rally 8%",
+   "check": "UNIQUE",
+   "reason": "second event at the same company"
+  },
+  {
+   "id": "c6",
+   "company": "DMart",
+   "headline": "DMart adds three stores in two days",
+   "check": "UNIQUE",
+   "reason": "second event at the same company"
+  },
+  {
+   "id": "c9",
    "company": "Flipkart",
-   "headline": "Flipkart expands dark stores as profit check slows",
+   "headline": "Flipkart and Amazon add new dark‑store locations to boost delivery speed",
+   "check": "UNIQUE",
+   "reason": "second event at the same company"
+  },
+  {
+   "id": "c25",
+   "company": "Flipkart Minutes",
+   "headline": "Flipkart Minutes and Amazon ramp up dark store networks",
+   "check": "UNIQUE",
+   "reason": "second event at the same company"
+  },
+  {
+   "id": "c28",
+   "company": "DMart",
+   "headline": "Avenue Supermarts adds 8 new DMart stores across India",
+   "check": "UNIQUE",
+   "reason": "second event at the same company"
+  },
+  {
+   "id": "c7",
+   "company": "DMart",
+   "headline": "DMart opens stores in Kota, Ghaziabad, Greater Noida",
+   "check": "UNIQUE",
+   "reason": "second event at the same company"
+  },
+  {
+   "id": "c31",
+   "company": "Reliance Retail",
+   "headline": "Reliance Retail shuts down all 7‑Eleven stores after franchise pact ends",
    "check": "UNIQUE",
    "reason": "second event at the same company"
   }
