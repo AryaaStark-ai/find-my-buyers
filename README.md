@@ -1,4 +1,14 @@
-# #find-my-buyers
+# #find-my-buyers v1: an AI marketing team, not a lead finder
+
+v0.1 searched in the US, didn't know who actually pays, and always ended in a cold email. v1 works like a marketing team. Demo company: DS Group (Indian FMCG), which sells to the trade, not to shoppers.
+
+**The loop:** Strategist (who pays, by segment) -> Scouts (one per segment, India-localised search) -> Judge (keep, risk watch or reject) -> Prioritiser (early + fit + size + proof = P1 to P4) -> Play-picker (the right move per signal) -> Quill (the asset for that play) -> Compliance -> Human gate (approve, edit, reject, replied; only approved leads export) -> Memory (skips handled events, nudges scores).
+
+**Swap the Memory Pack** (`MEMORY_PACK` in `index.html`) for another company. **Play demo run** replays a saved run with no AI calls. Known gap: Bing job-post results are unreliable, so the hiring signal is weak.
+
+The rest of this README and `AGENTS.md` describe the v0.1 base.
+
+---
 
 **Every buyer leaves a trail. Follow it.**
 

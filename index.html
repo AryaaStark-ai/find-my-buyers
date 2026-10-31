@@ -43,9 +43,9 @@ button{font-family:inherit;cursor:pointer;color:var(--ink)}
 /* layout */
 .app{flex:1;display:grid;grid-template-columns:400px 1fr;min-height:0}
 .chat{display:flex;flex-direction:column;border-right:var(--b);background:var(--yel);min-height:0}
-.crew{display:flex;gap:8px;padding:10px 14px;border-bottom:var(--b);align-items:center;font-size:12.5px;font-weight:700}
+.crew{display:flex;flex-wrap:wrap;gap:8px;padding:10px 14px;border-bottom:var(--b);align-items:center;font-size:12.5px;font-weight:700}
 .av{flex:none;width:30px;height:30px;font-size:11.5px!important;border:var(--b);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:13px}
-.av.sniff{background:#fff}.av.scout{background:var(--blue)}.av.quill{background:var(--rose)}.av.you{background:var(--mint)}
+.av.sniff{background:#fff}.av.scout{background:var(--blue)}.av.judge{background:var(--orange)}.av.play{background:var(--yel)}.av.comply{background:var(--mint)}.av.quill{background:var(--rose)}.av.you{background:var(--mint)}
 .crewm{display:flex;align-items:center;gap:5px}
 .crewm small{display:block;font-weight:500;font-size:10.5px;opacity:.7;line-height:1}
 .feed{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth}
@@ -54,7 +54,7 @@ button{font-family:inherit;cursor:pointer;color:var(--ink)}
 .msg.you{align-self:flex-end;flex-direction:row-reverse}
 .bub{border:var(--b);border-radius:14px;padding:8px 11px;font-size:14px;line-height:1.38;background:#fff;box-shadow:3px 3px 0 var(--ink)}
 .bub i{font-style:normal;font-weight:800;font-size:11px;display:block;margin-bottom:1px;letter-spacing:.2px}
-.msg.scout .bub{background:var(--blue)}.msg.quill .bub{background:var(--rose)}.msg.you .bub{background:var(--mint)}
+.msg.scout .bub{background:var(--blue)}.msg.judge .bub{background:var(--orange)}.msg.comply .bub{background:var(--mint)}.msg.quill .bub{background:var(--rose)}.msg.you .bub{background:var(--mint)}
 .bub.big{background:var(--ink)!important;color:var(--yel)}
 .bub.big i{color:#fff}
 .chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
@@ -64,6 +64,10 @@ button{font-family:inherit;cursor:pointer;color:var(--ink)}
 .dots b:nth-child(2){animation-delay:.15s}.dots b:nth-child(3){animation-delay:.3s}
 @keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
 @keyframes pop{from{opacity:0;transform:translateY(10px) scale(.95)}to{opacity:1;transform:none}}
+.risks{border-top:var(--b);background:#fff;padding:8px 12px;max-height:128px;overflow-y:auto;font-size:12.5px;line-height:1.35}
+.risks b.t{display:block;font-size:10.5px;letter-spacing:1.2px;color:var(--red);margin-bottom:3px}
+.risks ul{margin:0;padding-left:16px}
+.risks li span{opacity:.65}
 .compose{border-top:var(--b);padding:12px;background:#fff}
 .modes{display:flex;gap:6px;margin-bottom:8px;align-items:center}
 .mode{border:2px solid var(--ink);background:#fff;border-radius:20px;padding:3px 10px;font-size:12px;font-weight:700}
@@ -96,6 +100,23 @@ button{font-family:inherit;cursor:pointer;color:var(--ink)}
 .clue .co{font-family:'Bricolage Grotesque';font-weight:800;font-size:16px;margin:3px 0 4px;line-height:1.1}
 .clue .heat{position:absolute;right:-10px;top:-12px;background:var(--pink);color:#fff;border:2px solid var(--ink);border-radius:50%;width:42px;height:42px;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque';font-weight:800;font-size:14px;transform:rotate(10deg)}
 .clue.warm .heat{background:var(--orange)}.clue.cool .heat{background:#3D7BFF}
+.clue.p1{background:#fff;outline:4px solid var(--red);z-index:5}
+.clue.p1 .heat{background:var(--red);width:50px;height:50px;font-size:18px}
+.clue.p4{filter:grayscale(1) opacity(.62)}
+.clue.p4:hover{filter:none}
+.clue.p4 .stamp{background:#fff}
+.clue.rejected{filter:grayscale(1) opacity(.45)}
+.clue.own{background:#C9F7D9;outline:4px solid #12924f;z-index:5}
+.clue.own:before{background:#12924f;border-color:#0a5a30}
+.clue.own .heat{background:#12924f}
+.clue.own .tag{color:#0a5a30}
+.right{display:flex;flex-direction:column;min-height:0;min-width:0}
+.right .wall{flex:1}
+.clue .move{font-family:'Bricolage Grotesque';font-size:11.5px;line-height:1.25;margin-top:5px;border-top:1px dashed var(--ink);padding-top:4px}
+.comp{font-family:'Bricolage Grotesque';font-size:12.5px;font-weight:700;padding:5px 9px;margin:-4px 0 12px;border-radius:8px;border:2px solid var(--ink);background:var(--mint)}
+.comp.fixed,.comp.unchecked{background:var(--orange)}.comp.failed{background:var(--red);color:#fff}
+.tool:disabled{opacity:.5;cursor:not-allowed}
+.risks .alert{margin:3px 0 5px;padding:3px 7px;border-left:3px solid var(--red);background:#FFF3F3;white-space:pre-wrap}
 .clue .src{font-size:11px;margin-top:6px;opacity:.75}
 .clue .src a{color:#7a0c12}
 .clue .stamp{display:inline-block;margin-top:6px;font-family:'Bricolage Grotesque';font-weight:800;font-size:10px;border:2px solid var(--ink);padding:1px 6px;border-radius:4px;background:var(--rose)}
@@ -135,11 +156,13 @@ button{font-family:inherit;cursor:pointer;color:var(--ink)}
 
 <div class="bar">
   <div class="logo">#find-my-<span>buyers</span></div>
-  <span class="tw"><div class="pill pink">3 AI teammates</div><span class="q left" tabindex="0">?<span class="tip"><b>Meet the crew</b>Sniff reads the business and works out when its buyers are ready. Scout searches the news and the web for companies showing those signals. Quill writes the first email and LinkedIn note.</span></span></span>
-  <span class="tw"><div class="pill mono" id="clock">0:00</div><span class="q left" tabindex="0">?<span class="tip"><b>Run timer</b>How long the crew has been working on the current run. A full run usually takes 20 to 40 seconds.</span></span></span>
+  <span class="tw"><div class="pill pink">a marketing team</div><span class="q left" tabindex="0">?<span class="tip"><b>Meet the crew</b>Strategist works out who actually pays the business. One Scout per segment hunts dated events. Judge throws out non-events, non-buyers and duplicates, and sends bad news to risk watch. Quill writes the first email and LinkedIn note.</span></span></span>
+  <span class="tw"><div class="pill mono" id="clock">0:00</div><span class="q left" tabindex="0">?<span class="tip"><b>Run timer</b>How long the crew has been working on the current run. A full run usually takes under two minutes.</span></span></span>
   <div class="sp"></div>
-  <span class="tw"><button class="tool" id="bRecipe">Steal the recipe</button><span class="q" tabindex="0">?<span class="tip"><b>Steal the recipe</b>Downloads the crew's plan for the business you just ran: what it sells, who buys it, the moment buyers are ready, and the 8 signals to watch with the searches used. Reuse it as a template, sharpen the signals, or feed it into your own tool.</span></span></span>
+  <span class="tw"><button class="tool" id="bRecipe">Steal the recipe</button><span class="q" tabindex="0">?<span class="tip"><b>Steal the recipe</b>Downloads the crew's plan for the business you just ran: what it sells, who buys it, the moment buyers are ready, and the signals to watch per segment with the searches used. Reuse it as a template, sharpen the signals, or feed it into your own tool.</span></span></span>
+  <span class="tw"><button class="tool" id="bExport">Export approved</button><span class="q" tabindex="0">?<span class="tip"><b>Export approved</b>Downloads a CSV of the leads you approved in this run. Nothing else leaves the page.</span></span></span>
   <span class="tw"><button class="tool" id="bSave">Save run</button><span class="q" tabindex="0">?<span class="tip"><b>Save run</b>Saves the whole run (the chat, every clue on the wall and the letters) as a file on your computer. Use Replay to play it back later.</span></span></span>
+  <span class="tw"><button class="tool" id="bDemo">Play demo run</button><span class="q" tabindex="0">?<span class="tip"><b>Play demo run</b>Plays back a saved DS Group run. No AI calls and no searching, so it works even if the built-in key is rate-limited.</span></span></span>
   <span class="tw"><button class="tool" id="bLoad">Replay</button><span class="q" tabindex="0">?<span class="tip"><b>Replay</b>Opens a saved run and plays it back as if the crew were working live. Handy as a backup for a demo, because nothing needs to search again.</span></span></span>
   <span class="tw"><button class="tool" id="bSet">Use my own key</button><span class="q" tabindex="0">?<span class="tip"><b>Use my own key (optional)</b>The crew already works without a key. Add your own AI key (Claude, Gemini, OpenAI, Perplexity, OpenRouter or Ollama) if you want runs to use your own account.</span></span></span>
 </div>
@@ -147,9 +170,12 @@ button{font-family:inherit;cursor:pointer;color:var(--ink)}
 <div class="app">
   <section class="chat">
     <div class="crew">
-      <div class="crewm"><span class="av sniff">Sn</span><span>Sniff<small>reads your business</small></span></div>
-      <div class="crewm"><span class="av scout">Sc</span><span>Scout<small>finds the buyers</small></span></div>
-      <div class="crewm"><span class="av quill">Q</span><span>Quill<small>writes to them</small></span></div>
+      <div class="crewm"><span class="av sniff">St</span><span>Strategist<small>who actually pays</small></span></div>
+      <div class="crewm"><span class="av scout">Sc</span><span>Scouts<small>one per segment</small></span></div>
+      <div class="crewm"><span class="av judge">Jd</span><span>Judge<small>throws out noise</small></span></div>
+      <div class="crewm"><span class="av play">Pl</span><span>Play-picker<small>picks the move</small></span></div>
+      <div class="crewm"><span class="av quill">Q</span><span>Quill<small>writes the asset</small></span></div>
+      <div class="crewm"><span class="av comply">Cp</span><span>Compliance<small>checks every draft</small></span></div>
     </div>
     <div class="feed" id="feed"></div>
     <div class="compose">
@@ -161,20 +187,23 @@ button{font-family:inherit;cursor:pointer;color:var(--ink)}
       </div>
       <div class="inrow">
         <input id="q" placeholder="drop a website, e.g. flytbase.com" autocomplete="off">
-        <button class="go" id="go">Go sniff</button>
+        <button class="go" id="go">Go</button>
       </div>
       <input class="focus" id="geo" placeholder="anything they should focus on? (e.g. India, oil and gas)">
     </div>
   </section>
 
+  <div class="right">
   <section class="wall" id="wall">
     <svg id="strings"></svg>
     <div class="center" id="center"><h2>WHO'S<br>BUYING?</h2><p>Drop any business in the chat. The crew pins every clue they find right here.</p></div>
     <div class="hint" id="hint">every buyer leaves a trail</div>
   </section>
+  <div class="risks hidden" id="risks"><b class="t">RISK WATCH, NO OUTREACH</b><ul id="risklist"></ul></div>
+  </div>
 </div>
 
-<div class="foot"><span>Built by the FlytBase marketing team with AI, in one evening. You have 2 hours to beat it.</span><span><a href="https://github.com/Jijo01pup/find-my-buyers" target="_blank" style="color:var(--yel);font-weight:700;margin-right:14px">Get the code on GitHub</a><a href="https://github.com/Jijo01pup/find-my-buyers#readme" target="_blank" style="color:#fff;margin-right:14px">How it works</a><span class="mono" id="mtag"></span></span></div>
+<div class="foot"><span>v1: an AI marketing team, not a lead finder. Built on FlytBase's v0.1.</span><span><a href="https://github.com/Jijo01pup/find-my-buyers" target="_blank" style="color:var(--yel);font-weight:700;margin-right:14px">Get the code on GitHub</a><a href="https://github.com/Jijo01pup/find-my-buyers#readme" target="_blank" style="color:#fff;margin-right:14px">How it works</a><span class="mono" id="mtag"></span></span></div>
 
 <div class="drawer hidden" id="drawer"><div class="in">
   <h3>Use your own key (optional)</h3>
@@ -194,7 +223,7 @@ button{font-family:inherit;cursor:pointer;color:var(--ink)}
   <label>Sign messages as (optional)</label><input id="sender" placeholder="e.g. Sruthi, FlytBase">
   <label>How hard should Scout look?</label>
   <select id="depth"><option value="2">Quick look</option><option value="3">Proper look</option><option value="4" selected>Turn over every rock</option></select>
-  <div style="display:flex;gap:8px;margin-top:16px"><button class="go" id="sSave" style="padding:9px 16px">Save</button><button class="tool" id="sLoad">Load models</button><button class="tool" id="sClose">Close</button></div>
+  <div style="display:flex;gap:8px;margin-top:16px"><button class="go" id="sSave" style="padding:9px 16px">Save</button><button class="tool" id="sLoad">Load models</button><button class="tool" id="sClose">Close</button><button class="tool" id="sForget">Forget past decisions</button></div>
 </div></div>
 <input type="file" id="file" accept=".json" class="hidden">
 
@@ -259,15 +288,15 @@ document.querySelectorAll('.mode').forEach(b=>b.onclick=()=>{document.querySelec
 /* ---------- event bus: everything on screen is an event, so runs can be replayed ---------- */
 function emit(type,p={}){ if(RUN && !replaying) RUN.events.push({t:Date.now()-t0,type,p}); render[type](p) }
 const typingEls={};
-const NAMES={sniff:'Sniff',scout:'Scout',quill:'Quill',you:'You'};
-const AV={sniff:'Sn',scout:'Sc',quill:'Q',you:'Me'};
+const NAMES={sniff:'Strategist',scout:'Scout',judge:'Judge',play:'Play-picker',quill:'Quill',comply:'Compliance',you:'You'};
+const AV={sniff:'St',scout:'Sc',judge:'Jd',play:'Pl',quill:'Q',comply:'Cp',you:'Me'};
 function bubble(who,html,cls=''){
   const m=document.createElement('div'); m.className='msg '+who;
   m.innerHTML=`<span class="av ${who}">${AV[who]}</span><div class="bub ${cls}"><i>${NAMES[who]}</i>${html}</div>`;
   $('#feed').appendChild(m); $('#feed').scrollTop=1e9; return m;
 }
 const render={
-  reset(){ $('#feed').innerHTML=''; document.querySelectorAll('.clue').forEach(c=>c.remove()); $('#strings').innerHTML=''; closeLetter();
+  reset(){ $('#feed').innerHTML=''; document.querySelectorAll('.clue').forEach(c=>c.remove()); $('#strings').innerHTML=''; closeLetter(); $('#risklist').innerHTML=''; $('#risks').classList.add('hidden');
     $('#center').innerHTML=`<h2>WHO'S<br>BUYING?</h2><p>The crew is on it.</p>`; $('#hint').classList.remove('hidden'); clues=[] },
   you(p){ bubble('you',esc(p.text)) },
   typing(p){ if(typingEls[p.who]) return; typingEls[p.who]=bubble(p.who,'<span class="dots"><b></b><b></b><b></b></span>') },
@@ -275,24 +304,39 @@ const render={
     bubble(p.who, esc(p.text)+(p.chips?`<div class="chips">${p.chips.map(c=>`<span class="chip">${esc(c)}</span>`).join('')}</div>`:''), p.big?'big':'') },
   center(p){ $('#center').innerHTML=`<h2>${esc(p.name)}</h2><p>${esc(p.one_liner)}</p><div class="lbl">BUYERS SHOW UP WHEN</div><p>${esc(p.trigger_moment)}</p>`; $('#hint').classList.add('hidden') },
   clue(p){ addClue(p.s) },
-  letter(p){ const c=clues.find(c=>c.s.company===p.company); if(c){ c.m=p.m; c.el.querySelector('.stamp').textContent='LETTER READY'; c.el.querySelector('.stamp').style.background='var(--mint)' } if(p.open) openLetter(c,true) },
+  alert(p){ const li=[...document.querySelectorAll('#risklist li')].find(l=>l.dataset.id===p.id); if(li){ const d=document.createElement('div'); d.className='alert'; d.textContent=p.text; li.appendChild(d); redraw() } },
+  status(p){ const c=clues.find(c=>c.s.company===p.company); if(c){ c.status=p.status; paintStamp(c) } },
+  risk(p){ const s=p.s, li=document.createElement('li'); li.dataset.id=s.id||''; li.innerHTML=`<b>${esc(s.company)}</b> ${esc(s.headline)} <span>${esc(s.date||'')}</span>${s.source_url?` <a href="${esc(s.source_url)}" target="_blank">source</a>`:''}`; $('#risklist').appendChild(li); $('#risks').classList.remove('hidden'); redraw() },
+  letter(p){ const c=clues.find(c=>c.s.company===p.company); if(c){ c.m=p.m; paintStamp(c) } if(p.open) openLetter(c,true) },
   error(p){ if(typingEls[p.who||'scout']){typingEls[p.who||'scout'].remove(); delete typingEls[p.who||'scout']} bubble(p.who||'scout','ugh, hit a wall: '+esc(p.text)) }
 };
 
 /* ---------- wall ---------- */
 let clues=[];
 const SLOTS=[[3,4],[28,3],[54,4],[79,5],[2,38],[79,40],[4,71],[29,74],[54,73],[79,70],[16,21],[66,21],[16,55],[66,56],[41,80]];
-const heat=s=>Math.round(((+s.fit||0)+(+s.freshness||0)+(+s.intent||0))/15*100);
+// each 1-3: early, fit, size, proof -> total 4-12. A buyer that is pulling back is watched, not chased.
+const one3=v=>Math.min(3,Math.max(1,Math.round(+v)||1));
+const score=s=>one3(s.early)+one3(s.fit)+one3(s.size)+one3(s.proof);
+function priority(s){
+  if(s.momentum==='down') return 'P4';
+  const t=score(s);
+  return t>=11?'P1':t>=9?'P2':t>=7?'P3':'P4';
+}
+const monthsOld=s=>{ const d=Date.parse(/^\d/.test(s.date)?s.date:'1 '+s.date); return isNaN(d)?0:(Date.now()-d)/2629800000 };
+const byPriority=(a,b)=>priority(a).localeCompare(priority(b))||score(b)-score(a)||monthsOld(a)-monthsOld(b);
 function addClue(s){
-  const i=clues.length; if(i>=SLOTS.length) return;
-  const h=heat(s), cls=h>=75?'':h>=55?'warm':'cool', r=(Math.random()*7-3.5).toFixed(1)+'deg';
+  const own=s.type==='own_launch', i=clues.filter(c=>c.s.type!=='own_launch').length; if(!own&&i>=SLOTS.length) return;
+  const pr=priority(s), cls=own?'own':{P1:'p1',P2:'warm',P3:'cool',P4:'cool p4'}[pr], r=(Math.random()*7-3.5).toFixed(1)+'deg', pos=own?[19,50]:SLOTS[i];
   const el=document.createElement('div'); el.className='clue '+cls; el.style.setProperty('--r',r);
-  el.style.left=SLOTS[i][0]+'%'; el.style.top=SLOTS[i][1]+'%'; el.style.transform=`rotate(${r})`;
+  el.style.left=pos[0]+'%'; el.style.top=pos[1]+'%'; el.style.transform=`rotate(${r})`;
   const link=s.source_url?`<a href="${esc(s.source_url)}" target="_blank" onclick="event.stopPropagation()">${esc(s.source_title||'source')}</a>`:esc(s.source_title||'');
-  el.innerHTML=`<div class="heat" title="Heat score: how strong this signal is, out of 100. Combines fit (do they match the buyer), freshness (how recent) and intent (how close to buying).">${h}</div><div class="tag"><span>${esc(String(s.type||'clue').toUpperCase())}</span><span>${esc(s.date||'')}</span></div>
-    <div class="co">${esc(s.company)}</div><div>${esc(s.headline)}</div><div class="src">${link}</div><span class="stamp">CLICK TO WRITE</span>`;
+  el.innerHTML=`<div class="heat" title="Priority ${pr}: early ${one3(s.early)}, fit ${one3(s.fit)}, size ${one3(s.size)}, proof ${one3(s.proof)}, total ${score(s)} of 12.${s.momentum==='down'?' This buyer is pulling back, so it stays on watch.':''}">${own?'NEW':pr}</div><div class="tag"><span>${esc(String(s.type||'clue').toUpperCase().replace('_',' '))}</span><span>${esc(s.date||'')}</span></div>
+    <div class="co">${esc(s.company)}</div><div>${esc(s.headline)}</div><div class="src">${link}</div>${s.play?`<div class="move"><b>${esc(s.play)}:</b> ${esc(s.next_step||'')}</div>`:''}<span class="stamp">${pr==='P4'?"WATCH, DON'T CHASE":'CLICK TO WRITE'}</span>`;
   const c={s,el,m:null}; el.onclick=()=>openLetter(c); clues.push(c); $('#wall').appendChild(el); requestAnimationFrame(()=>drawString(el));
 }
+const STAMPS={approved:['APPROVED','var(--mint)'],rejected:['REJECTED','#ddd'],replied:['REPLIED','var(--yel)']};
+function paintStamp(c){ const st=c.el.querySelector('.stamp'), [text,bg]=STAMPS[c.status]||(c.m?.compliance?.status==='failed'?['BLOCKED','var(--red)']:['READY TO REVIEW','var(--mint)']);
+  st.textContent=text; st.style.background=bg; c.el.classList.toggle('rejected',c.status==='rejected') }
 function drawString(el){
   const W=$('#wall'), x1=el.offsetLeft+el.offsetWidth/2, y1=el.offsetTop+2, x2=W.clientWidth/2, y2=W.clientHeight/2;
   const mx=(x1+x2)/2, my=(y1+y2)/2+30;
@@ -307,21 +351,36 @@ async function openLetter(c,auto){
   if(!c) return; closeLetter();
   const L=document.createElement('div'); L.className='letter';
   L.innerHTML=`<div class="paper"><div class="head"><div><b>To: ${esc(c.m?.name||c.s.decision_role||'the right person')}</b><small>${esc(c.m?.title||c.s.decision_role||'')} at ${esc(c.s.company)}${c.m?.person_source?` · found via ${esc(c.m.person_source)}`:''}</small></div><button class="x">×</button></div>
-   <div class="why"><b>Why now:</b> ${esc(c.s.why_now)}</div>
+   <div class="why"><b>Why now:</b> ${esc(c.s.why_now)}${c.s.play?`<br><b>Play:</b> ${esc(c.s.play)}. ${esc(c.s.next_step||'')}${c.s.owner?` <b>Owner:</b> ${esc(c.s.owner)}`:''}`:''}</div>
+   <div class="comp hidden"></div>
    <div class="ltabs"><button class="ltab on" data-t="email">Email</button><button class="ltab" data-t="linkedin">LinkedIn note</button></div>
    <div class="ltext"></div>
-   <div class="lfoot"><button class="tool cp">Copy</button><button class="tool nx">Next clue</button></div></div>`;
+   <div class="lfoot"><button class="tool nx">Next clue</button></div></div>`;
   $('#wall').appendChild(L);
   L.onclick=e=>{if(e.target===L)closeLetter()}; L.querySelector('.x').onclick=closeLetter;
   L.querySelector('.nx').onclick=()=>{const i=clues.indexOf(c); openLetter(clues[(i+1)%clues.length])};
   const box=L.querySelector('.ltext');
   if(!c.m){
+    if(c.s.play==='Watch'){ L.querySelector('.ltabs').classList.add('hidden'); box.textContent='On watch, no outreach. Check again next run.'; return }
     if(replaying){box.textContent='(not written in this saved run)';return}
     box.classList.add('typing'); box.textContent='Quill is writing';
     try{ await writeFor(c,false) }catch(e){ box.classList.remove('typing'); box.textContent='Quill got stuck: '+e.message; return }
     if(!document.body.contains(L)) return; L.remove(); return openLetter(c,true);
   }
-  const T={email:`Subject: ${c.m.email_subject}\n\n${c.m.email}`,linkedin:c.m.linkedin}; let cur='email';
+  const T={email:(c.m.email_subject?`Subject: ${c.m.email_subject}\n\n`:'')+c.m.email,linkedin:c.m.linkedin}; let cur='email';
+  L.querySelector('.ltab[data-t="email"]').textContent=c.m.asset_type||'Email';
+  if(!c.m.linkedin) L.querySelector('.ltab[data-t="linkedin"]').classList.add('hidden');
+  const cm=c.m.compliance, comp=L.querySelector('.comp'), issues=(cm?.issues||[]).join('; ');
+  const compText={clean:'Compliance passed this.',fixed:`Compliance fixed this: ${issues}`,failed:`Compliance blocked this: ${issues}`,unchecked:'Compliance could not check this. Read it carefully.'}[cm?.status]||'';
+  if(compText||c.m.edited){ comp.textContent=compText+(c.m.edited?' Edited by you, then re-checked.':''); comp.className='comp '+(cm?.status||''); }
+  const blocked=cm?.status==='failed', done=c.status==='approved'||c.status==='replied';
+  L.querySelector('.lfoot').insertAdjacentHTML('afterbegin',`<button class="tool cp">Copy</button><button class="tool ed">Edit</button>${replaying?'':`<button class="tool ok"${blocked||done?' disabled':''}>${done?'Approved':'Approve'}</button><button class="tool no"${c.status==='rejected'?' disabled':''}>Reject</button>${c.status==='approved'?'<button class="tool rp">They replied</button>':''}`}`);
+  const gate=(sel,st)=>{ const b=L.querySelector(sel); if(b) b.onclick=()=>{ emit('status',{company:c.s.company,status:st}); remember(c.s,st); openLetter(c) } };
+  gate('.ok','approved'); gate('.no','rejected'); gate('.rp','replied');
+  L.querySelector('.ed').onclick=async e=>{ if(!box.isContentEditable){ box.classList.remove('typing'); box.textContent=T[cur]; box.contentEditable='true'; box.focus(); e.target.textContent='Save edit'; return }
+    const t=box.innerText; if(cur==='email'){ const m=t.match(/^Subject: (.*)\r?\n+/); c.m.email_subject=m?m[1]:''; c.m.email=m?t.slice(m[0].length):t } else c.m.linkedin=t;
+    e.target.disabled=true; e.target.textContent='Checking...'; c.m.edited=true; c.m.compliance=await check(c.s,c.m);
+    emit('letter',{company:c.s.company,m:c.m,open:false}); openLetter(c) };
   L.querySelectorAll('.ltab').forEach(t=>t.onclick=()=>{L.querySelectorAll('.ltab').forEach(x=>x.classList.remove('on'));t.classList.add('on');cur=t.dataset.t;box.classList.remove('typing');box.textContent=T[cur]});
   L.querySelector('.cp').onclick=()=>{navigator.clipboard.writeText(T[cur]);L.querySelector('.cp').textContent='Copied!';setTimeout(()=>L.querySelector('.cp').textContent='Copy',1200)};
   if(auto){ box.classList.add('typing'); const txt=T.email; for(let i=0;i<=txt.length;i+=3){ if(cur!=='email')break; box.textContent=txt.slice(0,i); await sleep(14)} box.classList.remove('typing'); if(cur==='email')box.textContent=txt }
@@ -361,13 +420,15 @@ async function ask(prompt,opt={}){
 }
 function noteLimit(e){ if(LIMIT_NOTED) return; LIMIT_NOTED=true; const why=isLimit(e)?'hit its speed limit':'did not work ('+String(e&&e.message||e).slice(0,80)+')'; try{ emit('say',{who:'scout',text:`your key ${why}, so i'm finishing this run on the built-in brain.`}) }catch(x){} }
 let OLLAMA_SEARCH_OFF_UNTIL=0;
-async function freeSearch(q){ if(!(await helperUp())) return []; const r=await fetch('/api/search?q='+encodeURIComponent(q)); const j=await r.json(); return j.results||[] }
+const INDIA_PLACE=/india|bengaluru|bangalore|chennai|hyderabad|mumbai|pune|delhi|kolkata|ahmedabad|coimbatore|kerala|karnataka|tamil nadu|maharashtra|gujarat|telangana|andhra/i;
+async function freeSearch(q){ if(!(await helperUp())) return []; const jobs=q.startsWith('jobs:'), gl=RUN?.profile?.home_market_code||(INDIA_PLACE.test(RUN?.geo||'')?'IN':''); const r=await fetch('/api/search?q='+encodeURIComponent(q.replace(/^jobs:/,''))+(gl?'&gl='+encodeURIComponent(gl):'')+(jobs?'&kind=jobs':'')); const j=await r.json(); return (j.results||[]).map(x=>({...x,title:plainText(x.title),content:plainText(x.content)})) }
+const plainText=t=>String(t??'').replace(/&amp;/g,'&').replace(/&#(\d+);/g,(m,n)=>String.fromCharCode(n)).replace(/&#x27;/g,"'").replace(/&quot;/g,'"');
 async function webSearch(q){
   const free=await freeSearch(q.replace(/site:\S+/g,'').replace(/"/g,'')).catch(()=>[]);
   if(free.length>=3) return free;
   if(S.prov==='ollama'&&S.key&&Date.now()>OLLAMA_SEARCH_OFF_UNTIL){
     try{
-      const r=await apiFetch('https://ollama.com/api/web_search',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+S.key},body:JSON.stringify({query:q.replace(/site:\S+/g,''),max_results:5})});
+      const r=await apiFetch('https://ollama.com/api/web_search',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+S.key},body:JSON.stringify({query:q.replace(/^jobs:/,'').replace(/site:\S+/g,''),max_results:5})});
       const j=await r.json(); if(!j.error&&(j.results||[]).length) return j.results;
       if(j.error&&/limit/i.test(String(j.error))) OLLAMA_SEARCH_OFF_UNTIL=Date.now()+15*60*1000;
     }catch(e){}
@@ -387,7 +448,7 @@ async function askOllama(prompt,{search=false,queries=[],key,model}={}){
   }
   return retrying(async()=>{
     const r=await apiFetch('https://ollama.com/api/chat',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+K},
-      body:JSON.stringify({model:M,stream:false,format:'json',options:{temperature:.5},messages:[{role:'user',content:prompt.replace(/Use Google Search to |use Google Search to /g,'Using the search results below, ')+ctx+'\n\nReply with the JSON only.'}]})});
+      body:JSON.stringify({model:M,stream:false,format:'json',options:{temperature:.2},messages:[{role:'user',content:prompt.replace(/Use Google Search to |use Google Search to /g,'Using the search results below, ')+ctx+'\n\nReply with the JSON only.'}]})});
     const j=await r.json(); if(j.error) throw new Error(typeof j.error==='string'?j.error:j.error.message);
     const text=j.message?.content||'';
     // format:'json' forces an object, so unwrap arrays the model put inside one
@@ -442,77 +503,332 @@ async function askGemini(prompt,{search=false}={}){
     try{ return {data:parseJSON(text),sources:(c?.groundingMetadata?.groundingChunks||[]).map(g=>g.web).filter(Boolean)} }catch(e){ if(n<2) continue; throw new Error('the reply came back garbled') }
   }
 }
+/* semantic memory: the only part you swap per company */
+const MEMORY_PACK=`COMPANY: DS Group (Dharampal Satyapal Group), India
+SELLS: FMCG. Confectionery (Pulse and Chingles are candy, LuvIt is chocolate), mouth fresheners (Pass Pass, Rajnigandha Silver Pearls), spices (Catch), plus other F&B.
+WHO ACTUALLY PAYS (the buyers): the TRADE, not consumers.
+  1. Quick commerce: Blinkit, Zepto, Swiggy Instamart, Flipkart Minutes, BigBasket (bbnow)
+  2. Modern trade: DMart, Reliance Smart/Retail, Star Bazaar, Spencer's, More
+  3. Distributors / stockists in towns where DS Group is under-penetrated
+  4. HoReCa & travel: hotels, restaurants (after-meal mouth freshener), airports, cinemas
+  5. Institutional: CSD canteens, IRCTC, corporate canteens (via tenders, e.g. GeM)
+PRIORITIES (use for Fit scoring):
+  - Grow confectionery toward Rs 5,000 cr (from ~Rs 1,000 cr, FY24)
+  - Expand in SOUTH and WEST India (already strong in North and East)
+  - Quick commerce and e-commerce push for Pulse, Pass Pass, Silver Pearls, LuvIt
+  - New formats and line extensions; exports (recently entered Nepal)
+NOT BUYERS: consumers, regulators, schools banning snacks, US/EU retailers, competitors (Parle, Mondelez, Perfetti, ITC, Nestle).
+IMPORTANT: existing retail partners EXPANDING (new city, new stores, new format) ARE valid leads in FMCG. This is an upsell / new-listing signal.
+COMPLIANCE: no health claims, no FSSAI-unsafe wording, no celebrity or third-party brand use without permission, no invented partnerships or numbers.`;
+const MEMORY_MATCH=/ds\s*group|dharampal|rajnigandha|pass\s*pass|pulse\s*candy/i;
+const memoryFor=q=>MEMORY_MATCH.test(q)?MEMORY_PACK:`No memory pack on file for this business. Work out who actually pays it and its priorities from the search results. Consumers, regulators and competitors are never buyers.`;
+/* signal type decides the play */
+const PLAYS={
+  'Bid':{types:['tender'],email:false,step:'Pull the tender document and check eligibility.',asset:'Tender-response checklist + cover note'},
+  'Listing pitch':{types:['expansion','purchase','social'],email:true,step:'Send the category manager a listing pitch.',asset:'Short email + LinkedIn note to the category manager'},
+  'Get in early':{types:['hiring'],email:true,step:'Reach the regional category lead before the store opens.',asset:'Note to the regional category lead'},
+  'Launch partnership':{types:[],email:true,step:'Offer a launch-day or sampling tie-up.',asset:'Sampling or launch-day offer'},
+  'Switch pitch':{types:['competitor'],email:false,step:'Brief the account manager on the switch case.',asset:'Comparison talking points'},
+  'Book a meeting':{types:['event'],email:true,step:'Ask for a meeting at the event.',asset:'Meeting request'},
+  'Risk watch':{types:['regulation'],email:false,step:'Tell the brand team, no outreach.',asset:'Internal 2-line alert for the brand team'},
+  'New SKU listing':{types:[],email:true,step:'Send category managers the new SKU note.',asset:'New SKU listing note'}
+};
+const SIGNAL_PLAY_MAP=Object.entries(PLAYS).filter(([k])=>k!=='New SKU listing').map(([k,v])=>`- ${k}: ${v.asset}`).join('\n');
 const VOICE=`Write the "say" lines like a sharp, funny coworker in a team chat: lowercase, casual, max 18 words, specific, no emoji, no em dashes, no hashtags, no corporate words.`;
 const P={
-  sniff:(q,m,geo)=>`Today is ${TODAY}. Input type: ${m}. Input: "${q}". ${geo?'Focus: '+geo+'.':''}
-Use Google Search to understand what this ${m} sells and who buys it. Then work out the TRIGGER: the real-world moment that makes a buyer need it right now (example: "they just bought drone docks, so now they need software to run them").
-Then list 8 buying signals to watch for, strongest first, mixing: tenders/RFPs, hiring, buying adjacent hardware or tech, funding or expansion, regulation or approvals, competitor moves, events and talks, social posts about the pain. Each with a search query that would surface real recent examples: plain words a person would type into Google, 4 to 8 words, naming concrete things (industry, equipment, job title, place). No quotes, no site:, no OR.
+  sniff:(q,m,geo)=>`ACT: You are a senior B2B go-to-market strategist who has worked in Indian FMCG, industrial and SaaS companies. You know the difference between who USES a product and who PAYS for it.
+
+MEMORY (facts you must respect):
+${RUN.memory}
+
+TASK: Today is ${TODAY}. Input type: ${m}. Input: "${q}". Focus: ${geo||'none'}.
+1. Say in plain words what this business sells.
+2. Identify the organisations that actually PAY it. For a consumer brand this is the trade (retailers, platforms, distributors, institutions), not shoppers.
+3. Group them into 3-5 SEGMENTS. For each segment name its trigger moment.
+4. For each segment list 2 signals that appear BEFORE the buyer starts looking, with a plain Google-style search query (4-8 words, concrete names and places, include the focus region or the company's priority region). No quotes, no site:, no OR.
+5. For each segment write one wide_query: 3-6 category words covering the WHOLE segment, naming no single company or city (example: "dark stores expansion new cities 2026").
+6. List 2 risk_signals: bad news to watch for this business's products (bans, new rules, rival wins), each with a plain search query.
+
+For a consumer/FMCG brand the buyers are the TRADE. Signals per segment look like this (guidance, adapt to the business):
+- Quick commerce: new city launches, dark store hiring, new dark stores, e.g. "Flipkart Minutes expands new cities South India", "dark store manager hiring Hyderabad"
+- Modern trade: new store openings, e.g. "DMart new store opening Tamil Nadu"
+- HoReCa: hotel openings or signings, restaurant chain expansion, e.g. "new hotel opening Bengaluru 2026"
+- Institutional: supply tenders, e.g. "confectionery supply tender canteen 2026"
+- Competitor: rival price hike, recall or launch, e.g. "Mondelez candy price hike India"
+- Risk (put these in risk_signals): regulation, e.g. "FSSAI new rule confectionery 2026"
+A hiring query names the buyer's role, never this company's own jobs.
+
+REASON: Prefer signals that are early, public, and point to a named organisation. Use the PRIORITIES to pick regions and channels. Never list consumers, regulators or competitors as buyers.
+KPI: a sales head at this company would agree these are the right buyers.
 ${VOICE}
-Return ONLY JSON: {"name":"short name","one_liner":"what they sell in plain words, max 14 words","buyers":["3-4 buyer types"],"trigger_moment":"one concrete sentence","competitors":["up to 4"],
-"say_1":"first reaction after reading the business","say_2":"when THEIR BUYERS are ready to buy, said casually from the buyer side (e.g. 'anyone who just bought docks is basically shopping')",
-"signals":[{"signal":"short name, max 5 words","type":"tender|hiring|purchase|expansion|regulation|competitor|event|social","look_for":"max 14 words","query":"search query"}]}`,
-  scout:(p,items,geo)=>`Today is ${TODAY}. Find REAL, recent (ideally last 12 months) public evidence that specific organisations are about to need what ${p.name} sells (${p.one_liner}).
-Trigger moment: ${p.trigger_moment}. ${geo?'Focus: '+geo+'.':''}
-Look for:
-${items.map((r,i)=>`${i+1}. ${r.signal}: ${r.look_for} (try: ${r.query})`).join('\n')}
-Only include organisations that appear in your search results. Never invent companies, dates, people or links.
-Targets must be END BUYERS (organisations that would pay for this), never vendors in the same space: skip ${p.name}, its competitors (${(p.competitors||[]).join(', ')}), other companies that sell similar products or services, and any organisation already shown as ${p.name}'s customer or partner (for example in ${p.name}'s own posts).
-A job post only counts if the hiring organisation is a buyer (e.g. a utility hiring a drone programme lead), not a tech company hiring engineers.
-Only use evidence from the last 12 months (today is ${TODAY}). Return up to 6 results, as many as the evidence supports. Each result must be a different organisation.
+Return ONLY JSON: {"name":"short name","one_liner":"what they sell in plain words, max 14 words","home_market":"","home_market_code":"2-letter country code, e.g. IN",
+"segments":[{"segment":"","who":"example organisations","trigger_moment":"one concrete sentence","wide_query":"","signals":[{"segment":"this segment's name","signal":"short name, max 5 words","type":"tender|hiring|purchase|expansion|regulation|competitor|event|social","look_for":"max 14 words","query":"search query"}]}],
+"risk_signals":[{"signal":"short name, max 5 words","type":"regulation|competitor","look_for":"max 14 words","query":"search query"}],
+"not_buyers":[""],"say_1":"first reaction after reading the business","say_2":"who actually pays them and when they're ready, said casually"}`,
+  scout:(p,seg,geo)=>`ACT: You are a market-intelligence analyst covering ${seg.segment} in ${p.home_market||'this market'}, working for ${p.name} (${p.one_liner}).
+
+MEMORY (facts you must respect):
+${RUN.memory}
+
+TASK: Today is ${TODAY}. ${geo?'Focus: '+geo+'. ':''}Using ONLY the search results below, find organisations in this segment showing these signals:
+${seg.signals.map((r,i)=>`${i+1}. ${r.signal}: ${r.look_for}`).join('\n')}
+
+REASON:
+- The signals are examples, not a limit. Report ANY organisation in this segment with a similar event (new city, new stores, dark stores, new format, hiring, tender), not just the ones the signals name. Check each of these by name: ${seg.who||'the organisations in this segment'}. Return an empty list only if nothing in the results qualifies.
+- Only organisations that appear in the results. Never invent names, dates or links.
+- A result must be an EVENT (something happened or was announced) from the last 12 months, dated in the result. Product pages, category pages and evergreen articles are NOT events. Neither are earnings results or leadership changes.
+- The event must be in a format that could stock what ${p.name} sells. A fashion or electronics store opening is not a lead for a food brand.
+- A job post counts only if the hiring organisation is a BUYER (a quick-commerce platform hiring a "dark store manager" in a new city, or a "category manager - impulse/confectionery"). A dark-store-manager post in a city means the store opens within weeks: early = 3.
+- decision_role is a buyer-side role. For a consumer/FMCG brand: quick commerce = "Category Manager - Impulse/Confectionery", modern trade = "Category Buyer - Confectionery", HoReCa = "Purchase Manager / F&B Manager", distributor = "Owner / Proprietor", institutional = the officer named in the tender.
+- A national or multi-city move by a chain or platform in this segment counts even if the focus region isn't named: new stores there are still a listing opening. Don't drop it for that, score it.
+- Existing partners expanding (new city, new stores) DO count.
+- Bad news that could hurt ${p.name} (a ban, a new rule, a rival win) counts too: report it with type regulation or competitor and name the body behind it. The Judge decides what happens to it.
+- One organisation per result, max 6.
+SCORE each result 1-3:
+Most leads should NOT score 3 everywhere. Use the full range.
+- early: 3 = not open yet (plans, signings, hiring, upcoming launch, or a rollout with more stores still coming), 2 = opening now or just opened, 1 = already done, or general news
+- fit: 3 = BOTH the channel AND the region match the PRIORITIES (a national move covers the region), 2 = only one of them matches, 1 = neither
+- size: 3 = national chain or platform, 2 = regional chain or state body, 1 = single outlet
+- proof: 3 = dated news naming the organisation and the event, 2 = dated but indirect, 1 = undated or vague
+- momentum: down = this organisation is slowing, shrinking or closing stores; up = growing; flat = neither
+${seenLine()}
+${S.key&&['claude','gemini','openai'].includes(S.prov)&&p.home_market?`Search results must be from ${p.home_market}.`:''}
+KPI: every result is a real, dated event at a named organisation.
 ${VOICE}
-Return ONLY JSON array: [{"company":"","type":"tender|hiring|purchase|expansion|regulation|competitor|event|social","headline":"what happened, factual, max 16 words","date":"Mon YYYY or ''","source_title":"publication or site","source_url":"","why_now":"why they need ${p.name} soon, max 22 words","fit":1-5,"freshness":1-5,"intent":1-5,"decision_role":"job title that owns this","say":"how you'd announce this find to the team"}]`,
-  quill:(p,s,sender)=>`Today is ${TODAY}. You write first-touch outreach for ${p.name} (${p.one_liner}).
-Signal: ${s.company}. ${s.headline} (${s.date}). Why now: ${s.why_now}. Likely owner: ${s.decision_role}.
-1) Use Google Search to find a publicly named person at ${s.company} in or near that role (LinkedIn, press, event speaker pages). If not confident, leave name empty.
-2) Write the outreach to the person who owns the buying decision (not to a junior or engineering role). If you have no name, greet with "Hi there". Open with their news, not with ${p.name}. Short sentences, one idea each. Human, warm, zero buzzwords, no em dashes, no "I hope this finds you well". Email under 90 words with a subject line. LinkedIn note under 280 characters. End with one easy yes/no question.${sender?' Sign off as '+sender+'.':''}
-Return ONLY JSON: {"name":"","title":"","person_source":"","email_subject":"","email":"","linkedin":""}`
+Return ONLY JSON array: [{"company":"","type":"tender|hiring|purchase|expansion|regulation|competitor|event|social","headline":"what happened, factual, max 16 words","date":"Mon YYYY or ''","source_n":"the [number] of the search result this came from","source_title":"publication or site","why_now":"max 22 words","early":1,"fit":1,"size":1,"proof":1,"momentum":"up|flat|down","decision_role":"job title that owns this","say":"how you'd announce this find to the team"}]`,
+  risk:(p,seg)=>`ACT: You are a regulatory and competitive analyst protecting ${p.name} (${p.one_liner}) in ${p.home_market||'its market'}.
+
+MEMORY (facts you must respect):
+${RUN.memory}
+
+TASK: Today is ${TODAY}. Using ONLY the search results below, find real bad news for what ${p.name} sells, in markets it sells in:
+${seg.signals.map((r,i)=>`${i+1}. ${r.signal}: ${r.look_for}`).join('\n')}
+
+REASON:
+- Only what appears in the results. Never invent names, dates or links.
+- Each result must be a dated event from the last 12 months, and name the body behind it (a regulator, a state government, a rival).
+- It must touch ${p.name}'s kind of product. A rival's ordinary product launch is not bad news, a ban, a rule or a rival winning a buyer is. One result per event, max 3. Return an empty list if nothing qualifies.
+Internal alert only, nobody gets contacted.
+${VOICE}
+Return ONLY JSON array: [{"company":"the body behind it","type":"regulation|competitor","headline":"what happened, factual, max 16 words","date":"Mon YYYY or ''","source_n":"the [number] of the search result this came from","source_title":"publication or site","why_now":"why it matters to ${p.name}, max 22 words","say":"how you'd flag this to the team"}]`,
+  judge:(p,cands)=>`ACT: You are a sceptical sales operations lead. Your job is to protect the sales team's time. You reject anything you would be embarrassed to hand to a salesperson.
+
+MEMORY (facts you must respect):
+${RUN.memory}
+
+TASK: Review these candidate leads for ${p.name}. "evidence" is the search result each one came from.
+${JSON.stringify(cands.map(s=>({id:s.id,company:s.company,segment:s.segment,type:s.type,headline:s.headline,date:s.date,source_title:s.source_title,source_url:String(s.source_url).slice(0,120),evidence:s.evidence})))}
+
+Answer these checks IN THIS ORDER for each one:
+RISK: Is this real, dated bad news for ${p.name} (ban, rule, rival winning a buyer, not a rival's ordinary launch) in a market it sells in? If yes the verdict is risk_watch, even though the body behind it is not a buyer. Stop here. Only the first report of the same event gets risk_watch, reject the rest as UNIQUE.
+EVENT: Is the source a dated event that backs the headline, not a product or category page, earnings report or leadership change?
+BUYER: Would this organisation actually PAY ${p.name}? (Not a consumer, regulator, competitor, or a market the company doesn't sell in.) Anyone listed under WHO ACTUALLY PAYS is a buyer, never a competitor. A brand or manufacturer selling its own goods is not a buyer, and neither is a developer or event organiser.
+FIT: Does it match a segment, in a format that could stock what ${p.name} sells? A fashion or electronics store is not a lead for a food brand. A lower-priority region still passes, the scoring ranks it lower.
+UNIQUE: Is it a duplicate of another lead here (same event)? Keep the first, reject the rest.
+
+REASON: verdict = "keep" if EVENT, BUYER, FIT and UNIQUE all pass. Otherwise "reject", with failed_check naming the first check it failed. A buyer slowing down is not a risk, judge it like any other lead. Be strict: when unsure, reject.
+KPI: precision. Zero leads a sales manager would laugh at.
+
+Return ONLY JSON array with one entry per candidate: [{"id":"","company":"","verdict":"keep|risk_watch|reject","failed_check":"EVENT|BUYER|FIT|UNIQUE or ''","reason":"max 15 words"}]`,
+  own:p=>`ACT: You are a brand analyst at ${p.name} (${p.one_liner}).
+TASK: Today is ${TODAY}. Using ONLY the search results below, find a new product, SKU or line that ${p.name} ITSELF launched in the last 6 months. Never invent names, dates or links. Rivals' launches, awards and corporate news don't count. If there is none, set found to false.
+Return ONLY JSON: {"found":true,"headline":"what launched, factual, max 16 words","date":"Mon YYYY","source_n":"the [number] of the search result this came from","source_title":"publication or site","category":"product category, e.g. Confectionery"}`,
+  play:(p,leads)=>`ACT: You are a trade marketing manager at ${p.name} deciding the next move for each lead.
+
+TASK: For each kept lead choose ONE play from this map:
+${SIGNAL_PLAY_MAP}
+Leads: ${JSON.stringify(leads.map(s=>({id:s.id,company:s.company,segment:s.segment,type:s.type,headline:s.headline,date:s.date,why_now:s.why_now})))}
+
+REASON: The signal type decides the play. A tender is never a cold email. A risk is never outreach. If the store or city hasn't launched yet, prefer "Get in early". A new store, hotel or mall about to open suits "Launch partnership".
+KPI: a salesperson reading it knows exactly what to do today.
+
+Return ONLY JSON array with one entry per lead: [{"id":"","company":"","play":"","next_step":"one concrete action, max 15 words","owner":"role on OUR side who does it"}]`,
+  quill:(p,s,sender)=>`ACT: You are a key account manager at ${p.name} (${p.one_liner}) who writes like a human: short sentences, warm, zero buzzwords.
+
+MEMORY (facts you must respect):
+${RUN.memory||''}
+
+TASK: Today is ${TODAY}. Lead: ${s.company}, ${s.headline} (${s.date}). Why now: ${s.why_now}. Segment: ${s.segment||''}. Play: ${s.play||'Listing pitch'}. Next step: ${s.next_step||''}. Likely owner: ${s.decision_role||''}.
+${s.play==='Risk watch'||s.type==='own_launch'?'':`Use Google Search to find a publicly named person at ${s.company} in or near that role (LinkedIn, press, event speaker pages). Public professional info only. If not confident, leave name empty. Say where you found them in person_source.`}
+${s.play==='Risk watch'?'No greeting, this is internal.':'If you have no name, greet by role, for example "Hi Category Manager".'}
+Write the asset this play needs:
+- Listing pitch, Get in early, Launch partnership, Book a meeting: email under 90 words with a subject, plus a LinkedIn note under 280 characters
+- New SKU listing: a short note to the category manager introducing what just launched and asking to list it, email under 90 words with a subject, plus a LinkedIn note under 280 characters
+- Bid: a 5-point tender checklist, then a 3-line cover note, in body
+- Switch pitch: 4 talking points in body
+- Risk watch: a 2-line internal alert to the brand team in body, no outreach
+${s.type==='own_launch'?'Open with what just launched.':`Open with THEIR news, not with ${p.name}.`} Mention one relevant product line that fits the segment, from MEMORY or what they are known to sell. End outreach with one easy yes/no question. Use only the facts given here. No made-up numbers or partnerships, and no claims about sales, demand or how well a product performs. Describe products exactly as MEMORY does. No placeholders like [Your Name]. No em dashes, no "I hope this finds you well". Sign off as ${sender||p.name+' team'}.
+REASON / KPI: would the buyer reply?
+Return ONLY JSON: {"name":"","title":"","person_source":"","asset_type":"Email|Tender checklist|Talking points|Internal alert","subject":"","body":"","linkedin":""}`,
+  comply:(p,s,md)=>`ACT: You are a brand compliance reviewer for ${p.name}.
+
+MEMORY (follow its COMPLIANCE rules if it has them):
+${RUN.memory||''}
+
+TASK: Review this draft: ${JSON.stringify({subject:md.email_subject,body:md.email,linkedin:md.linkedin,addressed_to:md.name,person_source:md.person_source})}
+The only facts it may rely on: ${s.company}, ${s.headline} (${s.date}). Source: ${s.evidence||s.source_title||''}. Plus what ${p.name} sells.
+Flag: health or nutrition claims, wording a food or sector regulator would object to, invented numbers or partnerships, celebrity or third-party brand use, anything about a named person that isn't from a public professional source. Also flag any claim about sales, demand, momentum or product performance that the facts above don't state, any product described differently from MEMORY, and any placeholder like [Your Name]. Naming the lead's own company is fine. Be strict: most first drafts have at least one issue.
+If you can fix every issue by rewording, put the corrected text in "fixed". If you cannot, leave "fixed" empty.
+KPI: zero risky lines going out.
+Return ONLY JSON: {"pass":true,"issues":["short phrase"],"fixed":{"subject":"","body":"","linkedin":""}}`
 };
 
 /* ---------- the run ---------- */
 function clock(on){ clearInterval(tick); if(on){t0=Date.now(); tick=setInterval(()=>{const s=Math.floor((Date.now()-t0)/1000); $('#clock').textContent=`${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`},250)} }
+const findDraft=o=>{ if(!o||typeof o!=='object') return null; if(o.email||o.email_body||o.body) return o; for(const v of Object.values(o)){ const r=findDraft(v); if(r) return r } return null };
+const asText=v=>Array.isArray(v)?v.map(x=>typeof x==='string'?x:JSON.stringify(x)).join('\n'):typeof v==='object'&&v?JSON.stringify(v):String(v??'');
+function shapeDraft(md,play){
+  md.email=asText(md.body||md.email||md.email_body); md.email_subject=asText(md.subject||md.email_subject||''); md.linkedin=asText(md.linkedin||md.linkedin_note||md.note||'');
+  if(PLAYS[play]?.email){ md.email_subject=md.email_subject||'Quick question' } else md.linkedin='';
+  return md;
+}
+// clean, fixed (shown with what changed), failed (can't be approved) or unchecked
+async function check(s,md){
+  // caught in code so a lenient model can't wave it through
+  const placeholder=/\[[^\]]*(name|company|title|your)[^\]]*\]/i;
+  if(placeholder.test(md.email+md.linkedin)) return {status:'failed',issues:['unfilled placeholder']};
+  try{ const r=await ask(P.comply(RUN.profile,s,md)); const d=r.data||{}, issues=(d.issues||[]).filter(Boolean).map(String);
+    if(String(d.pass)==='true') return {status:'clean',issues:[]};
+    const f=d.fixed||{}; if(!asText(f.body).trim()) return {status:'failed',issues:issues.length?issues:['no safe rewording']};
+    md.email=asText(f.body); if(f.subject) md.email_subject=asText(f.subject); if(md.linkedin&&f.linkedin) md.linkedin=asText(f.linkedin);
+    return {status:'fixed',issues};
+  }catch(e){ console.warn(e); return {status:'unchecked',issues:[]} }
+}
 async function writeFor(c,announce){
-  const find=o=>{ if(!o||typeof o!=='object') return null; if(o.email||o.email_body||o.body) return o; for(const v of Object.values(o)){ const r=find(v); if(r) return r } return null };
   let md=null;
-  for(let n=0;n<2&&!md;n++){ const m=await ask(P.quill(RUN.profile,c.s,S.sender),{search:true,queries:[`${c.s.company} ${c.s.decision_role}`]}); md=find(m.data) }
+  for(let n=0;n<2&&!md;n++){ const m=await ask(P.quill(RUN.profile,c.s,S.sender),c.s.type==='own_launch'?{}:{search:true,queries:[`${c.s.company} ${c.s.decision_role}`]}); md=findDraft(m.data) }
   if(!md) throw new Error('quill could not write this one');
-  md.email=md.email||md.email_body||md.body||''; md.email_subject=md.email_subject||md.subject||'Quick question'; md.linkedin=md.linkedin||md.linkedin_note||md.note||'';
+  shapeDraft(md,c.s.play||'Listing pitch');
+  md.compliance=await check(c.s,md);
   c.m=md; const m={data:md};
   emit('letter',{company:c.s.company,m:m.data,open:false});
   if(announce) emit('say',{who:'quill',text:m.data.name?`wrote to ${m.data.name} at ${c.s.company}.`:`wrote to the ${c.s.decision_role} at ${c.s.company}. couldn't find a name, so check that one.`});
 }
+const coKey=c=>String(c).toLowerCase().replace(/[^a-z0-9]/g,'');
+/* episodic memory: only human decisions are remembered, so re-running never empties the wall */
+const MEM_KEY='fmb_memory_v1';
+const memAll=()=>{ try{ return JSON.parse(localStorage.getItem(MEM_KEY))||[] }catch(e){ return [] } };
+const memHere=()=>memAll().filter(r=>r.business===coKey(RUN?.input));
+const eventKey=s=>[coKey(s.company),coKey(s.date),coKey(s.type)].join('|');
+function remember(s,status){
+  const all=memAll(), rec={business:coKey(RUN.input),key:eventKey(s),company:s.company,url:s.source_url,segment:s.segment,signal_type:s.type,date_seen:TODAY,status};
+  const i=all.findIndex(r=>r.business===rec.business&&r.key===rec.key); if(i>-1) all[i]=rec; else all.push(rec);
+  try{ localStorage.setItem(MEM_KEY,JSON.stringify(all)) }catch(e){ console.warn(e) }
+}
+const handled=(s,recs)=>recs.some(r=>r.key===eventKey(s)||(r.url===s.source_url&&coKey(r.company)===coKey(s.company)));
+function seenLine(){ const recs=memHere().slice(-30); return recs.length?`Already handled (skip these exact events, new events at the same organisations are welcome): ${recs.map(r=>`${r.company} ${r.signal_type} ${r.key.split('|')[1]}`).join('; ')}`:'' }
+// approvals and replies push a signal type up by 1 on Early, rejections push it down
+function typeNet(recs){ return recs.reduce((o,r)=>{ o[r.signal_type]=(o[r.signal_type]||0)+({replied:2,approved:1,rejected:-1}[r.status]||0); return o },{}) }
+function nudge(s,net){ const n=net[s.type]||0; if(n>=3) s.early=Math.min(3,one3(s.early)+1); else if(n<=-3) s.early=Math.max(1,one3(s.early)-1) }
+async function pickPlays(p,kept){
+  let picks=[]; try{ const r=await ask(P.play(p,kept)); picks=Array.isArray(r.data)?r.data:[] }catch(e){ console.warn(e) }
+  for(const s of kept){ const v=picks.find(x=>String(x?.id)===s.id);
+    let play=Object.keys(PLAYS).find(k=>k.toLowerCase()===String(v?.play||'').trim().toLowerCase());
+    if(!play||play==='Risk watch'||(play==='Book a meeting'&&s.type!=='event')) play=Object.keys(PLAYS).find(k=>PLAYS[k].types.includes(s.type))||'Listing pitch';
+    if(priority(s)==='P4'||play==='Risk watch'){ s.play='Watch'; s.next_step='Check again next run, no outreach.' }
+    else { s.play=play; s.next_step=v?.next_step||PLAYS[play].step }
+    s.owner=v?.owner||'Key account manager' }
+}
+// our own launch is a reason to call every buyer, so it skips the Judge but must be sourced and recent
+async function huntOwn(p){
+  try{ const h=await ask(P.own(p),{search:true,queries:[`${p.name} new launch`,`${p.name} new product ${new Date().getFullYear()}`]}), d=h.data||{};
+    if(String(d.found)!=='true'||!d.headline) return;
+    const s={id:'own',type:'own_launch',company:`All ${p.buyers.slice(0,2).join(' + ')} buyers`,headline:d.headline,date:d.date,source_n:d.source_n,source_title:d.source_title,why_now:'new SKU, every category manager needs to list it',decision_role:`Category Manager - ${d.category||'Category'}`,segment:'own launch',early:3,fit:3,size:3,proof:3,play:'New SKU listing',next_step:PLAYS['New SKU listing'].step,owner:'Key account manager'};
+    if(!pinSource(s,h.sources||[])||!s.date||monthsOld(s)>6||handled(s,memHere())) return;
+    RUN.ownLaunch=s; emit('say',{who:'sniff',text:`own news: ${s.headline}. every category manager needs this on the shelf.`}); emit('clue',{s});
+    const c=clues.find(c=>c.s===s); if(c) await writeFor(c,false);
+  }catch(e){ console.warn(e) }
+}
+async function writeAlert(s){
+  try{ const a={...s,play:'Risk watch',next_step:PLAYS['Risk watch'].step}; const r=await ask(P.quill(RUN.profile,a,S.sender));
+    const md=shapeDraft(findDraft(r.data)||{body:`${s.company}: ${s.headline} (${s.date}).`},'Risk watch'); const cm=await check(a,md);
+    emit('alert',{id:s.id,text:cm.status==='failed'?'Compliance held this alert back. Read the source.':md.email});
+  }catch(e){ console.warn(e) }
+}
+// an old signal can't be early, whatever the model scored it
+function ageEarly(s){ const m=monthsOld(s); if(m>6) s.early=1; else if(m>3) s.early=Math.min(one3(s.early),2) }
+const WHY={EVENT:'no real event',BUYER:'not a buyer',FIT:'off priority',UNIQUE:'duplicate',OTHER:'too shaky'};
+// segments -> one flat signal list, so Steal the recipe and the center card keep working
+function flatten(p){
+  p.segments=(p.segments||[]).filter(s=>(s?.signals||[]).length).slice(0,S.depth+1);
+  p.signals=p.segments.flatMap(s=>s.signals.map(r=>({...r,segment:s.segment})));
+  p.buyers=p.segments.map(s=>s.segment);
+  p.trigger_moment=p.segments[0]?.trigger_moment||'';
+}
+// the link always comes from the search results, never from the model's memory
+function pinSource(s,sources){
+  const hit=sources[(parseInt(s.source_n)||0)-1]; if(!hit?.uri) return false;
+  s.source_url=hit.uri; s.source_title=s.source_title||hit.title||''; s.evidence=String(hit.content||hit.title||'').replace(/\s+/g,' ').slice(0,300);
+  return true;
+}
+// no verdict means reject; one card per company, the strongest one
+function rule(found,verdicts){
+  const byId=new Map(verdicts.map(v=>[String(v?.id),v])), kept=[], risks=[], rejected=[], cos=new Set(), riskCos=new Set();
+  const out=(s,check,reason)=>rejected.push({id:s.id,company:s.company,headline:s.headline,check,reason});
+  for(const s of found){ const v=byId.get(s.id);
+    // regulation never goes on the wall, whatever the Judge called it
+    const isRisk=v?.verdict==='risk_watch'||(v?.verdict==='keep'&&(s.fromRisk||s.type==='regulation'))||(s.type==='regulation'&&String(v?.failed_check).toUpperCase()==='BUYER');
+    if(isRisk){ const k=coKey(s.company); if(!s.date) out(s,'EVENT','no dated proof'); else if(riskCos.has(k)) out(s,'UNIQUE','same body already on risk watch'); else { riskCos.add(k); risks.push(s) } }
+    else if(v?.verdict!=='keep') out(s,String(v?.failed_check||'OTHER').toUpperCase(),v?.reason||'');
+    else if(!s.date||one3(s.proof)<2) out(s,'EVENT','no dated proof');
+    else kept.push(s) }
+  const best=[...kept].sort(byPriority).filter(s=>{ const k=coKey(s.company); if([...cos].some(o=>o.startsWith(k)||k.startsWith(o))){ out(s,'UNIQUE','second event at the same company'); return false } cos.add(k); return true });
+  return {kept:best,risks,rejected};
+}
 async function go(){
   const q=$('#q').value.trim(); if(!q||busy) return;
   busy=true; $('#go').disabled=true; const geo=$('#geo').value.trim();
-  RUN={input:q,mode,geo,model:S.model,at:new Date().toISOString(),events:[]}; clock(true); LIMIT_NOTED=false;
+  RUN={input:q,mode,geo,model:S.model,at:new Date().toISOString(),memory:memoryFor(q),events:[]}; clock(true); LIMIT_NOTED=false;
   emit('reset'); emit('you',{text:`find me buyers for ${q}${geo?` (focus: ${geo})`:''}`});
   try{
     emit('typing',{who:'sniff'});
-    const a=await ask(P.sniff(q,mode,geo),{search:true,queries:[q,`${q} competitors${geo?' '+geo:''}`]}); const p=a.data; RUN.profile=p; RUN.recipe=(p.signals||[]).slice(0,8);
-    if(!p.one_liner||!(p.signals||[]).length){ emit('say',{who:'sniff',text:`couldn't work out what "${q}" sells. try their website instead, like ${q.includes('.')?q:q.split(' ')[0].toLowerCase()+'.com'}`}); return }
+    const a=await ask(P.sniff(q,mode,geo),{search:true,queries:[q,`${q} competitors${geo?' '+geo:''}`]}); const p=a.data; RUN.profile=p; flatten(p); RUN.recipe=p.signals;
+    if(!p.one_liner||!p.signals.length){ emit('say',{who:'sniff',text:`couldn't work out what "${q}" sells. try their website instead, like ${q.includes('.')?q:q.split(' ')[0].toLowerCase()+'.com'}`}); return }
     emit('say',{who:'sniff',text:p.say_1||`read up on ${p.name}.`});
     emit('center',{name:p.name,one_liner:p.one_liner,trigger_moment:p.trigger_moment});
     emit('say',{who:'sniff',text:p.say_2||p.trigger_moment,big:true});
-    emit('say',{who:'sniff',text:'scout, go look for these:',chips:RUN.recipe.map(r=>r.signal)});
+    emit('say',{who:'sniff',text:'who actually pays:',chips:p.buyers});
+    emit('say',{who:'sniff',text:`one scout per segment, ${p.segments.length} of you. go look for these:`,chips:RUN.recipe.map(r=>r.signal)});
     emit('typing',{who:'scout'});
-    const n=S.depth, groups=Array.from({length:n},()=>[]); RUN.recipe.forEach((r,i)=>groups[i%n].push(r));
-    const seen=new Set(); let found=[];
-    await Promise.all(groups.map(async g=>{
-      try{ const h=await ask(P.scout(p,g,geo),{search:true,queries:g.map(r=>r.query+(geo&&!r.query.includes(geo)?' '+geo:''))});
-        for(const s of (Array.isArray(h.data)?h.data:[])){ if(!s?.company) continue; const yr=+(String(s.date||'').match(/20\d\d/)||[0])[0]; if(yr && yr < new Date().getFullYear()-1) continue; const k=s.company.toLowerCase().replace(/[^a-z0-9]/g,''); if(seen.has(k)) continue; seen.add(k); found.push(s);
-          if(typingEls.scout){typingEls.scout.remove(); delete typingEls.scout}
-          emit('say',{who:'scout',text:s.say||`${s.company}: ${s.headline}`}); emit('clue',{s}); await sleep(350); emit('typing',{who:'scout'}) }
-      }catch(e){ console.warn(e) }
+    const found=[], seen=new Set(), recs=memHere(), net=typeNet(recs); let failed=0, lastErr='', skipped=0;
+    const ownDone=huntOwn(p);
+    const riskSeg=p.risk_signals?.length?{segment:'risk watch',risk:true,signals:p.risk_signals}:null;
+    await Promise.all([...p.segments,...(riskSeg?[riskSeg]:[])].map(async seg=>{
+      try{ const h=await ask(seg.risk?P.risk(p,seg):P.scout(p,seg,geo),{search:true,queries:seg.risk?seg.signals.map(r=>r.query):[seg.wide_query,seg.who&&String(seg.who).replace(/[,&]/g,' ')+' expansion',...seg.signals.map(r=>(r.type==='hiring'?'jobs:':'')+r.query)].filter(Boolean).map(q=>q+(geo&&!q.includes(geo)?' '+geo:''))}); let n=0, line='';
+        for(const s of (Array.isArray(h.data)?h.data:[])){ if(!s?.company||!pinSource(s,h.sources||[])) continue; const yr=+(String(s.date||'').match(/20\d\d/)||[0])[0]; if(yr && yr < new Date().getFullYear()-1) continue; const k=s.source_url+'|'+coKey(s.company); if(seen.has(k)) continue; seen.add(k); if(handled(s,recs)){ skipped++; continue } nudge(s,net); ageEarly(s); s.id='c'+(found.length+1); s.segment=seg.segment; s.fromRisk=!!seg.risk; found.push(s); n++; line=line||s.say||s.headline }
+        if(typingEls.scout){typingEls.scout.remove(); delete typingEls.scout}
+        emit('say',{who:'scout',text:`${seg.segment}: ${n} find${n===1?'':'s'}.${line?' '+line:''}`}); await sleep(350); emit('typing',{who:'scout'});
+      }catch(e){ console.warn(e); failed++; lastErr=e.message }
     }));
     if(typingEls.scout){typingEls.scout.remove(); delete typingEls.scout}
-    RUN.signals=found;
-    if(!found.length){ emit('say',{who:'scout',text:'came back empty handed. try a more specific input or add a focus region.'}); return }
-    const top=[...clues].sort((x,y)=>heat(y.s)-heat(x.s)).slice(0,3);
-    emit('say',{who:'scout',text:`${found.length} clues on the wall. hottest one is ${top[0].s.company}. quill, you're up.`});
+    RUN.candidates=found; RUN.signals=[];
+    const learned=Object.entries(net).filter(([t,n])=>Math.abs(n)>=3).map(([t,n])=>`${t} ${n>0?'up':'down'}`);
+    if(skipped||learned.length) emit('say',{who:'scout',text:`from memory:${skipped?` skipped ${skipped} event${skipped===1?'':'s'} you already handled.`:''}${learned.length?` nudged ${learned.join(', ')} based on your past calls.`:''}`});
+    if(!found.length){ emit('say',{who:'scout',text:failed===p.segments.length?`every scout hit a wall: ${lastErr}`:'came back empty handed. try a more specific input or add a focus region.'}); await ownDone; return }
+    emit('typing',{who:'judge'});
+    let verdicts; try{ const v=await ask(P.judge(p,found)); verdicts=Array.isArray(v.data)?v.data:[] }
+    catch(e){ emit('error',{who:'judge',text:`${e.message}. nothing gets pinned without a verdict, run it again.`}); await ownDone; return }
+    const {kept,risks,rejected}=rule(found,verdicts); RUN.signals=kept; RUN.risks=risks; RUN.rejected=rejected;
+    const tally=Object.entries(rejected.reduce((o,r)=>(o[r.check]=(o[r.check]||0)+1,o),{})).map(([k,n])=>`${n} ${WHY[k]||WHY.OTHER}`).join(', ');
+    emit('say',{who:'judge',text:`threw out ${rejected.length} of ${found.length}${tally?': '+tally:''}.${risks.length?` ${risks.length} sent to risk watch, no outreach.`:''}`,chips:rejected.slice(0,5).map(r=>`${r.company}: ${r.reason||WHY[r.check]||WHY.OTHER}`)});
+    risks.forEach(s=>emit('risk',{s}));
+    const alerts=Promise.all([...risks.slice(0,3).map(writeAlert),ownDone]);
+    if(!kept.length){ emit('say',{who:'judge',text:'nothing survived. an empty wall beats a bad lead.'}); await alerts; return }
+    emit('typing',{who:'play'});
+    await pickPlays(p,kept);
+    emit('say',{who:'play',text:'next move for each one:',chips:kept.slice(0,8).map(s=>`${s.company}: ${s.play}`)});
+    for(const s of kept){ emit('say',{who:'scout',text:`${priority(s)} ${s.company}. ${s.say||s.headline}`}); emit('clue',{s}); await sleep(350) }
+    const top=clues.filter(c=>c.s.play!=='Watch'&&c.s.type!=='own_launch').slice(0,3);
+    if(!top.length){ emit('say',{who:'scout',text:`${kept.length} on the wall, all on watch. nobody worth chasing today.`}); await alerts; return }
+    emit('say',{who:'scout',text:`${kept.length} clues on the wall. call ${top[0].s.company} first. quill, you're up.`});
     emit('typing',{who:'quill'});
     await Promise.all(top.map(c=>writeFor(c,false).catch(e=>console.warn(e))));
     if(typingEls.quill){typingEls.quill.remove(); delete typingEls.quill}
     const done=top.filter(c=>c.m);
     emit('say',{who:'quill',text:`${done.length} letters ready${done.filter(c=>c.m.name).length?`, ${done.filter(c=>c.m.name).length} with real names`:''}. click any clue and i'll write that one too.`});
+    await alerts;
+    const cnt=st=>done.filter(c=>c.m.compliance?.status===st).length;
+    if(done.length) emit('say',{who:'comply',text:`checked ${done.length} draft${done.length===1?'':'s'}: ${cnt('clean')} clean, ${cnt('fixed')} fixed, ${cnt('failed')} blocked${cnt('unchecked')?`, ${cnt('unchecked')} not checked`:''}. a human still signs off.`,chips:done.flatMap(c=>c.m.compliance?.issues||[]).slice(0,4)});
     if(done[0]) emit('letter',{company:done[0].s.company,m:done[0].m,open:true});
   }catch(e){ emit('error',{who:'sniff',text:e.message}) }
   finally{ clock(false); busy=false; $('#go').disabled=false }
@@ -523,8 +839,15 @@ $('#go').onclick=go; $('#q').addEventListener('keydown',e=>{if(e.key==='Enter')g
 function dl(name,obj){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(obj,null,2)],{type:'application/json'}));a.download=name;a.click()}
 const slug=s=>String(s||'run').toLowerCase().replace(/[^a-z0-9]+/g,'-').slice(0,40);
 $('#bSave').onclick=()=>{ if(!RUN?.events?.length) return alert('Run the crew first.'); clues.forEach(c=>{ if(c.m && !RUN.events.some(e=>e.type==='letter'&&e.p.company===c.s.company)) RUN.events.push({t:RUN.events.at(-1).t+100,type:'letter',p:{company:c.s.company,m:c.m,open:false}}) }); dl(`find-my-buyers-${slug(RUN.input)}.json`,RUN) };
-$('#bRecipe').onclick=()=>{ if(!RUN?.profile) return alert('Run the crew first.'); dl(`signal-recipe-${slug(RUN.profile.name)}.json`,{recipe:'find-my-buyers/v0.1',business:{name:RUN.profile.name,sells:RUN.profile.one_liner,buyers:RUN.profile.buyers,trigger_moment:RUN.profile.trigger_moment},signals_to_watch:RUN.recipe}) };
+$('#bRecipe').onclick=()=>{ if(!RUN?.profile) return alert('Run the crew first.'); dl(`signal-recipe-${slug(RUN.profile.name)}.json`,{recipe:'find-my-buyers/v1',business:{name:RUN.profile.name,sells:RUN.profile.one_liner,buyers:RUN.profile.buyers,trigger_moment:RUN.profile.trigger_moment},segments:RUN.profile.segments,not_buyers:RUN.profile.not_buyers,signals_to_watch:RUN.recipe}) };
+const csvCell=v=>{ let t=String(v??''); if(/^[=+\-@\t\r]/.test(t)) t="'"+t; return `"${t.replace(/"/g,'""')}"` };
+$('#bExport').onclick=()=>{ const rows=clues.filter(c=>c.m&&(c.status==='approved'||c.status==='replied')); if(!rows.length) return alert('Approve a letter first. Only approved leads export.');
+  const head=['status','priority','company','segment','signal_type','date','headline','play','next_step','owner','contact','contact_title','asset_type','subject','body','linkedin','compliance','edited_by_human','source_url'];
+  const lines=rows.map(c=>[c.status,priority(c.s),c.s.company,c.s.segment,c.s.type,c.s.date,c.s.headline,c.s.play,c.s.next_step,c.s.owner,c.m.name,c.m.title,c.m.asset_type,c.m.email_subject,c.m.email,c.m.linkedin,c.m.compliance?.status,c.m.edited?'yes':'no',c.s.source_url].map(csvCell).join(','));
+  const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob(['﻿'+[head.join(','),...lines].join('\r\n')],{type:'text/csv'})); a.download=`approved-leads-${slug(RUN.input)}.csv`; a.click() };
+$('#sForget').onclick=()=>{ try{ localStorage.removeItem(MEM_KEY) }catch(e){} $('#sForget').textContent='Forgotten' };
 $('#bLoad').onclick=()=>$('#file').click();
+$('#bDemo').onclick=async()=>{ try{ replay(await (await fetch('demo/dsgroup-run.json')).json()) }catch(e){ alert('Could not load the demo run: '+e.message) } };
 $('#file').onchange=async e=>{ const f=e.target.files[0]; if(!f) return; const R=JSON.parse(await f.text()); e.target.value=''; replay(R) };
 async function replay(R){
   if(busy) return; busy=true; replaying=true; RUN=R; $('#q').value=R.input||''; $('#geo').value=R.geo||''; $('#go').disabled=true; clock(true);
